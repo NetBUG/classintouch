@@ -1,0 +1,12 @@
+{
+  "name": "Skuuper Game backend",
+  "version": "0.1.1",
+  "description": "Skuuper game bacnkend, performing content management and user data storage", 
+  "title": "Skuuper game backend documentation", 
+  "url" : "https://gw.skuuper.com", 
+  "sampleUrl": "http://127.0.0.1:5000",
+  "template": { 
+  	"withCompare": true, 
+  	"withGenerator": true 
+  }
+}

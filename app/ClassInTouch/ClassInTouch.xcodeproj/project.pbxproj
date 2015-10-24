@@ -11,13 +11,26 @@
 		835FE0A61BDB4FDA00DBF099 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835FE0A31BDB4FDA00DBF099 /* FBSDKLoginKit.framework */; };
 		835FE0A71BDB4FDA00DBF099 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835FE0A41BDB4FDA00DBF099 /* FBSDKMessengerShareKit.framework */; };
 		D0B314AF1BDB2FD100954116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314AE1BDB2FD100954116 /* AppDelegate.swift */; };
-		D0B314B11BDB2FD100954116 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314B01BDB2FD100954116 /* ViewController.swift */; };
 		D0B314B41BDB2FD100954116 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0B314B21BDB2FD100954116 /* Main.storyboard */; };
 		D0B314B71BDB2FD100954116 /* ClassInTouch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0B314B51BDB2FD100954116 /* ClassInTouch.xcdatamodeld */; };
 		D0B314B91BDB2FD100954116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0B314B81BDB2FD100954116 /* Assets.xcassets */; };
 		D0B314BC1BDB2FD100954116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0B314BA1BDB2FD100954116 /* LaunchScreen.storyboard */; };
 		D0B314C71BDB2FD100954116 /* ClassInTouchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314C61BDB2FD100954116 /* ClassInTouchTests.swift */; };
 		D0B314D21BDB2FD100954116 /* ClassInTouchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314D11BDB2FD100954116 /* ClassInTouchUITests.swift */; };
+		D0B314E21BDB3F7C00954116 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E11BDB3F7C00954116 /* NearbyViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B314E41BDB3F8700954116 /* ClassListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E31BDB3F8700954116 /* ClassListViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B314E61BDB44CC00954116 /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E51BDB44CC00954116 /* ClassViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B314EA1BDB44EE00954116 /* AskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E91BDB44EE00954116 /* AskViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B314EC1BDB44FC00954116 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314EB1BDB44FC00954116 /* CreateViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B314EE1BDB450C00954116 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314ED1BDB450C00954116 /* QuestionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B3150B1BDB530E00954116 /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315031BDB530E00954116 /* Question+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B3150C1BDB530E00954116 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315041BDB530E00954116 /* Question.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B3150D1BDB530E00954116 /* Class+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315051BDB530E00954116 /* Class+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B3150E1BDB530E00954116 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315061BDB530E00954116 /* Class.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B3150F1BDB530E00954116 /* Reply+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315071BDB530E00954116 /* Reply+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B315101BDB530E00954116 /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315081BDB530E00954116 /* Reply.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B315111BDB530E00954116 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B315121BDB530E00954116 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B3150A1BDB530E00954116 /* User.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +57,6 @@
 		835FE0A41BDB4FDA00DBF099 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = "../../../../../../../../Downloads/FacebookSDKs-iOS-20151007/FBSDKMessengerShareKit.framework"; sourceTree = "<group>"; };
 		D0B314AB1BDB2FD100954116 /* ClassInTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassInTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B314AE1BDB2FD100954116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D0B314B01BDB2FD100954116 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D0B314B31BDB2FD100954116 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0B314B61BDB2FD100954116 /* ClassInTouch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClassInTouch.xcdatamodel; sourceTree = "<group>"; };
 		D0B314B81BDB2FD100954116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,6 +68,20 @@
 		D0B314CD1BDB2FD100954116 /* ClassInTouchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassInTouchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B314D11BDB2FD100954116 /* ClassInTouchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInTouchUITests.swift; sourceTree = "<group>"; };
 		D0B314D31BDB2FD100954116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0B314E11BDB3F7C00954116 /* NearbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
+		D0B314E31BDB3F8700954116 /* ClassListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassListViewController.swift; sourceTree = "<group>"; };
+		D0B314E51BDB44CC00954116 /* ClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
+		D0B314E91BDB44EE00954116 /* AskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskViewController.swift; sourceTree = "<group>"; };
+		D0B314EB1BDB44FC00954116 /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		D0B314ED1BDB450C00954116 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		D0B315031BDB530E00954116 /* Question+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D0B315041BDB530E00954116 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		D0B315051BDB530E00954116 /* Class+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Class+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D0B315061BDB530E00954116 /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		D0B315071BDB530E00954116 /* Reply+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reply+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D0B315081BDB530E00954116 /* Reply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reply.swift; sourceTree = "<group>"; };
+		D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D0B3150A1BDB530E00954116 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +146,10 @@
 				D0B314BA1BDB2FD100954116 /* LaunchScreen.storyboard */,
 				D0B314BD1BDB2FD100954116 /* Info.plist */,
 				D0B314B51BDB2FD100954116 /* ClassInTouch.xcdatamodeld */,
+				D0B314F01BDB523D00954116 /* ViewController */,
+				D0B314EF1BDB523800954116 /* UI */,
+				D0B314F11BDB524300954116 /* Data */,
+				D0B314F21BDB524600954116 /* Support */,
 			);
 			path = ClassInTouch;
 			sourceTree = "<group>";
@@ -140,6 +170,54 @@
 				D0B314D31BDB2FD100954116 /* Info.plist */,
 			);
 			path = ClassInTouchUITests;
+			sourceTree = "<group>";
+		};
+		D0B314EF1BDB523800954116 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D0B314B21BDB2FD100954116 /* Main.storyboard */,
+				D0B314B81BDB2FD100954116 /* Assets.xcassets */,
+				D0B314BA1BDB2FD100954116 /* LaunchScreen.storyboard */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		D0B314F01BDB523D00954116 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D0B314AE1BDB2FD100954116 /* AppDelegate.swift */,
+				D0B314E31BDB3F8700954116 /* ClassListViewController.swift */,
+				D0B314E51BDB44CC00954116 /* ClassViewController.swift */,
+				D0B314E91BDB44EE00954116 /* AskViewController.swift */,
+				D0B314EB1BDB44FC00954116 /* CreateViewController.swift */,
+				D0B314ED1BDB450C00954116 /* QuestionViewController.swift */,
+				D0B314E11BDB3F7C00954116 /* NearbyViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		D0B314F11BDB524300954116 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D0B315031BDB530E00954116 /* Question+CoreDataProperties.swift */,
+				D0B315041BDB530E00954116 /* Question.swift */,
+				D0B315051BDB530E00954116 /* Class+CoreDataProperties.swift */,
+				D0B315061BDB530E00954116 /* Class.swift */,
+				D0B315071BDB530E00954116 /* Reply+CoreDataProperties.swift */,
+				D0B315081BDB530E00954116 /* Reply.swift */,
+				D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */,
+				D0B3150A1BDB530E00954116 /* User.swift */,
+				D0B314B51BDB2FD100954116 /* ClassInTouch.xcdatamodeld */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		D0B314F21BDB524600954116 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				D0B314BD1BDB2FD100954116 /* Info.plist */,
+			);
+			name = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,9 +350,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0B314B11BDB2FD100954116 /* ViewController.swift in Sources */,
+				D0B3150E1BDB530E00954116 /* Class.swift in Sources */,
 				D0B314B71BDB2FD100954116 /* ClassInTouch.xcdatamodeld in Sources */,
+				D0B314E61BDB44CC00954116 /* ClassViewController.swift in Sources */,
+				D0B3150F1BDB530E00954116 /* Reply+CoreDataProperties.swift in Sources */,
+				D0B315121BDB530E00954116 /* User.swift in Sources */,
+				D0B314EC1BDB44FC00954116 /* CreateViewController.swift in Sources */,
+				D0B3150D1BDB530E00954116 /* Class+CoreDataProperties.swift in Sources */,
+				D0B315101BDB530E00954116 /* Reply.swift in Sources */,
+				D0B314E41BDB3F8700954116 /* ClassListViewController.swift in Sources */,
+				D0B315111BDB530E00954116 /* User+CoreDataProperties.swift in Sources */,
+				D0B3150B1BDB530E00954116 /* Question+CoreDataProperties.swift in Sources */,
+				D0B3150C1BDB530E00954116 /* Question.swift in Sources */,
 				D0B314AF1BDB2FD100954116 /* AppDelegate.swift in Sources */,
+				D0B314E21BDB3F7C00954116 /* NearbyViewController.swift in Sources */,
+				D0B314EE1BDB450C00954116 /* QuestionViewController.swift in Sources */,
+				D0B314EA1BDB44EE00954116 /* AskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

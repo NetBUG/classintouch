@@ -1,4 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15A284" minimumToolsVersion="Automatic">
+    <entity name="Class" representedClassName=".Class" syncable="YES">
+        <attribute name="date" attributeType="Date" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="latitude" attributeType="Float" syncable="YES"/>
+        <attribute name="longitude" attributeType="Float" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Post" inverseName="whichClass" inverseEntity="Post" syncable="YES"/>
+        <relationship name="whichUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="classes" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Post" representedClassName=".Question" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+        <relationship name="poster" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="posts" inverseEntity="User" syncable="YES"/>
+        <relationship name="replies" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Reply" inverseName="whichQuestion" inverseEntity="Reply" syncable="YES"/>
+        <relationship name="whichClass" maxCount="1" deletionRule="Nullify" destinationEntity="Class" inverseName="questions" inverseEntity="Class" syncable="YES"/>
+    </entity>
+    <entity name="Reply" representedClassName=".Reply" syncable="YES">
+        <attribute name="content" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" syncable="YES"/>
+        <relationship name="poster" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="replies" inverseEntity="User" syncable="YES"/>
+        <relationship name="whichQuestion" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="replies" inverseEntity="Post" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES">
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="classes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Class" inverseName="whichUser" inverseEntity="Class" syncable="YES"/>
+        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Post" inverseName="poster" inverseEntity="Post" syncable="YES"/>
+        <relationship name="replies" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Reply" inverseName="poster" inverseEntity="Reply" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="User" positionX="826" positionY="432" width="128" height="118"/>
+        <element name="Class" positionX="288" positionY="-117" width="128" height="148"/>
+        <element name="Post" positionX="486" positionY="-115" width="128" height="133"/>
+        <element name="Reply" positionX="693" positionY="-148" width="128" height="103"/>
+    </elements>
 </model>
