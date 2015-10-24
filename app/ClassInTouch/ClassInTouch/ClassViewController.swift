@@ -26,14 +26,14 @@ class ClassViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ClassCell", forIndexPath: indexPath)
-        let question: Question? = registeredClass?.questions?[indexPath.row] as? Question
-        cell.textLabel?.text = question?.title
-        cell.detailTextLabel?.text = question?.content
+        let discussion: Discussion? = registeredClass?.discussions?[indexPath.row] as? Discussion
+        cell.textLabel?.text = discussion?.title
+        cell.detailTextLabel?.text = discussion?.content
         return cell
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let rows = registeredClass?.questions?.count else {
+        guard let rows = registeredClass?.discussions?.count else {
             return 0
         }
         return rows

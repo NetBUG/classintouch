@@ -18,6 +18,4 @@ extension Reply {
     @NSManaged var date: NSDate?
     @NSManaged var id: NSNumber?
     @NSManaged var poster: User?
-    @NSManaged var whichQuestion: Question?
-
 }

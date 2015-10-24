@@ -12,14 +12,14 @@
 import Foundation
 import CoreData
 
-extension Question {
+extension Discussion {
 
     @NSManaged var content: String?
     @NSManaged var date: NSDate?
     @NSManaged var id: NSNumber?
     @NSManaged var title: String?
     @NSManaged var poster: User?
-    @NSManaged var replies: NSOrderedSet?
+    @NSManaged var posts: NSOrderedSet?
     @NSManaged var whichClass: Class?
 
 }

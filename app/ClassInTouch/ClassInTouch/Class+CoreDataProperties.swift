@@ -19,7 +19,7 @@ extension Class {
     @NSManaged var latitude: NSNumber?
     @NSManaged var longitude: NSNumber?
     @NSManaged var name: String?
-    @NSManaged var questions: NSOrderedSet?
+    @NSManaged var discussions: NSOrderedSet?
     @NSManaged var whichUser: User?
 
 }
