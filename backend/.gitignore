@@ -2,6 +2,7 @@
 db.*
 db.sqlite3
 basic_app.sqlite3
+*.db
 .idea
 specs
 venv

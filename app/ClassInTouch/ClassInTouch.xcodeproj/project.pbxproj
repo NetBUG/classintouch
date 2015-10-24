@@ -173,7 +173,7 @@
 				D0B314F01BDB523D00954116 /* ViewController */,
 				D0B314EF1BDB523800954116 /* UI */,
 				D0B314F11BDB524300954116 /* Data */,
-				D0B315241BDB6EAD00954116 /* NetworkHandler */,
+				D0B315241BDB6EAD00954116 /* Network */,
 				D0B314F21BDB524600954116 /* Support */,
 			);
 			path = ClassInTouch;
@@ -247,7 +247,7 @@
 			name = Support;
 			sourceTree = "<group>";
 		};
-		D0B315241BDB6EAD00954116 /* NetworkHandler */ = {
+		D0B315241BDB6EAD00954116 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				D0B315211BDB6EA800954116 /* PGNetworkHandler.h */,
@@ -261,7 +261,7 @@
 				D0B3151B1BDB6EA000954116 /* NSObject+PGPropertyList.h */,
 				D0B3151C1BDB6EA000954116 /* NSObject+PGPropertyList.m */,
 			);
-			name = NetworkHandler;
+			name = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

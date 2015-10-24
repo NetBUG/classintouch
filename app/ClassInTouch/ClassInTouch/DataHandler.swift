@@ -29,3 +29,9 @@ extension PGNetworkMapping {
         return PGNetworkMapping(description: [["User": "User"], ["id": "id"]], mapping: ["name": "name"])
     }
 }
+
+extension PGNetworkHandler {
+    func nearbyCourse(longitude: Float, latitude: Float, context: NSManagedObjectContext, success: ((nearbyClasses: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+        self.GET("classnearby.json", parameters: ["lon": longitude, "lat": latitude], to: context, mapping: PGNetworkMapping.classMapping, success: success, failure: failure, finish: finish)
+    }
+}

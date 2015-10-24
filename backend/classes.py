@@ -1,5 +1,5 @@
 #coding=utf-8
-from flask import Blueprint, url_for, render_template, render_template_string, redirect, request, current_app, send_from_directory
+from flask import Blueprint, url_for, render_template, render_template_string, redirect, request, current_app, send_from_directory, make_response, Response
 from flask_cors import cross_origin
 from datetime import datetime, time
 from geopy.distance import vincenty
@@ -40,9 +40,12 @@ def class_nearby():
 	cList = Classes.query.filter(Classes.lat > iLat - accuracy_geo, Classes.lat < iLat + accuracy_geo,\
 		Classes.lon > iLon - accuracy_geo, Classes.lon < iLon + accuracy_geo, \
 		Classes.time > dayTime - accuracy_time, Classes.time < dayTime + accuracy_time, Classes.day == dayOfWeek)
+	out = []
 	for chunk in cList:
 		out += {"name": chunk.name, "id": chunk.id, "uni": "", "dist": vincenty((chunk.lat, chunk.lon), (iLat, iLon)).miles}
- 	return json.dumps(out)
+	resp = make_response(json.dumps(out))
+	resp.mimetype="application/json"
+ 	return resp
 
 """
 @api {post} /createclass.json?lat=50.1&lon=55.2&name=Physics%20101 Create the new class right here, right now
@@ -57,19 +60,21 @@ def class_nearby():
 @apiSuccess {String} JSON with class id and name
 
 """
-@blueprint.route('/createclass.json')
+@blueprint.route('/createclass.json', methods=['POST'])
 @cross_origin()
-def class_join(form):
-	user_id = request.form.get('uid')
-	name = request.form.get('name')
-	lat = request.form.get('lat')
-	lon = request.form.get('lon')
+def class_create():
+	user_id = request.args.get('uid')
+	name = request.args.get('name')
+	lat = float(request.args.get('lat'))
+	lon = float(request.args.get('lon'))
 	dayTime, dayOfWeek = getTimeParams()
 	gs = Classes(name, lat, lon, dayTime, dayOfWeek)
 	db.session.add(gs)
 	db.session.commit()
 	created = Classes.query.filter(Classes.lat == lat, Classes.lon == lon, Classes.time == dayTime, Classes.day == dayOfWeek)[0]
-	return json.dumps({"name": created.name, "id": created.id})
+	resp = make_response(json.dumps({"name": created.name, "id": created.id}))
+	resp.mimetype="application/json"
+	return resp
 
 """
 @api {post} /joinclass.json?class_id=152 Join the class
@@ -77,20 +82,23 @@ def class_join(form):
 @apiGroup Classes
 @apiVersion 0.1.1
 
-@apiParam {Integer} class_id Input the class id of the user 
+@apiParam {Integer} class Input the class id of the user 
+@apiParam {Integer} uid Input the id of the user 
 
 @apiSuccess {Boolean} status Output if joining is successful
 
 """
-@blueprint.route('/joinclass.json')
+@blueprint.route('/joinclass.json', methods=['POST'])
 @cross_origin()
-def class_join(form):
-	user_id = request.form.get('uid')
-	classid = request.form.get('class')
-	gs = UserClasses(user_id=user_id, class_id=sent_id)
+def class_join():
+	user_id = request.args.get('uid')
+	classid = request.args.get('class')
+	gs = UserClasses(user_id=user_id, class_id=classid)
 	db.session.add(gs)
 	db.session.commit()
-	return json.dumps({"status": True})
+	resp = make_response(json.dumps({"status": True}))
+	resp.mimetype="application/json"
+	return resp
 
 """
 @api {get} /myclass.json?user_id=123 Get my classes
@@ -98,7 +106,7 @@ def class_join(form):
 @apiGroup Classes
 @apiVersion 0.1.1
 
-@apiParam {Integer} user_id Input the id of the user
+@apiParam {Integer} uid Input the id of the user
 
 @apiSuccess {String} classlist Outputs a list of classes that the user is a part of.
 
@@ -110,4 +118,6 @@ def class_mine():
 	#raw = Classes.query.filter_by(id=sent)[0]
 	synth = []
 	#chks = Chunk.query.filter_by(lat=stats.id)
-	return json.dumps(synth)
+	resp = make_response(json.dumps(synth))
+	resp.mimetype="application/json"
+	return resp

@@ -15,8 +15,9 @@ import CoreData
 extension Reply {
 
     @NSManaged var content: String?
+    @NSManaged var date: NSDate?
     @NSManaged var id: NSNumber?
-    @NSManaged var whichQuestion: Question?
     @NSManaged var poster: User?
+    @NSManaged var whichQuestion: Question?
 
 }

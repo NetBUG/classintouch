@@ -14,12 +14,12 @@ import CoreData
 
 extension Class {
 
-    @NSManaged var name: String?
-    @NSManaged var longitude: NSNumber?
     @NSManaged var date: NSDate?
-    @NSManaged var latitude: NSNumber?
     @NSManaged var id: NSNumber?
-    @NSManaged var questions: NSSet?
+    @NSManaged var latitude: NSNumber?
+    @NSManaged var longitude: NSNumber?
+    @NSManaged var name: String?
+    @NSManaged var questions: NSOrderedSet?
     @NSManaged var whichUser: User?
 
 }

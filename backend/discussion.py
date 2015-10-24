@@ -18,7 +18,9 @@ blueprint = Blueprint('discussion', __name__)
 @blueprint.route('/getdiscussion.json')
 @cross_origin()
 def discussion_get():
-	pass
+	resp = make_response(json.dumps({"status": True}))
+	resp.mimetype="application/json"
+	return resp
 
 """
 @api {get} /getdiscussionpost&discussion_id=151 Get a list of posts from the discussion.
@@ -34,7 +36,9 @@ def discussion_get():
 @blueprint.route('/getdiscussionpost.json')
 @cross_origin()
 def discussion_getpost():
-	pass
+	resp = make_response(json.dumps({"status": True}))
+	resp.mimetype="application/json"
+	return resp
 
 """
 @api {post} /posting.json&post_id=1212&Title=question&text=text Create a new post
@@ -48,10 +52,12 @@ def discussion_getpost():
 
 @apiSuccess {Post} post_ob Outputs a post object. 
 """
-@blueprint.route('/posting.json')
+@blueprint.route('/posting.json', methods=['POST'])
 @cross_origin()
 def discussion_createpost():
-	pass
+	resp = make_response(json.dumps({"status": True}))
+	resp.mimetype="application/json"
+	return resp
 
 """
 @api {post} /likepost.json&post_id=121 Like a post
@@ -63,7 +69,9 @@ def discussion_createpost():
 
 @apiSuccess {Post} post_ob Outputs a post object. 
 """
-@blueprint.route('/likepost.json')
+@blueprint.route('/likepost.json', methods=['POST'])
 @cross_origin()
 def discussion_likepost():
-	pass
+	resp = make_response(json.dumps({"status": True}))
+	resp.mimetype="application/json"
+	return resp
