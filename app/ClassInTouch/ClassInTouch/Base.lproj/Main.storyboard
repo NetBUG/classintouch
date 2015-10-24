@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WMc-pZ-bmc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WMc-pZ-bmc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--Nearby Courses-->
@@ -130,7 +130,7 @@
                     <connections>
                         <outlet property="tableView" destination="xfS-we-Wjh" id="BWY-0M-9HJ"/>
                         <segue destination="oY5-fh-apb" kind="show" identifier="ClassSegue" id="Odz-Cg-smm"/>
-                        <segue destination="k1K-UG-7Cn" kind="presentation" identifier="Login" id="AaG-yw-jB2"/>
+                        <segue destination="k1K-UG-7Cn" kind="presentation" identifier="LoginSegue" id="AaG-yw-jB2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRt-8W-hKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -299,10 +299,24 @@
                     <view key="view" contentMode="scaleToFill" id="uY5-Ge-a2Q">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOu-YB-Hnm" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WOu-YB-Hnm" firstAttribute="centerY" secondItem="uY5-Ge-a2Q" secondAttribute="centerY" id="FAx-C8-6V2"/>
+                            <constraint firstItem="WOu-YB-Hnm" firstAttribute="centerX" secondItem="uY5-Ge-a2Q" secondAttribute="centerX" id="OAB-2e-xvd"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0S9-G0-uL0"/>
+                    <navigationItem key="navigationItem" title="Signup / Login" id="WkL-gB-ifX"/>
+                    <connections>
+                        <outlet property="loginButton" destination="WOu-YB-Hnm" id="q1j-xO-hkr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wOS-ct-WsA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

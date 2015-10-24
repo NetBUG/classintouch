@@ -15,6 +15,8 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
 
     @IBOutlet weak var tableView: UITableView!
 
+    var selectedClass: Class?
+
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         return delegate.managedObjectContext
@@ -31,19 +33,20 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }()
 
-    
-
     // MARK: ViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (currentUser == nil) {
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+                self.performSegueWithIdentifier("LoginSegue", sender: self)
+            }
+        }
     }
-    override func viewDidAppear(animated: Bool) {
-        if (FBSDKAccessToken.currentAccessToken() == nil)
-        {
-            // EntryViewController()
-            let loginView = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as! UINavigationController
-            self.tabBarController?.presentViewController(loginView, animated: true, completion:nil)
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let classViewController = segue.destinationViewController as? ClassViewController {
+            classViewController.registeredClass = selectedClass
         }
     }
 
@@ -51,12 +54,16 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ClassListCell", forIndexPath: indexPath)
-        cell.textLabel?.text = "ECS 101"
+        cell.textLabel?.text = currentUser?.classes?[indexPath.row].name
         return cell
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if let count = currentUser?.classes?.count {
+            return count
+        } else {
+            return 0
+        }
     }
 
     // MARK: - UITableViewDelegate

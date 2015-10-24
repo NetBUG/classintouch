@@ -10,6 +10,10 @@ import UIKit
 
 class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
 
+    // MARK: Properties
+
+    @IBOutlet weak var loginButton: FBSDKLoginButton!
+
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         return delegate.managedObjectContext
@@ -21,80 +25,50 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        if (FBSDKAccessToken.currentAccessToken() != nil)
-        {
-            self.dismissViewControllerAnimated(false, completion: nil)
-        }
-        else
-        {
-            let loginView : FBSDKLoginButton = FBSDKLoginButton()
-            self.view.addSubview(loginView)
-            loginView.center = self.view.center
-            loginView.readPermissions = ["public_profile", "email"]
-            loginView.delegate = self
-        }
-        
+        loginButton.readPermissions = ["public_profile", "email"]
+        loginButton.delegate = self
     }
-    
-    // Facebook Delegate Methods
+
+    // MARK: FBSDKLoginButtonDelegate
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        print("User Logged In")
-        
-        if ((error) != nil)
-        {
-            // Process error
-        }
-        else if result.isCancelled {
-            // Handle cancellations
-        }
-        else {
-            // If you ask for multiple permissions at once, you
-            // should check if specific permissions missing
-            if result.grantedPermissions.contains("email")
-            {
-                login()
-            }
+        if error == nil && !result.isCancelled && result.grantedPermissions.contains("email") {
+            login()
         }
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        print("User Logged Out")
+        print("User logged out.")
     }
-    func login()
-    {
-        networkHandler.GET("register.json", parameters: ["access_token": FBSDKAccessToken.currentAccessToken()], to: self.context, mapping: PGNetworkMapping.userMapping, success: { (result: [AnyObject]!) -> Void in // Success block (async, will execute if the everything is correct)
+
+    func login() {
+        networkHandler.facebookLogin(FBSDKAccessToken.currentAccessToken().tokenString, context: context, success: { (result) -> Void in
+            if let user = result.first as? User {
+                if let id = user.id {
+                    NSUserDefaults.standardUserDefaults().setObject(id, forKey: "UserID")
+                }
+            }
+
+            self.dismissViewControllerAnimated(true, completion: nil)
+
+            }, failure: nil, finish: {() -> Void in
             self.printUserData()
-            let user = result.first as! User
-            NSUserDefaults.standardUserDefaults().setObject(user.id!, forKey: "UserID")
-            self.dismissViewControllerAnimated(false, completion: nil)
-            
-            }, failure: { (error: NSError!) -> Void in // failure block (async, will execute if the request -> failed, JSON -> failed, or Core Data -> failed)
-                print(error)
-            }) { () -> Void in // finish block (async, will execute no matter the GET operation is succeed or not, always after success or failure block)
-        }
+        })
     }
     
-    func printUserData()
-    {
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+    func printUserData() {
+        let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-            
-            if ((error) != nil)
-            {
-                // Process error
+            if error != nil {
                 print("Error: \(error)")
-            }
-            else
-            {
+            } else {
                 print("fetched user: \(result)")
-                let userName : NSString = result.valueForKey("name") as! NSString
-                print("User Name is: \(userName)")
-                let userEmail : NSString = result.valueForKey("email") as! NSString
-                print("User Email is: \(userEmail)")
+                if let userName : NSString = result.valueForKey("name") as? NSString {
+                    print("User Name is: \(userName)")
+                }
+                if let userEmail : NSString = result.valueForKey("email") as? NSString {
+                    print("User Email is: \(userEmail)")
+                }
             }
         })
     }
