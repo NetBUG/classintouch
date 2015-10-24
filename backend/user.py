@@ -129,9 +129,9 @@ def process_login(resp, data):
 
 
 """
-@api {get} /register.json&access_token=XYZ Register into the game
-@apiName UserAPI
-@apiGroup ClassInTouch
+@api {post} /register.json&access_token=XYZ Register into the game
+@apiName Register
+@apiGroup UserAPI
 @apiVersion 0.1.1
 
 @apiParam {String} access_token Input from facebook
@@ -147,8 +147,8 @@ def user_register():
 
 """
 @api {get} /profile.json&token=XYZ&user_id=152 Get my profile
-@apiName UserAPI
-@apiGroup ClassInTouch
+@apiName Get Profile
+@apiGroup UserAPI
 @apiVersion 0.1.1
 
 @apiParam {String} [token=smth] Secret used for authentication
@@ -185,6 +185,17 @@ def finish_login():
     return resp
 
 
+"""
+@api {post} /logout.json Log out
+@apiName Logout
+@apiGroup UserAPI
+@apiVersion 0.1.1
+
+@apiParam {String} access_token Input from facebook
+
+@apiSuccess {Redirect} none Redirects to main page
+
+"""
 # change cookie and logout user from our system
 @blueprint.route('/logout')
 def log_out():

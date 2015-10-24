@@ -12,10 +12,16 @@ blueprint = Blueprint('classes', __name__)
 accuracy_geo = 0.05	# degrees, TODO make a normal geo distance!
 accuracy_time = 3600 # an hour in both directions
 
+def getTimeParams():
+	iTime = datetime.utcnow()
+	dayTime = (iTime - datetime.combine(iTime.date(), time(0))).total_seconds()
+	dayOfWeek = datetime.today().weekday()
+	return dayTime, dayOfWeek
+
 """
-@api {get} /classnearby.json&lon=100&lat=100&class_name=phy Get class nearby
-@apiName Classes
-@apiGroup ClassInTouch
+@api {get} /classnearby.json?lon=50.1&lat=55.210021 Get class nearby
+@apiName Classes Nearby
+@apiGroup Classes
 @apiVersion 0.1.1
 
 @apiParam {Integer} lon Location - longitude of the user
@@ -29,9 +35,7 @@ accuracy_time = 3600 # an hour in both directions
 def class_nearby():
 	iLat = float(request.args.get('lat'))
 	iLon = float(request.args.get('lon'))
- 	iTime = datetime.utcnow()
-	dayTime = (iTime - datetime.combine(iTime.date(), time(0))).total_seconds()
-	dayOfWeek = datetime.today().weekday()
+ 	dayTime, dayOfWeek = getTimeParams()
 	# Querying classes within range
 	cList = Classes.query.filter(Classes.lat > iLat - accuracy_geo, Classes.lat < iLat + accuracy_geo,\
 		Classes.lon > iLon - accuracy_geo, Classes.lon < iLon + accuracy_geo, \
@@ -41,9 +45,36 @@ def class_nearby():
  	return json.dumps(out)
 
 """
-@api {post} /joinclass.json&class_id=152 Join the class
-@apiName Classes
-@apiGroup ClassInTouch
+@api {post} /createclass.json?lat=50.1&lon=55.2&name=Physics%20101 Create the new class right here, right now
+@apiName Create Class
+@apiGroup Classes
+@apiVersion 0.1.2
+
+@apiParam {Integer} lon Location - longitude of the user
+@apiParam {Integer} lat Location - longitude of the user
+@apiParam {String} name Input the class id of the user 
+
+@apiSuccess {String} JSON with class id and name
+
+"""
+@blueprint.route('/createclass.json')
+@cross_origin()
+def class_join(form):
+	user_id = request.form.get('uid')
+	name = request.form.get('name')
+	lat = request.form.get('lat')
+	lon = request.form.get('lon')
+	dayTime, dayOfWeek = getTimeParams()
+	gs = Classes(name, lat, lon, dayTime, dayOfWeek)
+	db.session.add(gs)
+	db.session.commit()
+	created = Classes.query.filter(Classes.lat == lat, Classes.lon == lon, Classes.time == dayTime, Classes.day == dayOfWeek)[0]
+	return json.dumps({"name": created.name, "id": created.id})
+
+"""
+@api {post} /joinclass.json?class_id=152 Join the class
+@apiName Join Class
+@apiGroup Classes
 @apiVersion 0.1.1
 
 @apiParam {Integer} class_id Input the class id of the user 
@@ -54,15 +85,17 @@ def class_nearby():
 @blueprint.route('/joinclass.json')
 @cross_origin()
 def class_join(form):
+	user_id = request.form.get('uid')
 	classid = request.form.get('class')
-	gs = GameSessionsWordOrder(user_id=user_id, src_id=sent_id, result=res, ev=calculated_score)
+	gs = UserClasses(user_id=user_id, class_id=sent_id)
 	db.session.add(gs)
-	pass
+	db.session.commit()
+	return json.dumps({"status": True})
 
 """
-@api {get} /myclass.json&user_id=123 Get my classes
-@apiName Classes
-@apiGroup ClassInTouch
+@api {get} /myclass.json?user_id=123 Get my classes
+@apiName My Classes
+@apiGroup Classes
 @apiVersion 0.1.1
 
 @apiParam {Integer} user_id Input the id of the user
@@ -73,7 +106,8 @@ def class_join(form):
 @blueprint.route('/myclass.json')
 @cross_origin()
 def class_mine():
+	user_id = request.form.get('uid')
 	#raw = Classes.query.filter_by(id=sent)[0]
-	synth = ''
+	synth = []
 	#chks = Chunk.query.filter_by(lat=stats.id)
-	pass
+	return json.dumps(synth)

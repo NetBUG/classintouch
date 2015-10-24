@@ -6,8 +6,8 @@ blueprint = Blueprint('discussion', __name__)
 
 """
 @api {get} /getdiscussion.json&class_id=152 Get discussion from a class
-@apiName Discussions
-@apiGroup ClassInTouch
+@apiName Discussions List
+@apiGroup Discussions
 @apiVersion 0.1.1
 
 @apiParam {Integer} class_id Input class the user selected
@@ -22,8 +22,8 @@ def discussion_get():
 
 """
 @api {get} /getdiscussionpost&discussion_id=151 Get a list of posts from the discussion.
-@apiName Discussions
-@apiGroup ClassInTouch
+@apiName Get Discussion Post
+@apiGroup Discussions
 @apiVersion 0.1.1
 
 @apiParam {Integer} discussion_id Input class the user selected
@@ -38,8 +38,8 @@ def discussion_getpost():
 
 """
 @api {post} /posting.json&post_id=1212&Title=question&text=text Create a new post
-@apiName Discussions
-@apiGroup ClassInTouch
+@apiName Post Message
+@apiGroup Discussions
 @apiVersion 0.1.1
 
 @apiParam {Integer} post_id Input the post id of the user's post
@@ -54,9 +54,9 @@ def discussion_createpost():
 	pass
 
 """
-@api {get} /likepost.json&post_id=121 Like a post
-@apiName Discussions
-@apiGroup ClassInTouch
+@api {post} /likepost.json&post_id=121 Like a post
+@apiName Like a post
+@apiGroup Discussions
 @apiVersion 0.1.1
 
 @apiParam {Integer} post_id Input the post id of the user's post
