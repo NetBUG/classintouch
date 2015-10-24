@@ -3,9 +3,9 @@
   "version": "0.1.1",
   "description": "ClassInTouch backend", 
   "title": "ClassInTouch backend documentation", 
-  "url" : "http://dev.classintouch.club", 
+  "url" : "http://classintouch.club", 
   "sampleUrl1": "http://127.0.0.1:5100",
-  "sampleUrl": "http://classintouch.me",
+  "sampleUrl": "http://classintouch.club",
   "template": { 
   	"withCompare": true, 
   	"withGenerator": true 
