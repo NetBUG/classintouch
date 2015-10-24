@@ -11,6 +11,7 @@
     </entity>
     <entity name="Post" representedClassName=".Question" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" attributeType="Date" syncable="YES"/>
         <attribute name="id" attributeType="Integer 32" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="poster" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="posts" inverseEntity="User" syncable="YES"/>
@@ -19,6 +20,7 @@
     </entity>
     <entity name="Reply" representedClassName=".Reply" syncable="YES">
         <attribute name="content" attributeType="String" syncable="YES"/>
+        <attribute name="date" attributeType="Date" syncable="YES"/>
         <attribute name="id" attributeType="Integer 32" syncable="YES"/>
         <relationship name="poster" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="replies" inverseEntity="User" syncable="YES"/>
         <relationship name="whichQuestion" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="replies" inverseEntity="Post" syncable="YES"/>
@@ -31,9 +33,9 @@
         <relationship name="replies" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Reply" inverseName="poster" inverseEntity="Reply" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="826" positionY="432" width="128" height="118"/>
         <element name="Class" positionX="288" positionY="-117" width="128" height="148"/>
-        <element name="Post" positionX="486" positionY="-115" width="128" height="133"/>
-        <element name="Reply" positionX="693" positionY="-148" width="128" height="103"/>
+        <element name="Post" positionX="486" positionY="-115" width="128" height="150"/>
+        <element name="Reply" positionX="693" positionY="-148" width="128" height="120"/>
+        <element name="User" positionX="826" positionY="432" width="128" height="118"/>
     </elements>
 </model>

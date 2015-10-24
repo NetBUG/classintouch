@@ -16,7 +16,8 @@ extension Reply {
 
     @NSManaged var content: String?
     @NSManaged var id: NSNumber?
-    @NSManaged var whichQuestion: Question?
+    @NSManaged var date: NSDate?
     @NSManaged var poster: User?
+    @NSManaged var whichQuestion: Question?
 
 }

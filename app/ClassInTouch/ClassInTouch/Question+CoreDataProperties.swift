@@ -14,11 +14,12 @@ import CoreData
 
 extension Question {
 
-    @NSManaged var title: String?
     @NSManaged var content: String?
     @NSManaged var id: NSNumber?
+    @NSManaged var title: String?
+    @NSManaged var date: NSDate?
+    @NSManaged var poster: User?
     @NSManaged var replies: NSSet?
     @NSManaged var whichClass: Class?
-    @NSManaged var poster: User?
 
 }
