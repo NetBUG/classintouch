@@ -1,5 +1,5 @@
 #coding=utf-8
-from flask import Blueprint, url_for, render_template, render_template_string, redirect, request, current_app, send_from_directory
+from flask import Blueprint, url_for, render_template, render_template_string, redirect, request, current_app, send_from_directory, make_response, Response
 from flask_cors import cross_origin
 from datetime import datetime, time
 from geopy.distance import vincenty
@@ -43,7 +43,9 @@ def class_nearby():
 	out = []
 	for chunk in cList:
 		out += {"name": chunk.name, "id": chunk.id, "uni": "", "dist": vincenty((chunk.lat, chunk.lon), (iLat, iLon)).miles}
- 	return json.dumps(out)
+	resp = make_response(json.dumps(out))
+	resp.mimetype="application/json"
+ 	return resp
 
 """
 @api {post} /createclass.json?lat=50.1&lon=55.2&name=Physics%20101 Create the new class right here, right now
@@ -70,7 +72,9 @@ def class_create():
 	db.session.add(gs)
 	db.session.commit()
 	created = Classes.query.filter(Classes.lat == lat, Classes.lon == lon, Classes.time == dayTime, Classes.day == dayOfWeek)[0]
-	return json.dumps({"name": created.name, "id": created.id})
+	resp = make_response(json.dumps({"name": created.name, "id": created.id}))
+	resp.mimetype="application/json"
+	return resp
 
 """
 @api {post} /joinclass.json?class_id=152 Join the class
@@ -92,7 +96,9 @@ def class_join():
 	gs = UserClasses(user_id=user_id, class_id=classid)
 	db.session.add(gs)
 	db.session.commit()
-	return json.dumps({"status": True})
+	resp = make_response(json.dumps({"status": True}))
+	resp.mimetype="application/json"
+	return resp
 
 """
 @api {get} /myclass.json?user_id=123 Get my classes
@@ -112,4 +118,6 @@ def class_mine():
 	#raw = Classes.query.filter_by(id=sent)[0]
 	synth = []
 	#chks = Chunk.query.filter_by(lat=stats.id)
-	return json.dumps(synth)
+	resp = make_response(json.dumps(synth))
+	resp.mimetype="application/json"
+	return resp
