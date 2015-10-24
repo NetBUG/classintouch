@@ -1,14 +1,24 @@
 //
-//  LoginViewController.swift
+//  EntryViewController.swift
 //  ClassInTouch
 //
-//  Created by Justin Jia on 10/23/15.
+//  Created by Chris Findeisen on 10/23/15.
 //  Copyright © 2015 ClassInTouch. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
+class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
+    
+    
+    lazy var context: NSManagedObjectContext = {
+        let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        return delegate.managedObjectContext
+        }()
+    
+    lazy var networkHandler: PGNetworkHandler = {
+        return PGNetworkHandler(baseURL: NSURL(string: "http://dev.classintouch.me"))
+        }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +57,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             // should check if specific permissions missing
             if result.grantedPermissions.contains("email")
             {
-                returnUserData()
-                // Do work
+                login()
             }
         }
     }
@@ -56,8 +65,17 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         print("User Logged Out")
     }
+    func login()
+    {
+        networkHandler.GET("register.json", parameters: ["access_token": FBSDKAccessToken.currentAccessToken()], to: self.context, mapping: PGNetworkMapping.userMapping, success: { (result: [AnyObject]!) -> Void in // Success block (async, will execute if the everything is correct)
+            self.printUserData()
+            }, failure: { (error: NSError!) -> Void in // failure block (async, will execute if the request -> failed, JSON -> failed, or Core Data -> failed)
+                print(error)
+            }) { () -> Void in // finish block (async, will execute no matter the GET operation is succeed or not, always after success or failure block)
+        }
+    }
     
-    func returnUserData()
+    func printUserData()
     {
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
@@ -69,7 +87,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             else
             {
-                User new_user = ;
                 print("fetched user: \(result)")
                 let userName : NSString = result.valueForKey("name") as! NSString
                 print("User Name is: \(userName)")
