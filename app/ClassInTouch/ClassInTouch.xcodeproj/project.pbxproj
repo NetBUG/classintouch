@@ -22,12 +22,12 @@
 		D0B314EA1BDB44EE00954116 /* AskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E91BDB44EE00954116 /* AskViewController.swift */; };
 		D0B314EC1BDB44FC00954116 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314EB1BDB44FC00954116 /* CreateViewController.swift */; };
 		D0B314EE1BDB450C00954116 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314ED1BDB450C00954116 /* QuestionViewController.swift */; };
-		D0B3150B1BDB530E00954116 /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315031BDB530E00954116 /* Question+CoreDataProperties.swift */; };
-		D0B3150C1BDB530E00954116 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315041BDB530E00954116 /* Question.swift */; };
+		D0B3150B1BDB530E00954116 /* Discussion+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315031BDB530E00954116 /* Discussion+CoreDataProperties.swift */; };
+		D0B3150C1BDB530E00954116 /* Discussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315041BDB530E00954116 /* Discussion.swift */; };
 		D0B3150D1BDB530E00954116 /* Class+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315051BDB530E00954116 /* Class+CoreDataProperties.swift */; };
 		D0B3150E1BDB530E00954116 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315061BDB530E00954116 /* Class.swift */; };
-		D0B3150F1BDB530E00954116 /* Reply+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315071BDB530E00954116 /* Reply+CoreDataProperties.swift */; };
-		D0B315101BDB530E00954116 /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315081BDB530E00954116 /* Reply.swift */; };
+		D0B3150F1BDB530E00954116 /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315071BDB530E00954116 /* Post+CoreDataProperties.swift */; };
+		D0B315101BDB530E00954116 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315081BDB530E00954116 /* Post.swift */; };
 		D0B315111BDB530E00954116 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */; };
 		D0B315121BDB530E00954116 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B3150A1BDB530E00954116 /* User.swift */; };
 		D0B315141BDB625200954116 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315131BDB625200954116 /* DataHandler.swift */; };
@@ -79,12 +79,12 @@
 		D0B314E91BDB44EE00954116 /* AskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskViewController.swift; sourceTree = "<group>"; };
 		D0B314EB1BDB44FC00954116 /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		D0B314ED1BDB450C00954116 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
-		D0B315031BDB530E00954116 /* Question+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D0B315041BDB530E00954116 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		D0B315031BDB530E00954116 /* Discussion+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discussion+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D0B315041BDB530E00954116 /* Discussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discussion.swift; sourceTree = "<group>"; };
 		D0B315051BDB530E00954116 /* Class+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Class+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D0B315061BDB530E00954116 /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
-		D0B315071BDB530E00954116 /* Reply+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reply+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D0B315081BDB530E00954116 /* Reply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reply.swift; sourceTree = "<group>"; };
+		D0B315071BDB530E00954116 /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D0B315081BDB530E00954116 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D0B3150A1BDB530E00954116 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D0B315131BDB625200954116 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
@@ -224,12 +224,12 @@
 		D0B314F11BDB524300954116 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				D0B315031BDB530E00954116 /* Question+CoreDataProperties.swift */,
-				D0B315041BDB530E00954116 /* Question.swift */,
+				D0B315031BDB530E00954116 /* Discussion+CoreDataProperties.swift */,
+				D0B315041BDB530E00954116 /* Discussion.swift */,
 				D0B315051BDB530E00954116 /* Class+CoreDataProperties.swift */,
 				D0B315061BDB530E00954116 /* Class.swift */,
-				D0B315071BDB530E00954116 /* Reply+CoreDataProperties.swift */,
-				D0B315081BDB530E00954116 /* Reply.swift */,
+				D0B315071BDB530E00954116 /* Post+CoreDataProperties.swift */,
+				D0B315081BDB530E00954116 /* Post.swift */,
 				D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */,
 				D0B3150A1BDB530E00954116 /* User.swift */,
 				D0B315131BDB625200954116 /* DataHandler.swift */,
@@ -275,7 +275,6 @@
 				D0B314A71BDB2FD100954116 /* Sources */,
 				D0B314A81BDB2FD100954116 /* Frameworks */,
 				D0B314A91BDB2FD100954116 /* Resources */,
-				47D3249C37C50D7C8A003FAB /* Embed Pods Frameworks */,
 				F654ABBF57FBB2C6EBED0261 /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -394,21 +393,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		47D3249C37C50D7C8A003FAB /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassInTouch/Pods-ClassInTouch-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6BBCEA8E1CFBC08652FA9120 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -454,16 +438,16 @@
 				D0B3150E1BDB530E00954116 /* Class.swift in Sources */,
 				D0B314B71BDB2FD100954116 /* ClassInTouch.xcdatamodeld in Sources */,
 				D0B314E61BDB44CC00954116 /* ClassViewController.swift in Sources */,
-				D0B3150F1BDB530E00954116 /* Reply+CoreDataProperties.swift in Sources */,
+				D0B3150F1BDB530E00954116 /* Post+CoreDataProperties.swift in Sources */,
 				D0B315121BDB530E00954116 /* User.swift in Sources */,
 				D0B314EC1BDB44FC00954116 /* CreateViewController.swift in Sources */,
 				D0B3150D1BDB530E00954116 /* Class+CoreDataProperties.swift in Sources */,
 				D0B315141BDB625200954116 /* DataHandler.swift in Sources */,
-				D0B315101BDB530E00954116 /* Reply.swift in Sources */,
+				D0B315101BDB530E00954116 /* Post.swift in Sources */,
 				D0B314E41BDB3F8700954116 /* ClassListViewController.swift in Sources */,
 				D0B315111BDB530E00954116 /* User+CoreDataProperties.swift in Sources */,
-				D0B3150B1BDB530E00954116 /* Question+CoreDataProperties.swift in Sources */,
-				D0B3150C1BDB530E00954116 /* Question.swift in Sources */,
+				D0B3150B1BDB530E00954116 /* Discussion+CoreDataProperties.swift in Sources */,
+				D0B3150C1BDB530E00954116 /* Discussion.swift in Sources */,
 				D0B314AF1BDB2FD100954116 /* AppDelegate.swift in Sources */,
 				835FE0A91BDB659600DBF099 /* EntryViewController.swift in Sources */,
 				D0B314E21BDB3F7C00954116 /* NearbyViewController.swift in Sources */,

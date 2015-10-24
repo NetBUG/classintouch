@@ -18,6 +18,4 @@ extension User {
     @NSManaged var name: String?
     @NSManaged var classes: NSOrderedSet?
     @NSManaged var posts: NSOrderedSet?
-    @NSManaged var replies: NSOrderedSet?
-
 }
