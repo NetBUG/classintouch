@@ -1,8 +1,11 @@
 #coding=utf-8
 from flask import Blueprint, url_for, render_template, render_template_string, redirect, request, current_app, send_from_directory
 from flask_cors import cross_origin
-from datetime import datetime
+from datetime import datetime, time
+from geopy.distance import vincenty
 import ujson as json
+
+from models import *
 
 blueprint = Blueprint('classes', __name__)
 
@@ -17,19 +20,25 @@ accuracy_time = 3600 # an hour in both directions
 
 @apiParam {Integer} lon Location - longitude of the user
 @apiParam {Integer} lat Location - longitude of the user
-
+	
 @apiSuccess {String} class_name Outputs a list of classes that is around this location at this time.
 
 """
 @blueprint.route('/classnearby.json')
 @cross_origin()
 def class_nearby():
-	time = datetime.utcnow()
-	# dayTime = 
-	# dayOfWeek = 
-	out = [{"name": "Physics 121", "id": "1", "uni": "Caltech", "dist": "7000"}, {"name": "Cantonese 101", "id": "5", "uni": "HKUST", "dist": "30"}]
+	iLat = request.form.get('lat')
+	iLon = request.form.get('lon')
+ 	iTime = datetime.utcnow()
+	dayTime = iTime - datetime.combine(iTime.date(), time(0))
+	dayOfWeek = datetime.today().weekday()
 	# Querying classes within range
-	return json.dumps(out)
+	cList = Classes.query.filter_by(Classes.lat > iLat - accuracy_geo, Classes.lat < iLat + accuracy_geo,\
+		Classes.lon > iLon - accuracy_geo, Classes.lon < iLon + accuracy_geo, 
+		Classes.time > iTime - accuracy_time, Classes.time < iTime + accuracy_time, Classes.day == dayOfWeek)
+	for chunk in cList:
+		out += {"name": chunk.name, "id": chunk.id, "uni": "", "dist": vincenty((chunk.lat, chunk.lon), (iLat, iLon)).miles}
+ 	return json.dumps(out)
 
 """
 @api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
@@ -45,6 +54,9 @@ def class_nearby():
 @blueprint.route('/joinclass.json')
 @cross_origin()
 def class_join():
+	classid = request.form.get('class')
+	gs = GameSessionsWordOrder(user_id=user_id, src_id=sent_id, result=res, ev=calculated_score)
+	db.session.add(gs)
 	pass
 
 """
@@ -61,4 +73,7 @@ def class_join():
 @blueprint.route('/myclass.json')
 @cross_origin()
 def class_mine():
+	#raw = Classes.query.filter_by(id=sent)[0]
+	synth = ''
+	#chks = Chunk.query.filter_by(lat=stats.id)
 	pass

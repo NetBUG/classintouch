@@ -37,7 +37,7 @@ class User(db.Model, UserMixin):
 
 class Classes(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    #uni = db.Column(db.Integer, db.ForeignKey('university.id'))
+    uni = db.Column(db.Integer, db.ForeignKey('university.id'), nullable=True)
     lat = db.Column(db.Float)
     lon = db.Column(db.Float)
     time = db.Column(db.Integer)        # from day beginning, UTC, seconds 
@@ -71,6 +71,17 @@ class Post(db.Model):
     def __repr__(self):
         return self.name
 
+class University(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(60))        # from day beginning, UTC, seconds 
+
+    def __init__(self, title, lat, lon):
+        self.title = title
+        self.lat = lat
+        self.lon = lon
+
+    def __repr__(self):
+        return self.name
 class Like(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
