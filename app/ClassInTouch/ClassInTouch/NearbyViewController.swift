@@ -36,6 +36,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // TODO: Use current lon & lat
         networkHandler.nearbyCourse(100, latitude: 100, context: context, success: nil, failure: nil) { () -> Void in
             self.tableView.reloadData()
         }

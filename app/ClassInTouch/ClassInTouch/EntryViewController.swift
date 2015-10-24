@@ -17,7 +17,7 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
         }()
     
     lazy var networkHandler: PGNetworkHandler = {
-        return PGNetworkHandler(baseURL: NSURL(string: "http://dev.classintouch.me"))
+        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.me"))
         }()
 
     override func viewDidLoad() {
