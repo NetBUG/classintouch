@@ -11,19 +11,19 @@ import CoreData;
 
 class ClassListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    // MARK: Properties
+
     @IBOutlet weak var tableView: UITableView!
+
+    lazy var context: NSManagedObjectContext = {
+        let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        return delegate.managedObjectContext
+        }()
+
+    // MARK: ViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let networkHandler = PGNetworkHandler(baseURL: NSURL(string: "http://gw.skuuper.com"))
-
-        networkHandler.GET("123", parameters: nil, success: { (result: AnyObject!) -> Void in
-                print(result)
-            }, failure: { (error: NSError!) -> Void in
-                print(error)
-            }) { () -> Void in
-        }
     }
 
     // MARK: - UITableViewDataSource
@@ -43,20 +43,5 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("ClassSegue", sender: self)
     }
-
-    lazy var context: NSManagedObjectContext = {
-        let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        return delegate.managedObjectContext
-    }()
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

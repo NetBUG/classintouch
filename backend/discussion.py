@@ -28,7 +28,7 @@ def discussion_get():
 
 @apiParam {Integer} discussion_id Input class the user selected
 
-@apiSuccess {Discussionpost} discussionpost_ob Outputs a discussion post object that contains a list of posts under the discussion. 
+@apiSuccess {Post} postlist Outputs a list of posts that is under the discussion. 
 
 """
 @blueprint.route('/getdiscussionpost.json')

@@ -40,6 +40,7 @@ def class_nearby():
 	cList = Classes.query.filter(Classes.lat > iLat - accuracy_geo, Classes.lat < iLat + accuracy_geo,\
 		Classes.lon > iLon - accuracy_geo, Classes.lon < iLon + accuracy_geo, \
 		Classes.time > dayTime - accuracy_time, Classes.time < dayTime + accuracy_time, Classes.day == dayOfWeek)
+	out = []
 	for chunk in cList:
 		out += {"name": chunk.name, "id": chunk.id, "uni": "", "dist": vincenty((chunk.lat, chunk.lon), (iLat, iLon)).miles}
  	return json.dumps(out)
@@ -57,13 +58,13 @@ def class_nearby():
 @apiSuccess {String} JSON with class id and name
 
 """
-@blueprint.route('/createclass.json')
+@blueprint.route('/createclass.json', methods=['POST'])
 @cross_origin()
-def class_join(form):
-	user_id = request.form.get('uid')
-	name = request.form.get('name')
-	lat = request.form.get('lat')
-	lon = request.form.get('lon')
+def class_create():
+	user_id = request.args.get('uid')
+	name = request.args.get('name')
+	lat = float(request.args.get('lat'))
+	lon = float(request.args.get('lon'))
 	dayTime, dayOfWeek = getTimeParams()
 	gs = Classes(name, lat, lon, dayTime, dayOfWeek)
 	db.session.add(gs)
@@ -77,17 +78,18 @@ def class_join(form):
 @apiGroup Classes
 @apiVersion 0.1.1
 
-@apiParam {Integer} class_id Input the class id of the user 
+@apiParam {Integer} class Input the class id of the user 
+@apiParam {Integer} uid Input the id of the user 
 
-@apiSuccess {Boolean} Output if joining is successful
+@apiSuccess {Boolean} status Output if joining is successful
 
 """
-@blueprint.route('/joinclass.json')
+@blueprint.route('/joinclass.json', methods=['POST'])
 @cross_origin()
-def class_join(form):
-	user_id = request.form.get('uid')
-	classid = request.form.get('class')
-	gs = UserClasses(user_id=user_id, class_id=sent_id)
+def class_join():
+	user_id = request.args.get('uid')
+	classid = request.args.get('class')
+	gs = UserClasses(user_id=user_id, class_id=classid)
 	db.session.add(gs)
 	db.session.commit()
 	return json.dumps({"status": True})
@@ -98,9 +100,9 @@ def class_join(form):
 @apiGroup Classes
 @apiVersion 0.1.1
 
-@apiParam {Integer} user_id Input the id of the user
+@apiParam {Integer} uid Input the id of the user
 
-@apiSuccess {String} class Outputs a list of classes that the user is a part of.
+@apiSuccess {String} classlist Outputs a list of classes that the user is a part of.
 
 """
 @blueprint.route('/myclass.json')

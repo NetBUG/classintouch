@@ -14,10 +14,10 @@ import CoreData
 
 extension User {
 
-    @NSManaged var name: String?
     @NSManaged var id: NSNumber?
-    @NSManaged var classes: NSSet?
-    @NSManaged var posts: NSSet?
-    @NSManaged var replies: NSSet?
+    @NSManaged var name: String?
+    @NSManaged var classes: NSOrderedSet?
+    @NSManaged var posts: NSOrderedSet?
+    @NSManaged var replies: NSOrderedSet?
 
 }
