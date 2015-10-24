@@ -4,8 +4,8 @@
   "description": "ClassInTouch backend", 
   "title": "ClassInTouch backend documentation", 
   "url" : "http://classintouch.club", 
-  "sampleUrl": "http://127.0.0.1:5100",
-  "sampleUrl2": "http://classintouch.club",
+  "sampleUrl1": "http://127.0.0.1:5100",
+  "sampleUrl": "http://classintouch.club",
   "template": { 
   	"withCompare": true, 
   	"withGenerator": true 
