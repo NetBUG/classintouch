@@ -27,15 +27,15 @@ accuracy_time = 3600 # an hour in both directions
 @blueprint.route('/classnearby.json')
 @cross_origin()
 def class_nearby():
-	iLat = request.form.get('lat')
-	iLon = request.form.get('lon')
+	iLat = float(request.args.get('lat'))
+	iLon = float(request.args.get('lon'))
  	iTime = datetime.utcnow()
-	dayTime = iTime - datetime.combine(iTime.date(), time(0))
+	dayTime = (iTime - datetime.combine(iTime.date(), time(0))).total_seconds()
 	dayOfWeek = datetime.today().weekday()
 	# Querying classes within range
-	cList = Classes.query.filter_by(Classes.lat > iLat - accuracy_geo, Classes.lat < iLat + accuracy_geo,\
-		Classes.lon > iLon - accuracy_geo, Classes.lon < iLon + accuracy_geo, 
-		Classes.time > iTime - accuracy_time, Classes.time < iTime + accuracy_time, Classes.day == dayOfWeek)
+	cList = Classes.query.filter(Classes.lat > iLat - accuracy_geo, Classes.lat < iLat + accuracy_geo,\
+		Classes.lon > iLon - accuracy_geo, Classes.lon < iLon + accuracy_geo, \
+		Classes.time > dayTime - accuracy_time, Classes.time < dayTime + accuracy_time, Classes.day == dayOfWeek)
 	for chunk in cList:
 		out += {"name": chunk.name, "id": chunk.id, "uni": "", "dist": vincenty((chunk.lat, chunk.lon), (iLat, iLon)).miles}
  	return json.dumps(out)
@@ -53,7 +53,7 @@ def class_nearby():
 """
 @blueprint.route('/joinclass.json')
 @cross_origin()
-def class_join():
+def class_join(form):
 	classid = request.form.get('class')
 	gs = GameSessionsWordOrder(user_id=user_id, src_id=sent_id, result=res, ev=calculated_score)
 	db.session.add(gs)
