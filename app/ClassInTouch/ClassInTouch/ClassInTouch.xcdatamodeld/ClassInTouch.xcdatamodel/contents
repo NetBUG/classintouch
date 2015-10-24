@@ -6,7 +6,7 @@
         <attribute name="latitude" attributeType="Float" syncable="YES"/>
         <attribute name="longitude" attributeType="Float" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Post" inverseName="whichClass" inverseEntity="Post" syncable="YES"/>
+        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Post" inverseName="whichClass" inverseEntity="Post" syncable="YES"/>
         <relationship name="whichUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="classes" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Post" representedClassName=".Question" syncable="YES">
@@ -15,7 +15,7 @@
         <attribute name="id" attributeType="Integer 32" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="poster" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="posts" inverseEntity="User" syncable="YES"/>
-        <relationship name="replies" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Reply" inverseName="whichQuestion" inverseEntity="Reply" syncable="YES"/>
+        <relationship name="replies" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Reply" inverseName="whichQuestion" inverseEntity="Reply" syncable="YES"/>
         <relationship name="whichClass" maxCount="1" deletionRule="Nullify" destinationEntity="Class" inverseName="questions" inverseEntity="Class" syncable="YES"/>
     </entity>
     <entity name="Reply" representedClassName=".Reply" syncable="YES">
@@ -28,14 +28,14 @@
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="id" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="classes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Class" inverseName="whichUser" inverseEntity="Class" syncable="YES"/>
-        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Post" inverseName="poster" inverseEntity="Post" syncable="YES"/>
-        <relationship name="replies" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Reply" inverseName="poster" inverseEntity="Reply" syncable="YES"/>
+        <relationship name="classes" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Class" inverseName="whichUser" inverseEntity="Class" syncable="YES"/>
+        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Post" inverseName="poster" inverseEntity="Post" syncable="YES"/>
+        <relationship name="replies" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Reply" inverseName="poster" inverseEntity="Reply" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Class" positionX="288" positionY="-117" width="128" height="148"/>
+        <element name="Class" positionX="288" positionY="-117" width="128" height="150"/>
         <element name="Post" positionX="486" positionY="-115" width="128" height="150"/>
         <element name="Reply" positionX="693" positionY="-148" width="128" height="120"/>
-        <element name="User" positionX="826" positionY="432" width="128" height="118"/>
+        <element name="User" positionX="826" positionY="432" width="128" height="120"/>
     </elements>
 </model>
