@@ -81,7 +81,7 @@ def class_create():
 @apiParam {Integer} class Input the class id of the user 
 @apiParam {Integer} uid Input the id of the user 
 
-@apiSuccess {Boolean} Output if joining is successful
+@apiSuccess {Boolean} status Output if joining is successful
 
 """
 @blueprint.route('/joinclass.json', methods=['POST'])
@@ -102,7 +102,7 @@ def class_join():
 
 @apiParam {Integer} uid Input the id of the user
 
-@apiSuccess {String} class Outputs a list of classes that the user is a part of.
+@apiSuccess {String} classlist Outputs a list of classes that the user is a part of.
 
 """
 @blueprint.route('/myclass.json')

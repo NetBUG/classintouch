@@ -20,3 +20,9 @@ extension NSManagedObjectContext {
         return try executeFetchRequest(NSFetchRequest(entityName: type))
     }
 }
+
+extension PGNetworkMapping {
+    static var classMapping: PGNetworkMapping {
+        return PGNetworkMapping(description:[["Class": "Class"], ["id": "id"]], mapping: ["name": "name", "lon": "longitude", "lat": "latitude"])
+    }
+}
