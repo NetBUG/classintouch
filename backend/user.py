@@ -1,5 +1,5 @@
 #coding=utf-8
-from flask import Blueprint, url_for, render_template, render_template_string, redirect, request, current_app, send_from_directory
+from flask import Blueprint, url_for, render_template, render_template_string, redirect, request, current_app, send_from_directory, make_response
 from flask_cors import cross_origin
 
 blueprint = Blueprint('user', __name__)
@@ -190,7 +190,7 @@ def finish_login():
 
 # change cookie and logout user from our system
 @blueprint.route('/logout')
-def logout():
+def log_out():
     resp = make_response(redirect("http://api.skuuper.com/users/sign_out?redirect_url=http://gw.skuuper.com/"))
     resp.set_cookie("token", generate_token())
     return resp

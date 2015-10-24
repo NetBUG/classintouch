@@ -2,7 +2,7 @@
 from flask import Blueprint, url_for, render_template, render_template_string, redirect, request, current_app, send_from_directory
 from flask_cors import cross_origin
 
-blueprint = Blueprint('classes', __name__)
+blueprint = Blueprint('discussion', __name__)
 
 """
 @api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game

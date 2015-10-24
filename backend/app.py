@@ -15,8 +15,8 @@ import pytz
 #import requests
 
 from classes import blueprint as classes_blueprint
+from discussion import blueprint as discussion_blueprint
 from user import blueprint as user_blueprint
-#from profile import check_id, get_timezone
 from models import *
 
 # Use a Class-based config to avoid needing a 2nd file
@@ -55,9 +55,9 @@ def create_app():
         DEBUG=True,
         FILES_ROOT='.',
     )
-    #app.register_blueprint(discussion_blueprint)
-    #app.register_blueprint(class_blueprint)
-    #app.register_blueprint(user_blueprint)
+    app.register_blueprint(discussion_blueprint)
+    app.register_blueprint(classes_blueprint)
+    app.register_blueprint(user_blueprint)
 
     db.app = app
     db.init_app(app)
