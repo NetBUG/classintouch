@@ -55,7 +55,7 @@ def class_nearby():
 
 @apiParam {Integer} lon Location - longitude of the user
 @apiParam {Integer} lat Location - longitude of the user
-@apiParam {String} name Input the class id of the user 
+@apiParam {String} name New class name (e.g. Physics 101)
 
 @apiSuccess {String} JSON with class id and name
 
