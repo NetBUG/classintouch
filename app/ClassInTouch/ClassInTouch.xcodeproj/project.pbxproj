@@ -18,20 +18,21 @@
 		D0B314BC1BDB2FD100954116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0B314BA1BDB2FD100954116 /* LaunchScreen.storyboard */; };
 		D0B314C71BDB2FD100954116 /* ClassInTouchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314C61BDB2FD100954116 /* ClassInTouchTests.swift */; };
 		D0B314D21BDB2FD100954116 /* ClassInTouchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314D11BDB2FD100954116 /* ClassInTouchUITests.swift */; };
-		D0B314E21BDB3F7C00954116 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E11BDB3F7C00954116 /* NearbyViewController.swift */; };
-		D0B314E41BDB3F8700954116 /* ClassListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E31BDB3F8700954116 /* ClassListViewController.swift */; };
-		D0B314E61BDB44CC00954116 /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E51BDB44CC00954116 /* ClassViewController.swift */; };
-		D0B314EA1BDB44EE00954116 /* AskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E91BDB44EE00954116 /* AskViewController.swift */; };
-		D0B314EC1BDB44FC00954116 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314EB1BDB44FC00954116 /* CreateViewController.swift */; };
-		D0B314EE1BDB450C00954116 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314ED1BDB450C00954116 /* QuestionViewController.swift */; };
-		D0B3150B1BDB530E00954116 /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315031BDB530E00954116 /* Question+CoreDataProperties.swift */; };
-		D0B3150C1BDB530E00954116 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315041BDB530E00954116 /* Question.swift */; };
-		D0B3150D1BDB530E00954116 /* Class+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315051BDB530E00954116 /* Class+CoreDataProperties.swift */; };
-		D0B3150E1BDB530E00954116 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315061BDB530E00954116 /* Class.swift */; };
-		D0B3150F1BDB530E00954116 /* Reply+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315071BDB530E00954116 /* Reply+CoreDataProperties.swift */; };
-		D0B315101BDB530E00954116 /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315081BDB530E00954116 /* Reply.swift */; };
-		D0B315111BDB530E00954116 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */; };
-		D0B315121BDB530E00954116 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B3150A1BDB530E00954116 /* User.swift */; };
+		D0B314E21BDB3F7C00954116 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E11BDB3F7C00954116 /* NearbyViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B314E41BDB3F8700954116 /* ClassListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E31BDB3F8700954116 /* ClassListViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B314E61BDB44CC00954116 /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E51BDB44CC00954116 /* ClassViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B314EA1BDB44EE00954116 /* AskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E91BDB44EE00954116 /* AskViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B314EC1BDB44FC00954116 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314EB1BDB44FC00954116 /* CreateViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B314EE1BDB450C00954116 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314ED1BDB450C00954116 /* QuestionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B3150B1BDB530E00954116 /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315031BDB530E00954116 /* Question+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B3150C1BDB530E00954116 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315041BDB530E00954116 /* Question.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B3150D1BDB530E00954116 /* Class+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315051BDB530E00954116 /* Class+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B3150E1BDB530E00954116 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315061BDB530E00954116 /* Class.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B3150F1BDB530E00954116 /* Reply+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315071BDB530E00954116 /* Reply+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B315101BDB530E00954116 /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315081BDB530E00954116 /* Reply.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B315111BDB530E00954116 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B315121BDB530E00954116 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B3150A1BDB530E00954116 /* User.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B315141BDB625200954116 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315131BDB625200954116 /* DataHandler.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		D0B315081BDB530E00954116 /* Reply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reply.swift; sourceTree = "<group>"; };
 		D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D0B3150A1BDB530E00954116 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D0B315131BDB625200954116 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,8 @@
 				D0B315081BDB530E00954116 /* Reply.swift */,
 				D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */,
 				D0B3150A1BDB530E00954116 /* User.swift */,
+				D0B315131BDB625200954116 /* DataHandler.swift */,
+				D0B314B51BDB2FD100954116 /* ClassInTouch.xcdatamodeld */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -353,6 +357,7 @@
 				D0B315121BDB530E00954116 /* User.swift in Sources */,
 				D0B314EC1BDB44FC00954116 /* CreateViewController.swift in Sources */,
 				D0B3150D1BDB530E00954116 /* Class+CoreDataProperties.swift in Sources */,
+				D0B315141BDB625200954116 /* DataHandler.swift in Sources */,
 				D0B315101BDB530E00954116 /* Reply.swift in Sources */,
 				D0B314E41BDB3F8700954116 /* ClassListViewController.swift in Sources */,
 				D0B315111BDB530E00954116 /* User+CoreDataProperties.swift in Sources */,
