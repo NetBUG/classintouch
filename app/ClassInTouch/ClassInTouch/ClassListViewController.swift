@@ -15,6 +15,17 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (FBSDKAccessToken.currentAccessToken() != nil)
+        {
+            let storyboard = UIStoryboard(name:"Main", bundle: nil)
+            let loginView = storyboard.instantiateViewControllerWithIdentifier("LoginView") as! EntryViewController
+            // EntryViewController()
+            //self.performSegueWithIdentifier("Login", sender: self)
+            self.viewWillDisappear(true)
+            loginView.viewWillAppear(true)
+            self.tabBarController?.presentViewController(loginView, animated: false, completion: { self.viewDidDisappear(true); loginView.viewDidAppear(true)})
+        }
 
         let networkHandler = PGNetworkHandler(baseURL: NSURL(string: "http://gw.skuuper.com"))
 

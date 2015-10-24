@@ -27,7 +27,7 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
-            // User is already logged in, do work such as go to next view controller.
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
         else
         {
@@ -69,6 +69,8 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
     {
         networkHandler.GET("register.json", parameters: ["access_token": FBSDKAccessToken.currentAccessToken()], to: self.context, mapping: PGNetworkMapping.userMapping, success: { (result: [AnyObject]!) -> Void in // Success block (async, will execute if the everything is correct)
             self.printUserData()
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
             }, failure: { (error: NSError!) -> Void in // failure block (async, will execute if the request -> failed, JSON -> failed, or Core Data -> failed)
                 print(error)
             }) { () -> Void in // finish block (async, will execute no matter the GET operation is succeed or not, always after success or failure block)

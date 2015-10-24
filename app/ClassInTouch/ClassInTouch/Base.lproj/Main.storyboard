@@ -75,7 +75,7 @@
         <!--Class in Touch-->
         <scene sceneID="GwH-lU-BS0">
             <objects>
-                <viewController id="X5e-iy-2se" customClass="ClassListViewController" customModule="ClassInTouch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoggedInMainPage" id="X5e-iy-2se" customClass="ClassListViewController" customModule="ClassInTouch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ld0-Sv-Zu7"/>
                         <viewControllerLayoutGuide type="bottom" id="fom-3S-mBf"/>
@@ -130,11 +130,12 @@
                     <connections>
                         <outlet property="tableView" destination="xfS-we-Wjh" id="BWY-0M-9HJ"/>
                         <segue destination="oY5-fh-apb" kind="show" identifier="ClassSegue" id="Odz-Cg-smm"/>
+                        <segue destination="RQk-gR-kxp" kind="presentation" identifier="Login" id="AaG-yw-jB2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRt-8W-hKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2081" y="-498"/>
+            <point key="canvasLocation" x="2081" y="-492"/>
         </scene>
         <!--ECS 101-->
         <scene sceneID="WeE-f1-8qn">
@@ -287,10 +288,29 @@
             </objects>
             <point key="canvasLocation" x="3580" y="-498"/>
         </scene>
+        <!--Login-->
+        <scene sceneID="0Ob-Lg-0sj">
+            <objects>
+                <viewController storyboardIdentifier="LoginView" title="Login" id="RQk-gR-kxp" customClass="EntryViewController" customModule="ClassInTouch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9iI-UX-gR4"/>
+                        <viewControllerLayoutGuide type="bottom" id="WNn-jv-ZkK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uY5-Ge-a2Q">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wOS-ct-WsA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2173" y="-1227"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="w5s-tG-Ajn">
             <objects>
-                <tabBarController id="WMc-pZ-bmc" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="LoggedInTab" id="WMc-pZ-bmc" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="CHv-7Y-8o4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
