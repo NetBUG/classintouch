@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData;
 
 class ClassListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -33,6 +34,11 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("ClassSegue", sender: self)
     }
+
+    lazy var context: NSManagedObjectContext = {
+        let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        return delegate.managedObjectContext
+    }()
 
     /*
     // MARK: - Navigation

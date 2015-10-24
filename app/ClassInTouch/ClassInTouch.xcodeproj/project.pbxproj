@@ -31,6 +31,7 @@
 		D0B315101BDB530E00954116 /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315081BDB530E00954116 /* Reply.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B315111BDB530E00954116 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B315121BDB530E00954116 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B3150A1BDB530E00954116 /* User.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B315141BDB625200954116 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315131BDB625200954116 /* DataHandler.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		D0B315081BDB530E00954116 /* Reply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reply.swift; sourceTree = "<group>"; };
 		D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D0B3150A1BDB530E00954116 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D0B315131BDB625200954116 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 				D0B315081BDB530E00954116 /* Reply.swift */,
 				D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */,
 				D0B3150A1BDB530E00954116 /* User.swift */,
+				D0B315131BDB625200954116 /* DataHandler.swift */,
 				D0B314B51BDB2FD100954116 /* ClassInTouch.xcdatamodeld */,
 			);
 			name = Data;
@@ -357,6 +360,7 @@
 				D0B315121BDB530E00954116 /* User.swift in Sources */,
 				D0B314EC1BDB44FC00954116 /* CreateViewController.swift in Sources */,
 				D0B3150D1BDB530E00954116 /* Class+CoreDataProperties.swift in Sources */,
+				D0B315141BDB625200954116 /* DataHandler.swift in Sources */,
 				D0B315101BDB530E00954116 /* Reply.swift in Sources */,
 				D0B314E41BDB3F8700954116 /* ClassListViewController.swift in Sources */,
 				D0B315111BDB530E00954116 /* User+CoreDataProperties.swift in Sources */,
