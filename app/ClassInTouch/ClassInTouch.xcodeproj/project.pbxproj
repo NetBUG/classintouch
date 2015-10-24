@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D0B314AF1BDB2FD100954116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314AE1BDB2FD100954116 /* AppDelegate.swift */; };
+		D0B314B11BDB2FD100954116 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314B01BDB2FD100954116 /* ViewController.swift */; };
+		D0B314B41BDB2FD100954116 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0B314B21BDB2FD100954116 /* Main.storyboard */; };
+		D0B314B71BDB2FD100954116 /* ClassInTouch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0B314B51BDB2FD100954116 /* ClassInTouch.xcdatamodeld */; };
+		D0B314B91BDB2FD100954116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0B314B81BDB2FD100954116 /* Assets.xcassets */; };
+		D0B314BC1BDB2FD100954116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0B314BA1BDB2FD100954116 /* LaunchScreen.storyboard */; };
+		D0B314C71BDB2FD100954116 /* ClassInTouchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314C61BDB2FD100954116 /* ClassInTouchTests.swift */; };
+		D0B314D21BDB2FD100954116 /* ClassInTouchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314D11BDB2FD100954116 /* ClassInTouchUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D0B314C31BDB2FD100954116 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0B314A31BDB2FD100954116 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0B314AA1BDB2FD100954116;
+			remoteInfo = ClassInTouch;
+		};
+		D0B314CE1BDB2FD100954116 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0B314A31BDB2FD100954116 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0B314AA1BDB2FD100954116;
+			remoteInfo = ClassInTouch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D0B314AB1BDB2FD100954116 /* ClassInTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassInTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0B314AE1BDB2FD100954116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D0B314B01BDB2FD100954116 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D0B314B31BDB2FD100954116 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D0B314B61BDB2FD100954116 /* ClassInTouch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClassInTouch.xcdatamodel; sourceTree = "<group>"; };
+		D0B314B81BDB2FD100954116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0B314BB1BDB2FD100954116 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D0B314BD1BDB2FD100954116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0B314C21BDB2FD100954116 /* ClassInTouchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassInTouchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0B314C61BDB2FD100954116 /* ClassInTouchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInTouchTests.swift; sourceTree = "<group>"; };
+		D0B314C81BDB2FD100954116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0B314CD1BDB2FD100954116 /* ClassInTouchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassInTouchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0B314D11BDB2FD100954116 /* ClassInTouchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInTouchUITests.swift; sourceTree = "<group>"; };
+		D0B314D31BDB2FD100954116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D0B314A81BDB2FD100954116 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0B314BF1BDB2FD100954116 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0B314CA1BDB2FD100954116 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D0B314A21BDB2FD100954116 = {
+			isa = PBXGroup;
+			children = (
+				D0B314AD1BDB2FD100954116 /* ClassInTouch */,
+				D0B314C51BDB2FD100954116 /* ClassInTouchTests */,
+				D0B314D01BDB2FD100954116 /* ClassInTouchUITests */,
+				D0B314AC1BDB2FD100954116 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D0B314AC1BDB2FD100954116 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0B314AB1BDB2FD100954116 /* ClassInTouch.app */,
+				D0B314C21BDB2FD100954116 /* ClassInTouchTests.xctest */,
+				D0B314CD1BDB2FD100954116 /* ClassInTouchUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D0B314AD1BDB2FD100954116 /* ClassInTouch */ = {
+			isa = PBXGroup;
+			children = (
+				D0B314AE1BDB2FD100954116 /* AppDelegate.swift */,
+				D0B314B01BDB2FD100954116 /* ViewController.swift */,
+				D0B314B21BDB2FD100954116 /* Main.storyboard */,
+				D0B314B81BDB2FD100954116 /* Assets.xcassets */,
+				D0B314BA1BDB2FD100954116 /* LaunchScreen.storyboard */,
+				D0B314BD1BDB2FD100954116 /* Info.plist */,
+				D0B314B51BDB2FD100954116 /* ClassInTouch.xcdatamodeld */,
+			);
+			path = ClassInTouch;
+			sourceTree = "<group>";
+		};
+		D0B314C51BDB2FD100954116 /* ClassInTouchTests */ = {
+			isa = PBXGroup;
+			children = (
+				D0B314C61BDB2FD100954116 /* ClassInTouchTests.swift */,
+				D0B314C81BDB2FD100954116 /* Info.plist */,
+			);
+			path = ClassInTouchTests;
+			sourceTree = "<group>";
+		};
+		D0B314D01BDB2FD100954116 /* ClassInTouchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D0B314D11BDB2FD100954116 /* ClassInTouchUITests.swift */,
+				D0B314D31BDB2FD100954116 /* Info.plist */,
+			);
+			path = ClassInTouchUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0B314AA1BDB2FD100954116 /* ClassInTouch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0B314D61BDB2FD100954116 /* Build configuration list for PBXNativeTarget "ClassInTouch" */;
+			buildPhases = (
+				D0B314A71BDB2FD100954116 /* Sources */,
+				D0B314A81BDB2FD100954116 /* Frameworks */,
+				D0B314A91BDB2FD100954116 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClassInTouch;
+			productName = ClassInTouch;
+			productReference = D0B314AB1BDB2FD100954116 /* ClassInTouch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D0B314C11BDB2FD100954116 /* ClassInTouchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0B314D91BDB2FD100954116 /* Build configuration list for PBXNativeTarget "ClassInTouchTests" */;
+			buildPhases = (
+				D0B314BE1BDB2FD100954116 /* Sources */,
+				D0B314BF1BDB2FD100954116 /* Frameworks */,
+				D0B314C01BDB2FD100954116 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0B314C41BDB2FD100954116 /* PBXTargetDependency */,
+			);
+			name = ClassInTouchTests;
+			productName = ClassInTouchTests;
+			productReference = D0B314C21BDB2FD100954116 /* ClassInTouchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D0B314CC1BDB2FD100954116 /* ClassInTouchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0B314DC1BDB2FD100954116 /* Build configuration list for PBXNativeTarget "ClassInTouchUITests" */;
+			buildPhases = (
+				D0B314C91BDB2FD100954116 /* Sources */,
+				D0B314CA1BDB2FD100954116 /* Frameworks */,
+				D0B314CB1BDB2FD100954116 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0B314CF1BDB2FD100954116 /* PBXTargetDependency */,
+			);
+			name = ClassInTouchUITests;
+			productName = ClassInTouchUITests;
+			productReference = D0B314CD1BDB2FD100954116 /* ClassInTouchUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D0B314A31BDB2FD100954116 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = ClassInTouch;
+				TargetAttributes = {
+					D0B314AA1BDB2FD100954116 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					D0B314C11BDB2FD100954116 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = D0B314AA1BDB2FD100954116;
+					};
+					D0B314CC1BDB2FD100954116 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = D0B314AA1BDB2FD100954116;
+					};
+				};
+			};
+			buildConfigurationList = D0B314A61BDB2FD100954116 /* Build configuration list for PBXProject "ClassInTouch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D0B314A21BDB2FD100954116;
+			productRefGroup = D0B314AC1BDB2FD100954116 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D0B314AA1BDB2FD100954116 /* ClassInTouch */,
+				D0B314C11BDB2FD100954116 /* ClassInTouchTests */,
+				D0B314CC1BDB2FD100954116 /* ClassInTouchUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D0B314A91BDB2FD100954116 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0B314BC1BDB2FD100954116 /* LaunchScreen.storyboard in Resources */,
+				D0B314B91BDB2FD100954116 /* Assets.xcassets in Resources */,
+				D0B314B41BDB2FD100954116 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0B314C01BDB2FD100954116 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0B314CB1BDB2FD100954116 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0B314A71BDB2FD100954116 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0B314B11BDB2FD100954116 /* ViewController.swift in Sources */,
+				D0B314B71BDB2FD100954116 /* ClassInTouch.xcdatamodeld in Sources */,
+				D0B314AF1BDB2FD100954116 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0B314BE1BDB2FD100954116 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0B314C71BDB2FD100954116 /* ClassInTouchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0B314C91BDB2FD100954116 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0B314D21BDB2FD100954116 /* ClassInTouchUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D0B314C41BDB2FD100954116 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0B314AA1BDB2FD100954116 /* ClassInTouch */;
+			targetProxy = D0B314C31BDB2FD100954116 /* PBXContainerItemProxy */;
+		};
+		D0B314CF1BDB2FD100954116 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0B314AA1BDB2FD100954116 /* ClassInTouch */;
+			targetProxy = D0B314CE1BDB2FD100954116 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D0B314B21BDB2FD100954116 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0B314B31BDB2FD100954116 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D0B314BA1BDB2FD100954116 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0B314BB1BDB2FD100954116 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D0B314D41BDB2FD100954116 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D0B314D51BDB2FD100954116 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D0B314D71BDB2FD100954116 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ClassInTouch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.classintouch.ClassInTouch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D0B314D81BDB2FD100954116 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ClassInTouch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.classintouch.ClassInTouch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D0B314DA1BDB2FD100954116 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ClassInTouchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.classintouch.ClassInTouchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClassInTouch.app/ClassInTouch";
+			};
+			name = Debug;
+		};
+		D0B314DB1BDB2FD100954116 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ClassInTouchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.classintouch.ClassInTouchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClassInTouch.app/ClassInTouch";
+			};
+			name = Release;
+		};
+		D0B314DD1BDB2FD100954116 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ClassInTouchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.classintouch.ClassInTouchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ClassInTouch;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		D0B314DE1BDB2FD100954116 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ClassInTouchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.classintouch.ClassInTouchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ClassInTouch;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D0B314A61BDB2FD100954116 /* Build configuration list for PBXProject "ClassInTouch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0B314D41BDB2FD100954116 /* Debug */,
+				D0B314D51BDB2FD100954116 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0B314D61BDB2FD100954116 /* Build configuration list for PBXNativeTarget "ClassInTouch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0B314D71BDB2FD100954116 /* Debug */,
+				D0B314D81BDB2FD100954116 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D0B314D91BDB2FD100954116 /* Build configuration list for PBXNativeTarget "ClassInTouchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0B314DA1BDB2FD100954116 /* Debug */,
+				D0B314DB1BDB2FD100954116 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D0B314DC1BDB2FD100954116 /* Build configuration list for PBXNativeTarget "ClassInTouchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0B314DD1BDB2FD100954116 /* Debug */,
+				D0B314DE1BDB2FD100954116 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D0B314B51BDB2FD100954116 /* ClassInTouch.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D0B314B61BDB2FD100954116 /* ClassInTouch.xcdatamodel */,
+			);
+			currentVersion = D0B314B61BDB2FD100954116 /* ClassInTouch.xcdatamodel */;
+			path = ClassInTouch.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D0B314A31BDB2FD100954116 /* Project object */;
+}
