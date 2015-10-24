@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 extension NSManagedObjectContext {
-    func object(type: String, identifier: String, key: String) throws -> AnyObject? {
+    func object(type: String, identifier: AnyObject, key: String) throws -> AnyObject? {
         let request = NSFetchRequest(entityName: type)
         request.predicate = NSPredicate(format: "%K == %@", argumentArray: [key, identifier])
         return try executeFetchRequest(request).first

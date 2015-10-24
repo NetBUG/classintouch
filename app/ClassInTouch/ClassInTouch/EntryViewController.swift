@@ -9,8 +9,7 @@
 import UIKit
 
 class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
-    
-    
+
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         return delegate.managedObjectContext
@@ -69,6 +68,8 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
     {
         networkHandler.GET("register.json", parameters: ["access_token": FBSDKAccessToken.currentAccessToken()], to: self.context, mapping: PGNetworkMapping.userMapping, success: { (result: [AnyObject]!) -> Void in // Success block (async, will execute if the everything is correct)
             self.printUserData()
+            let user = result.first as! User
+            NSUserDefaults.standardUserDefaults().setObject(user.id!, forKey: "UserID")
             self.dismissViewControllerAnimated(false, completion: nil)
             
             }, failure: { (error: NSError!) -> Void in // failure block (async, will execute if the request -> failed, JSON -> failed, or Core Data -> failed)

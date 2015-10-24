@@ -21,7 +21,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
 
     lazy var classes: [Class] = {
         do {
-            return try self.context.objects("Class") as! [Class]
+            return try self.context.objects("User") as! [Class]
         } catch {
             return []
         }

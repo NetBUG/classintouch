@@ -20,22 +20,31 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
         return delegate.managedObjectContext
         }()
 
+    lazy var currentUser: User? = {
+        do {
+            guard let userID = NSUserDefaults.standardUserDefaults().objectForKey("UserID") as? NSNumber else {
+                return nil
+            }
+            return try self.context.object("User", identifier: userID, key: "id") as? User
+        } catch {
+            return nil
+        }
+    }()
+
+    
+
     // MARK: ViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     override func viewDidAppear(animated: Bool) {
-//        self.viewWillAppear(false)
         if (FBSDKAccessToken.currentAccessToken() == nil)
         {
             // EntryViewController()
-            //self.performSegueWithIdentifier("Login", sender: self)
             let loginView = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as! UINavigationController
-            //loginView.viewWillAppear(true)
             self.tabBarController?.presentViewController(loginView, animated: true, completion:nil)
         }
-        
     }
 
     // MARK: - UITableViewDataSource
