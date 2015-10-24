@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		835FE0A51BDB4FDA00DBF099 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835FE0A21BDB4FDA00DBF099 /* FBSDKCoreKit.framework */; };
-		835FE0A61BDB4FDA00DBF099 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835FE0A31BDB4FDA00DBF099 /* FBSDKLoginKit.framework */; };
-		835FE0A71BDB4FDA00DBF099 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835FE0A41BDB4FDA00DBF099 /* FBSDKMessengerShareKit.framework */; };
+		6C18DFE224BE5281620C4E1E /* libPods-ClassInTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D68DE368C625EC2313DAE976 /* libPods-ClassInTouch.a */; };
 		835FE0A91BDB659600DBF099 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FE0A81BDB659600DBF099 /* LoginViewController.swift */; };
 		D0B314AF1BDB2FD100954116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314AE1BDB2FD100954116 /* AppDelegate.swift */; };
 		D0B314B41BDB2FD100954116 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0B314B21BDB2FD100954116 /* Main.storyboard */; };
@@ -33,6 +31,11 @@
 		D0B315111BDB530E00954116 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B315121BDB530E00954116 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B3150A1BDB530E00954116 /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B315141BDB625200954116 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315131BDB625200954116 /* DataHandler.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B315251BDB71CD00954116 /* PGNetworkHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B315221BDB6EA800954116 /* PGNetworkHandler.m */; };
+		D0B315261BDB7C1100954116 /* PGNetworkMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B315181BDB6EA000954116 /* PGNetworkMapping.m */; };
+		D0B315271BDB7C2F00954116 /* NSManagedObjectContext+PGNetworkMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B315161BDB6EA000954116 /* NSManagedObjectContext+PGNetworkMapping.m */; };
+		D0B315281BDB7C2F00954116 /* NSObject+PGKeyValueCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B3151A1BDB6EA000954116 /* NSObject+PGKeyValueCoding.m */; };
+		D0B315291BDB7C2F00954116 /* NSObject+PGPropertyList.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B3151C1BDB6EA000954116 /* NSObject+PGPropertyList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32B81CB2B7E6FD4FA5B1D03A /* Pods-ClassInTouch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassInTouch.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassInTouch/Pods-ClassInTouch.release.xcconfig"; sourceTree = "<group>"; };
+		53121BCFF0198ACB7E803FE9 /* Pods-ClassInTouch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassInTouch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassInTouch/Pods-ClassInTouch.debug.xcconfig"; sourceTree = "<group>"; };
 		835FE0A11BDB438D00DBF099 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		835FE0A21BDB4FDA00DBF099 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../../../../../Downloads/FacebookSDKs-iOS-20151007/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
-		835FE0A31BDB4FDA00DBF099 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../../../../../Downloads/FacebookSDKs-iOS-20151007/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
-		835FE0A41BDB4FDA00DBF099 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = "../../../../../../../../Downloads/FacebookSDKs-iOS-20151007/FBSDKMessengerShareKit.framework"; sourceTree = "<group>"; };
 		835FE0A81BDB659600DBF099 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D0B314AB1BDB2FD100954116 /* ClassInTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassInTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B314AE1BDB2FD100954116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,17 @@
 		D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D0B3150A1BDB530E00954116 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D0B315131BDB625200954116 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		D0B315151BDB6EA000954116 /* NSManagedObjectContext+PGNetworkMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+PGNetworkMapping.h"; sourceTree = "<group>"; };
+		D0B315161BDB6EA000954116 /* NSManagedObjectContext+PGNetworkMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+PGNetworkMapping.m"; sourceTree = "<group>"; };
+		D0B315171BDB6EA000954116 /* PGNetworkMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGNetworkMapping.h; sourceTree = "<group>"; };
+		D0B315181BDB6EA000954116 /* PGNetworkMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGNetworkMapping.m; sourceTree = "<group>"; };
+		D0B315191BDB6EA000954116 /* NSObject+PGKeyValueCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PGKeyValueCoding.h"; sourceTree = "<group>"; };
+		D0B3151A1BDB6EA000954116 /* NSObject+PGKeyValueCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PGKeyValueCoding.m"; sourceTree = "<group>"; };
+		D0B3151B1BDB6EA000954116 /* NSObject+PGPropertyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PGPropertyList.h"; sourceTree = "<group>"; };
+		D0B3151C1BDB6EA000954116 /* NSObject+PGPropertyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PGPropertyList.m"; sourceTree = "<group>"; };
+		D0B315211BDB6EA800954116 /* PGNetworkHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGNetworkHandler.h; sourceTree = "<group>"; };
+		D0B315221BDB6EA800954116 /* PGNetworkHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGNetworkHandler.m; sourceTree = "<group>"; };
+		D68DE368C625EC2313DAE976 /* libPods-ClassInTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ClassInTouch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				835FE0A61BDB4FDA00DBF099 /* FBSDKLoginKit.framework in Frameworks */,
-				835FE0A71BDB4FDA00DBF099 /* FBSDKMessengerShareKit.framework in Frameworks */,
-				835FE0A51BDB4FDA00DBF099 /* FBSDKCoreKit.framework in Frameworks */,
+				6C18DFE224BE5281620C4E1E /* libPods-ClassInTouch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +127,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E5581CFFDCA4C794A61A429 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D68DE368C625EC2313DAE976 /* libPods-ClassInTouch.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A4802A2B1412D434655CE39 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53121BCFF0198ACB7E803FE9 /* Pods-ClassInTouch.debug.xcconfig */,
+				32B81CB2B7E6FD4FA5B1D03A /* Pods-ClassInTouch.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D0B314A21BDB2FD100954116 = {
 			isa = PBXGroup;
 			children = (
@@ -123,9 +151,8 @@
 				D0B314C51BDB2FD100954116 /* ClassInTouchTests */,
 				D0B314D01BDB2FD100954116 /* ClassInTouchUITests */,
 				D0B314AC1BDB2FD100954116 /* Products */,
-				835FE0A21BDB4FDA00DBF099 /* FBSDKCoreKit.framework */,
-				835FE0A31BDB4FDA00DBF099 /* FBSDKLoginKit.framework */,
-				835FE0A41BDB4FDA00DBF099 /* FBSDKMessengerShareKit.framework */,
+				5A4802A2B1412D434655CE39 /* Pods */,
+				2E5581CFFDCA4C794A61A429 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,15 +170,10 @@
 			isa = PBXGroup;
 			children = (
 				D0B314AE1BDB2FD100954116 /* AppDelegate.swift */,
-				835FE0A11BDB438D00DBF099 /* Bridging-Header.h */,
-				D0B314B21BDB2FD100954116 /* Main.storyboard */,
-				D0B314B81BDB2FD100954116 /* Assets.xcassets */,
-				D0B314BA1BDB2FD100954116 /* LaunchScreen.storyboard */,
-				D0B314BD1BDB2FD100954116 /* Info.plist */,
-				D0B314B51BDB2FD100954116 /* ClassInTouch.xcdatamodeld */,
 				D0B314F01BDB523D00954116 /* ViewController */,
 				D0B314EF1BDB523800954116 /* UI */,
 				D0B314F11BDB524300954116 /* Data */,
+				D0B315241BDB6EAD00954116 /* NetworkHandler */,
 				D0B314F21BDB524600954116 /* Support */,
 			);
 			path = ClassInTouch;
@@ -178,6 +200,9 @@
 		D0B314EF1BDB523800954116 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D0B314B21BDB2FD100954116 /* Main.storyboard */,
+				D0B314B81BDB2FD100954116 /* Assets.xcassets */,
+				D0B314BA1BDB2FD100954116 /* LaunchScreen.storyboard */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -216,8 +241,27 @@
 		D0B314F21BDB524600954116 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				835FE0A11BDB438D00DBF099 /* Bridging-Header.h */,
+				D0B314BD1BDB2FD100954116 /* Info.plist */,
 			);
 			name = Support;
+			sourceTree = "<group>";
+		};
+		D0B315241BDB6EAD00954116 /* NetworkHandler */ = {
+			isa = PBXGroup;
+			children = (
+				D0B315211BDB6EA800954116 /* PGNetworkHandler.h */,
+				D0B315221BDB6EA800954116 /* PGNetworkHandler.m */,
+				D0B315151BDB6EA000954116 /* NSManagedObjectContext+PGNetworkMapping.h */,
+				D0B315161BDB6EA000954116 /* NSManagedObjectContext+PGNetworkMapping.m */,
+				D0B315171BDB6EA000954116 /* PGNetworkMapping.h */,
+				D0B315181BDB6EA000954116 /* PGNetworkMapping.m */,
+				D0B315191BDB6EA000954116 /* NSObject+PGKeyValueCoding.h */,
+				D0B3151A1BDB6EA000954116 /* NSObject+PGKeyValueCoding.m */,
+				D0B3151B1BDB6EA000954116 /* NSObject+PGPropertyList.h */,
+				D0B3151C1BDB6EA000954116 /* NSObject+PGPropertyList.m */,
+			);
+			name = NetworkHandler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,9 +271,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0B314D61BDB2FD100954116 /* Build configuration list for PBXNativeTarget "ClassInTouch" */;
 			buildPhases = (
+				6BBCEA8E1CFBC08652FA9120 /* Check Pods Manifest.lock */,
 				D0B314A71BDB2FD100954116 /* Sources */,
 				D0B314A81BDB2FD100954116 /* Frameworks */,
 				D0B314A91BDB2FD100954116 /* Resources */,
+				47D3249C37C50D7C8A003FAB /* Embed Pods Frameworks */,
+				F654ABBF57FBB2C6EBED0261 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -345,11 +392,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		47D3249C37C50D7C8A003FAB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassInTouch/Pods-ClassInTouch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BBCEA8E1CFBC08652FA9120 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F654ABBF57FBB2C6EBED0261 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassInTouch/Pods-ClassInTouch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D0B314A71BDB2FD100954116 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0B315271BDB7C2F00954116 /* NSManagedObjectContext+PGNetworkMapping.m in Sources */,
+				D0B315281BDB7C2F00954116 /* NSObject+PGKeyValueCoding.m in Sources */,
+				D0B315291BDB7C2F00954116 /* NSObject+PGPropertyList.m in Sources */,
+				D0B315261BDB7C1100954116 /* PGNetworkMapping.m in Sources */,
+				D0B315251BDB71CD00954116 /* PGNetworkHandler.m in Sources */,
 				D0B3150E1BDB530E00954116 /* Class.swift in Sources */,
 				D0B314B71BDB2FD100954116 /* ClassInTouch.xcdatamodeld in Sources */,
 				D0B314E61BDB44CC00954116 /* ClassViewController.swift in Sources */,
@@ -507,9 +607,9 @@
 		};
 		D0B314D71BDB2FD100954116 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53121BCFF0198ACB7E803FE9 /* Pods-ClassInTouch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "/Users/Chris/Downloads/FacebookSDKs-iOS-20151007/**";
 				INFOPLIST_FILE = ClassInTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classintouch.ClassInTouch;
@@ -520,9 +620,9 @@
 		};
 		D0B314D81BDB2FD100954116 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32B81CB2B7E6FD4FA5B1D03A /* Pods-ClassInTouch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "/Users/Chris/Downloads/FacebookSDKs-iOS-20151007/**";
 				INFOPLIST_FILE = ClassInTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classintouch.ClassInTouch;

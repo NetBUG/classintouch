@@ -129,15 +129,12 @@ def process_login(resp, data):
 
 
 """
-@api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
+@api {get} /register.json&access_token=XYZ Register into the game
 @apiName UserAPI
 @apiGroup ClassInTouch
 @apiVersion 0.1.1
 
-@apiParam {Language} [lang=en] Language in list: en,et,ru
-@apiParam {Integer} [level=1] Level
-@apiParam {String} [topic=""] Topic: empty by defautl
-@apiParam {Integer} [count=1] Count : used for offline
+@apiParam {String} access_token Input from facebook
 
 @apiSuccess {Integer} user_id Outputs user id for a newly registered user
 @apiSuccess {String} fb_name Outputs user name for this user on facebook
@@ -149,12 +146,12 @@ def user_register():
 	pass
 
 """
-@api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
+@api {get} /profile.json&token=XYZ&user_id=152 Get my profile
 @apiName UserAPI
 @apiGroup ClassInTouch
 @apiVersion 0.1.1
 
-@apiParam {String} [secret=smth] Secret used for authentication
+@apiParam {String} [token=smth] Secret used for authentication
 @apiParam {Integer} [id=1] User_id
 
 @apiSuccess {Integer} user_id Outputs user id for a newly registered user

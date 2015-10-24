@@ -15,6 +15,15 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let networkHandler = PGNetworkHandler(baseURL: NSURL(string: "http://gw.skuuper.com"))
+
+        networkHandler.GET("123", parameters: nil, success: { (result: AnyObject!) -> Void in
+                print(result)
+            }, failure: { (error: NSError!) -> Void in
+                print(error)
+            }) { () -> Void in
+        }
     }
 
     // MARK: - UITableViewDataSource

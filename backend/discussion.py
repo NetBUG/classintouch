@@ -5,7 +5,7 @@ from flask_cors import cross_origin
 blueprint = Blueprint('discussion', __name__)
 
 """
-@api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
+@api {get} /getdiscussion.json&class_id=152 Get discussion from a class
 @apiName Discussions
 @apiGroup ClassInTouch
 @apiVersion 0.1.1
@@ -21,7 +21,7 @@ def discussion_get():
 	pass
 
 """
-@api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
+@api {get} /getdiscussionpost&discussion_id=151 Get a list of posts from the discussion.
 @apiName Discussions
 @apiGroup ClassInTouch
 @apiVersion 0.1.1
@@ -37,7 +37,7 @@ def discussion_getpost():
 	pass
 
 """
-@api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
+@api {post} /posting.json&post_id=1212&Title=question&text=text Create a new post
 @apiName Discussions
 @apiGroup ClassInTouch
 @apiVersion 0.1.1
@@ -54,7 +54,7 @@ def discussion_createpost():
 	pass
 
 """
-@api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
+@api {get} /likepost.json&post_id=121 Like a post
 @apiName Discussions
 @apiGroup ClassInTouch
 @apiVersion 0.1.1
