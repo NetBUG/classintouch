@@ -65,7 +65,6 @@ def create_app():
 
     # Setup Flask-User
     db_adapter = SQLAlchemyAdapter(db, User)  # Register the User model
-#    wordstat_db_adapter = SQLAlchemyAdapter(db, GameStatsWordOrder)  # Register the Game Stats model
     user_manager = UserManager(db_adapter, app)  # Initialize Flask-User
     db.session.commit()
     return app

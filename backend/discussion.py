@@ -42,8 +42,9 @@ def discussion_getpost():
 @apiGroup ClassInTouch
 @apiVersion 0.1.1
 
-@apiParam {Integer} discussion_id Input class the user selected
 @apiParam {Integer} post_id Input the post id of the user's post
+@apiParam {String} title Post title by user (no more than 60 characters!)
+@apiParam {String} text Post content (no more than 500)
 
 @apiSuccess {Post} post_ob Outputs a post object. 
 """

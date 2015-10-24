@@ -1,6 +1,7 @@
 #coding=utf-8
 from flask import Blueprint, url_for, render_template, render_template_string, redirect, request, current_app, send_from_directory
 from flask_cors import cross_origin
+from datetime import datetime
 
 blueprint = Blueprint('classes', __name__)
 
@@ -10,8 +11,8 @@ blueprint = Blueprint('classes', __name__)
 @apiGroup ClassInTouch
 @apiVersion 0.1.1
 
-@apiParam {Integer, Interger} user_location Input the location of the user
-@apiParam {Integer} user_time Input the time of the user (probably not)
+@apiParam {Integer} lon Location - longitude of the user
+@apiParam {Integer} lat Location - longitude of the user
 
 @apiSuccess {String*} class_name Outputs a list of classes that is around this location at this time.
 
@@ -19,6 +20,9 @@ blueprint = Blueprint('classes', __name__)
 @blueprint.route('/classnearby.json')
 @cross_origin()
 def class_nearby():
+	time = datetime.utcnow()
+	# dayTime = 
+	# dayOfWeek = 
 	pass
 
 """

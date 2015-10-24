@@ -1,0 +1,11 @@
+*.pyc
+db.*
+db.sqlite3
+basic_app.sqlite3
+.idea
+specs
+venv
+nginx.conf
+log/*
+cronlog.txt
+parser_worklog.txt
