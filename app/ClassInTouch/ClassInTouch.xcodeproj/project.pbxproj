@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		835FE0A51BDB4FDA00DBF099 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835FE0A21BDB4FDA00DBF099 /* FBSDKCoreKit.framework */; };
+		835FE0A61BDB4FDA00DBF099 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835FE0A31BDB4FDA00DBF099 /* FBSDKLoginKit.framework */; };
+		835FE0A71BDB4FDA00DBF099 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835FE0A41BDB4FDA00DBF099 /* FBSDKMessengerShareKit.framework */; };
 		D0B314AF1BDB2FD100954116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314AE1BDB2FD100954116 /* AppDelegate.swift */; };
 		D0B314B41BDB2FD100954116 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0B314B21BDB2FD100954116 /* Main.storyboard */; };
 		D0B314B71BDB2FD100954116 /* ClassInTouch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0B314B51BDB2FD100954116 /* ClassInTouch.xcdatamodeld */; };
@@ -48,6 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		835FE0A11BDB438D00DBF099 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		835FE0A21BDB4FDA00DBF099 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../../../../../Downloads/FacebookSDKs-iOS-20151007/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		835FE0A31BDB4FDA00DBF099 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../../../../../Downloads/FacebookSDKs-iOS-20151007/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		835FE0A41BDB4FDA00DBF099 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = "../../../../../../../../Downloads/FacebookSDKs-iOS-20151007/FBSDKMessengerShareKit.framework"; sourceTree = "<group>"; };
 		D0B314AB1BDB2FD100954116 /* ClassInTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassInTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B314AE1BDB2FD100954116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0B314B31BDB2FD100954116 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +89,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835FE0A61BDB4FDA00DBF099 /* FBSDKLoginKit.framework in Frameworks */,
+				835FE0A71BDB4FDA00DBF099 /* FBSDKMessengerShareKit.framework in Frameworks */,
+				835FE0A51BDB4FDA00DBF099 /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +119,9 @@
 				D0B314C51BDB2FD100954116 /* ClassInTouchTests */,
 				D0B314D01BDB2FD100954116 /* ClassInTouchUITests */,
 				D0B314AC1BDB2FD100954116 /* Products */,
+				835FE0A21BDB4FDA00DBF099 /* FBSDKCoreKit.framework */,
+				835FE0A31BDB4FDA00DBF099 /* FBSDKLoginKit.framework */,
+				835FE0A41BDB4FDA00DBF099 /* FBSDKMessengerShareKit.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +138,14 @@
 		D0B314AD1BDB2FD100954116 /* ClassInTouch */ = {
 			isa = PBXGroup;
 			children = (
+				D0B314AE1BDB2FD100954116 /* AppDelegate.swift */,
+				835FE0A11BDB438D00DBF099 /* Bridging-Header.h */,
+				D0B314B01BDB2FD100954116 /* ViewController.swift */,
+				D0B314B21BDB2FD100954116 /* Main.storyboard */,
+				D0B314B81BDB2FD100954116 /* Assets.xcassets */,
+				D0B314BA1BDB2FD100954116 /* LaunchScreen.storyboard */,
+				D0B314BD1BDB2FD100954116 /* Info.plist */,
+				D0B314B51BDB2FD100954116 /* ClassInTouch.xcdatamodeld */,
 				D0B314F01BDB523D00954116 /* ViewController */,
 				D0B314EF1BDB523800954116 /* UI */,
 				D0B314F11BDB524300954116 /* Data */,
@@ -486,10 +507,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "/Users/Chris/Downloads/FacebookSDKs-iOS-20151007/**";
 				INFOPLIST_FILE = ClassInTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classintouch.ClassInTouch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ClassInTouch/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -497,10 +520,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "/Users/Chris/Downloads/FacebookSDKs-iOS-20151007/**";
 				INFOPLIST_FILE = ClassInTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classintouch.ClassInTouch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ClassInTouch/Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -571,6 +596,7 @@
 				D0B314D81BDB2FD100954116 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0B314D91BDB2FD100954116 /* Build configuration list for PBXNativeTarget "ClassInTouchTests" */ = {
 			isa = XCConfigurationList;
@@ -579,6 +605,7 @@
 				D0B314DB1BDB2FD100954116 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0B314DC1BDB2FD100954116 /* Build configuration list for PBXNativeTarget "ClassInTouchUITests" */ = {
 			isa = XCConfigurationList;
@@ -587,6 +614,7 @@
 				D0B314DE1BDB2FD100954116 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
