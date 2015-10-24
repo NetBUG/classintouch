@@ -69,6 +69,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             else
             {
+                User new_user = ;
                 print("fetched user: \(result)")
                 let userName : NSString = result.valueForKey("name") as! NSString
                 print("User Name is: \(userName)")
