@@ -114,10 +114,12 @@ def class_join():
 @blueprint.route('/myclass.json')
 @cross_origin()
 def class_mine():
-	user_id = request.form.get('uid')
-	#raw = Classes.query.filter_by(id=sent)[0]
+	user_id = request.args.get('uid')
+	raw = UserClasses.query.filter_by(user_id=user_id)
 	synth = []
-	#chks = Chunk.query.filter_by(lat=stats.id)
+	for cid in raw:
+		cls = Classes.query.filter_by(id=cid.class_id)
+		synth += {"id": cid.class_id, "name": cls.name}
 	resp = make_response(json.dumps(synth))
 	resp.mimetype="application/json"
 	return resp

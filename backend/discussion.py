@@ -1,11 +1,12 @@
 #coding=utf-8
-from flask import Blueprint, url_for, render_template, render_template_string, redirect, request, current_app, send_from_directory
+from flask import Blueprint, url_for, render_template, render_template_string, redirect, request, current_app, send_from_directory, make_response
 from flask_cors import cross_origin
+from models import *
 
 blueprint = Blueprint('discussion', __name__)
 
 """
-@api {get} /getdiscussion.json&class_id=152 Get discussion from a class
+@api {get} /getdiscussion.json?class_id=152 Get discussion from a class
 @apiName Discussions List
 @apiGroup Discussions
 @apiVersion 0.1.1
@@ -18,12 +19,18 @@ blueprint = Blueprint('discussion', __name__)
 @blueprint.route('/getdiscussion.json')
 @cross_origin()
 def discussion_get():
-	resp = make_response(json.dumps({"status": True}))
+	class_id = request.args.get('class_id')
+	raw = Post.query.filter(Post.class_id == class_id, Post.parent == None)
+	synth = []
+	for post in raw:
+		cls = Like.query.filter_by(post_id=post.id)
+		synth += {"id": post.id, "title": post.title, "text": post.text, "likes": cls.count}
+	resp = make_response(json.dumps(synth))
 	resp.mimetype="application/json"
 	return resp
 
 """
-@api {get} /getdiscussionpost&discussion_id=151 Get a list of posts from the discussion.
+@api {get} /getdiscussionpost.json?discussion_id=151 Get a list of posts from the discussion.
 @apiName Get Discussion Post
 @apiGroup Discussions
 @apiVersion 0.1.1
@@ -36,17 +43,24 @@ def discussion_get():
 @blueprint.route('/getdiscussionpost.json')
 @cross_origin()
 def discussion_getpost():
-	resp = make_response(json.dumps({"status": True}))
+	thread_id = request.args.get('discussion_id')
+	raw = Post.query.filter_by(parent=thread_id)
+	synth = []
+	for post in raw:
+		cls = Like.query.filter_by(post_id=thread_id)
+		synth += {"id": post.id, "title": post.title, "text": post.text, "likes": cls.count, "user": post.user_id}
+	resp = make_response(json.dumps(synth))
 	resp.mimetype="application/json"
 	return resp
 
 """
-@api {post} /posting.json&post_id=1212&Title=question&text=text Create a new post
+@api {post} /posting.json?uid=1&post_id=1212&title=question&text=text Create a new post
 @apiName Post Message
 @apiGroup Discussions
 @apiVersion 0.1.1
 
-@apiParam {Integer} post_id Input the post id of the user's post
+@apiParam {Integer} discussion_id Input the post id of the user's post to reply in the discussion
+@apiParam {Integer} class_id OR Class id to initiate new thread in class
 @apiParam {String} title Post title by user (no more than 60 characters!)
 @apiParam {String} text Post content (no more than 500)
 
@@ -55,23 +69,44 @@ def discussion_getpost():
 @blueprint.route('/posting.json', methods=['POST'])
 @cross_origin()
 def discussion_createpost():
-	resp = make_response(json.dumps({"status": True}))
+	title = request.args.get('title')
+	text = request.args.get('text')
+	user_id = int(request.args.get('uid'))
+	class_id = request.args.get('class_id')
+	thread_id = request.args.get('discussion_id')
+	post = Post(None, title, text, thread_id) if thread_id != None else Post(class_id, title, text)
+	post.user_id = user_id
+	db.session.add(post)
+	db.session.commit()
+	resp = make_response(json.dumps({"status": True, "user": user_id, "id": post.id, "title": post.title, "text": post.text, "likes": 0}))
 	resp.mimetype="application/json"
 	return resp
 
 """
-@api {post} /likepost.json&post_id=121 Like a post
+@api {post} /likepost.json?uid=1&post_id=121 Like a post
 @apiName Like a post
 @apiGroup Discussions
 @apiVersion 0.1.1
 
 @apiParam {Integer} post_id Input the post id of the user's post
+@apiParam {Integer} uid User id
 
-@apiSuccess {Post} post_ob Outputs a post object. 
+@apiSuccess {Post} json Outputs a post object. 
 """
 @blueprint.route('/likepost.json', methods=['POST'])
 @cross_origin()
 def discussion_likepost():
-	resp = make_response(json.dumps({"status": True}))
+	resp = make_response(json.dumps({"status": False, "message": "Parameters error!"}))
+	try:
+		post_id = int(request.args.get('post_id'))
+		user_id = int(request.args.get('uid'))
+		like = Like()
+		like.post_id = post_id
+		like.user_id = user_id
+		db.session.add(like)
+		db.session.commit()
+		resp = make_response(json.dumps({"status": True}))
+	except:
+		pass
 	resp.mimetype="application/json"
 	return resp

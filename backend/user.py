@@ -168,6 +168,7 @@ def user_profile():
 @blueprint.route('/finish_login')
 def finish_login():
     resp = make_response(redirect(url_for("main")))
+    resp.mimetype="application/json"
     code = request.args.get("code", None)
     if code:
         resp.set_cookie("code", code)

@@ -58,15 +58,18 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     class_id = db.Column(db.Integer, db.ForeignKey('classes.id'))
     parent = db.Column(db.Integer, db.ForeignKey('post.id'), nullable=True)
+    user_id = db.Column(db.String(60))
     title = db.Column(db.String(60))        # from day beginning, UTC, seconds 
     text = db.Column(db.String(500))
     ts = db.Column(db.DateTime)         # 0 for Sunday etc
 
-    def __init__(self, classid, title, text):
+    def __init__(self, classid, title, text, thread=None):
         self.classid = classid
         self.title = title
         self.text = text
         self.ts = datetime.utcnow()
+        if thread != None:
+            parent = thread
 
     def __repr__(self):
         return self.name
