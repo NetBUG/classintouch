@@ -22,22 +22,27 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
         return delegate.managedObjectContext
         }()
 
-    lazy var currentUser: User? = {
+    lazy var user: User? = {
         do {
-            guard let userID = NSUserDefaults.standardUserDefaults().objectForKey("UserID") as? NSNumber else {
-                return nil
-            }
-            return try self.context.object("User", identifier: userID, key: "id") as? User
+            return try self.context.object("User", identifier: 0, key: "id") as? User
         } catch {
             return nil
         }
+    }()
+
+    lazy var currentClasses: [Class] = {
+//        do {
+//            return try self.context.objects("Class") as? [Class]
+//        } catch {
+//            return []
+//        }
     }()
 
     // MARK: ViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (currentUser == nil) {
+        if (user == nil) {
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
                 self.performSegueWithIdentifier("LoginSegue", sender: self)
             }
@@ -54,12 +59,12 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ClassListCell", forIndexPath: indexPath)
-        cell.textLabel?.text = currentUser?.classes?[indexPath.row].name
+        cell.textLabel?.text = currentClasses?[indexPath.row].name
         return cell
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = currentUser?.classes?.count {
+        if let count = currentClasses?.count {
             return count
         } else {
             return 0

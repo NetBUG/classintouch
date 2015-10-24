@@ -25,54 +25,44 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginButton.readPermissions = ["public_profile", "email"]
+        loginButton.readPermissions = ["public_profile"]
         loginButton.delegate = self
+        FBSDKProfile.enableUpdatesOnAccessTokenChange(true)
     }
 
     // MARK: FBSDKLoginButtonDelegate
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        if error == nil && !result.isCancelled && result.grantedPermissions.contains("email") {
-            login()
+        if error == nil && !result.isCancelled {
+            let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+            graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                if error != nil {
+                    print("Error: \(error)")
+                } else {
+                    print("fetched user: \(result)")
+                    if let username : NSString = result.valueForKey("name") as? NSString {
+                        do {
+                            try self.context.save("User", with: ["name": username, "id": NSNumber(integer: 0)], mapping: PGNetworkMapping.userMapping)
+                            try self.context.save()
+                            self.dismissViewControllerAnimated(true, completion: nil)
+                        } catch {
+                            // TODO: Handle error in the future
+                        }
+                    }
+                }
+            })
         }
     }
-    
+
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        print("User logged out.")
-    }
-
-    func login() {
-        networkHandler.facebookLogin(FBSDKAccessToken.currentAccessToken().tokenString, context: context, success: { (result) -> Void in
-            if let user = result.first as? User {
-                if let id = user.id {
-                    NSUserDefaults.standardUserDefaults().setObject(id, forKey: "UserID")
-                }
+        do {
+            if let user = try context.object("User", identifier: 0, key: "id") as? User {
+                context.deleteObject(user)
             }
-
-            self.dismissViewControllerAnimated(true, completion: nil)
-
-            }, failure: nil, finish: {() -> Void in
-            self.printUserData()
-        })
+        } catch {
+            // TODO: Handle error in the future
+        }
     }
-    
-    func printUserData() {
-        let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
-        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-            if error != nil {
-                print("Error: \(error)")
-            } else {
-                print("fetched user: \(result)")
-                if let userName : NSString = result.valueForKey("name") as? NSString {
-                    print("User Name is: \(userName)")
-                }
-                if let userEmail : NSString = result.valueForKey("email") as? NSString {
-                    print("User Email is: \(userEmail)")
-                }
-            }
-        })
-    }
- 
 
 }
 
