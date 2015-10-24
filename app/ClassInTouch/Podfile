@@ -1,0 +1,10 @@
+platform :ios, '9.0'
+inhibit_all_warnings!
+
+target 'ClassInTouch' do
+
+pod 'AFNetworking'
+pod 'FBSDKCoreKit'
+pod 'FBSDKLoginKit'
+
+end
