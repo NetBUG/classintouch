@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C18DFE224BE5281620C4E1E /* libPods-ClassInTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D68DE368C625EC2313DAE976 /* libPods-ClassInTouch.a */; };
-		835FE0A91BDB659600DBF099 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FE0A81BDB659600DBF099 /* LoginViewController.swift */; };
+		6C18DFE224BE5281620C4E1E /* libPods-ClassInTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D68DE368C625EC2313DAE976 /* libPods-ClassInTouch.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		835FE0A91BDB659600DBF099 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FE0A81BDB659600DBF099 /* EntryViewController.swift */; };
 		D0B314AF1BDB2FD100954116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314AE1BDB2FD100954116 /* AppDelegate.swift */; };
 		D0B314B41BDB2FD100954116 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0B314B21BDB2FD100954116 /* Main.storyboard */; };
 		D0B314B71BDB2FD100954116 /* ClassInTouch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0B314B51BDB2FD100954116 /* ClassInTouch.xcdatamodeld */; };
@@ -16,21 +16,21 @@
 		D0B314BC1BDB2FD100954116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0B314BA1BDB2FD100954116 /* LaunchScreen.storyboard */; };
 		D0B314C71BDB2FD100954116 /* ClassInTouchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314C61BDB2FD100954116 /* ClassInTouchTests.swift */; };
 		D0B314D21BDB2FD100954116 /* ClassInTouchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314D11BDB2FD100954116 /* ClassInTouchUITests.swift */; };
-		D0B314E21BDB3F7C00954116 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E11BDB3F7C00954116 /* NearbyViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		D0B314E41BDB3F8700954116 /* ClassListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E31BDB3F8700954116 /* ClassListViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		D0B314E61BDB44CC00954116 /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E51BDB44CC00954116 /* ClassViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		D0B314EA1BDB44EE00954116 /* AskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E91BDB44EE00954116 /* AskViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		D0B314EC1BDB44FC00954116 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314EB1BDB44FC00954116 /* CreateViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		D0B314EE1BDB450C00954116 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314ED1BDB450C00954116 /* QuestionViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		D0B3150B1BDB530E00954116 /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315031BDB530E00954116 /* Question+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		D0B3150C1BDB530E00954116 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315041BDB530E00954116 /* Question.swift */; settings = {ASSET_TAGS = (); }; };
-		D0B3150D1BDB530E00954116 /* Class+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315051BDB530E00954116 /* Class+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		D0B3150E1BDB530E00954116 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315061BDB530E00954116 /* Class.swift */; settings = {ASSET_TAGS = (); }; };
-		D0B3150F1BDB530E00954116 /* Reply+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315071BDB530E00954116 /* Reply+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		D0B315101BDB530E00954116 /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315081BDB530E00954116 /* Reply.swift */; settings = {ASSET_TAGS = (); }; };
-		D0B315111BDB530E00954116 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		D0B315121BDB530E00954116 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B3150A1BDB530E00954116 /* User.swift */; settings = {ASSET_TAGS = (); }; };
-		D0B315141BDB625200954116 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315131BDB625200954116 /* DataHandler.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B314E21BDB3F7C00954116 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E11BDB3F7C00954116 /* NearbyViewController.swift */; };
+		D0B314E41BDB3F8700954116 /* ClassListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E31BDB3F8700954116 /* ClassListViewController.swift */; };
+		D0B314E61BDB44CC00954116 /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E51BDB44CC00954116 /* ClassViewController.swift */; };
+		D0B314EA1BDB44EE00954116 /* AskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314E91BDB44EE00954116 /* AskViewController.swift */; };
+		D0B314EC1BDB44FC00954116 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314EB1BDB44FC00954116 /* CreateViewController.swift */; };
+		D0B314EE1BDB450C00954116 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314ED1BDB450C00954116 /* QuestionViewController.swift */; };
+		D0B3150B1BDB530E00954116 /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315031BDB530E00954116 /* Question+CoreDataProperties.swift */; };
+		D0B3150C1BDB530E00954116 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315041BDB530E00954116 /* Question.swift */; };
+		D0B3150D1BDB530E00954116 /* Class+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315051BDB530E00954116 /* Class+CoreDataProperties.swift */; };
+		D0B3150E1BDB530E00954116 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315061BDB530E00954116 /* Class.swift */; };
+		D0B3150F1BDB530E00954116 /* Reply+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315071BDB530E00954116 /* Reply+CoreDataProperties.swift */; };
+		D0B315101BDB530E00954116 /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315081BDB530E00954116 /* Reply.swift */; };
+		D0B315111BDB530E00954116 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */; };
+		D0B315121BDB530E00954116 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B3150A1BDB530E00954116 /* User.swift */; };
+		D0B315141BDB625200954116 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315131BDB625200954116 /* DataHandler.swift */; };
 		D0B315251BDB71CD00954116 /* PGNetworkHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B315221BDB6EA800954116 /* PGNetworkHandler.m */; };
 		D0B315261BDB7C1100954116 /* PGNetworkMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B315181BDB6EA000954116 /* PGNetworkMapping.m */; };
 		D0B315271BDB7C2F00954116 /* NSManagedObjectContext+PGNetworkMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B315161BDB6EA000954116 /* NSManagedObjectContext+PGNetworkMapping.m */; };
@@ -59,7 +59,7 @@
 		32B81CB2B7E6FD4FA5B1D03A /* Pods-ClassInTouch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassInTouch.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassInTouch/Pods-ClassInTouch.release.xcconfig"; sourceTree = "<group>"; };
 		53121BCFF0198ACB7E803FE9 /* Pods-ClassInTouch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassInTouch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassInTouch/Pods-ClassInTouch.debug.xcconfig"; sourceTree = "<group>"; };
 		835FE0A11BDB438D00DBF099 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		835FE0A81BDB659600DBF099 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		835FE0A81BDB659600DBF099 /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		D0B314AB1BDB2FD100954116 /* ClassInTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassInTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B314AE1BDB2FD100954116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0B314B31BDB2FD100954116 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 		D0B314F01BDB523D00954116 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				835FE0A81BDB659600DBF099 /* LoginViewController.swift */,
+				835FE0A81BDB659600DBF099 /* EntryViewController.swift */,
 				D0B314E31BDB3F8700954116 /* ClassListViewController.swift */,
 				D0B314E51BDB44CC00954116 /* ClassViewController.swift */,
 				D0B314E91BDB44EE00954116 /* AskViewController.swift */,
@@ -334,6 +334,7 @@
 				TargetAttributes = {
 					D0B314AA1BDB2FD100954116 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = YW3NX7Z2SN;
 					};
 					D0B314C11BDB2FD100954116 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -464,7 +465,7 @@
 				D0B3150B1BDB530E00954116 /* Question+CoreDataProperties.swift in Sources */,
 				D0B3150C1BDB530E00954116 /* Question.swift in Sources */,
 				D0B314AF1BDB2FD100954116 /* AppDelegate.swift in Sources */,
-				835FE0A91BDB659600DBF099 /* LoginViewController.swift in Sources */,
+				835FE0A91BDB659600DBF099 /* EntryViewController.swift in Sources */,
 				D0B314E21BDB3F7C00954116 /* NearbyViewController.swift in Sources */,
 				D0B314EE1BDB450C00954116 /* QuestionViewController.swift in Sources */,
 				D0B314EA1BDB44EE00954116 /* AskViewController.swift in Sources */,
@@ -610,10 +611,14 @@
 			baseConfigurationReference = 53121BCFF0198ACB7E803FE9 /* Pods-ClassInTouch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ClassInTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "($inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classintouch.ClassInTouch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ClassInTouch/Bridging-Header.h";
 			};
 			name = Debug;
@@ -623,10 +628,14 @@
 			baseConfigurationReference = 32B81CB2B7E6FD4FA5B1D03A /* Pods-ClassInTouch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ClassInTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "($inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.classintouch.ClassInTouch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ClassInTouch/Bridging-Header.h";
 			};
 			name = Release;

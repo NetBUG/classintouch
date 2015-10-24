@@ -25,6 +25,9 @@ extension PGNetworkMapping {
     static var classMapping: PGNetworkMapping {
         return PGNetworkMapping(description:[["Class": "Class"], ["id": "id"]], mapping: ["name": "name", "lon": "longitude", "lat": "latitude"])
     }
+    static var userMapping: PGNetworkMapping {
+        return PGNetworkMapping(description: [["User": "User"], ["id": "id"]], mapping: ["name": "name"])
+    }
 }
 
 extension PGNetworkHandler {

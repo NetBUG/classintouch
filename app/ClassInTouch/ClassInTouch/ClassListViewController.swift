@@ -25,6 +25,18 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    override func viewDidAppear(animated: Bool) {
+//        self.viewWillAppear(false)
+        if (FBSDKAccessToken.currentAccessToken() == nil)
+        {
+            // EntryViewController()
+            //self.performSegueWithIdentifier("Login", sender: self)
+            let loginView = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as! UINavigationController
+            //loginView.viewWillAppear(true)
+            self.tabBarController?.presentViewController(loginView, animated: true, completion:nil)
+        }
+        
+    }
 
     // MARK: - UITableViewDataSource
 
