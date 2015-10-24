@@ -1,7 +1,13 @@
+#coding=utf-8
+from flask import Blueprint, url_for, render_template, render_template_string, redirect, request, current_app, send_from_directory
+from flask_cors import cross_origin
+
+blueprint = Blueprint('classes', __name__)
+
 """
 @api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
-@apiName GetSentence
-@apiGroup GameBackend
+@apiName Discussions
+@apiGroup ClassInTouch
 @apiVersion 0.1.1
 
 @apiParam {Integer} class_id Input class the user selected
@@ -16,8 +22,8 @@ def discussion_get():
 
 """
 @api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
-@apiName GetSentence
-@apiGroup GameBackend
+@apiName Discussions
+@apiGroup ClassInTouch
 @apiVersion 0.1.1
 
 @apiParam {Integer} discussion_id Input class the user selected
@@ -32,8 +38,8 @@ def discussion_getpost():
 
 """
 @api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
-@apiName GetSentence
-@apiGroup GameBackend
+@apiName Discussions
+@apiGroup ClassInTouch
 @apiVersion 0.1.1
 
 @apiParam {Integer} discussion_id Input class the user selected
@@ -48,8 +54,8 @@ def discussion_createpost():
 
 """
 @api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
-@apiName GetSentence
-@apiGroup GameBackend
+@apiName Discussions
+@apiGroup ClassInTouch
 @apiVersion 0.1.1
 
 @apiParam {Integer} post_id Input the post id of the user's post

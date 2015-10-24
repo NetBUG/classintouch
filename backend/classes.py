@@ -1,7 +1,13 @@
+#coding=utf-8
+from flask import Blueprint, url_for, render_template, render_template_string, redirect, request, current_app, send_from_directory
+from flask_cors import cross_origin
+
+blueprint = Blueprint('classes', __name__)
+
 """
 @api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
-@apiName GetSentence
-@apiGroup GameBackend
+@apiName Classes
+@apiGroup ClassInTouch
 @apiVersion 0.1.1
 
 @apiParam {Integer, Interger} user_location Input the location of the user
@@ -17,8 +23,8 @@ def class_nearby():
 
 """
 @api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
-@apiName GetSentence
-@apiGroup GameBackend
+@apiName Classes
+@apiGroup ClassInTouch
 @apiVersion 0.1.1
 
 @apiParam {Integer} class_id Input the time of the user (probably not)
@@ -33,8 +39,8 @@ def class_join():
 
 """
 @api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
-@apiName GetSentence
-@apiGroup GameBackend
+@apiName Classes
+@apiGroup ClassInTouch
 @apiVersion 0.1.1
 
 @apiParam {Integer} user_id Input the id of the user
