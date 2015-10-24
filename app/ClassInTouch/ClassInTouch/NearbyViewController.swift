@@ -28,7 +28,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
         }()
 
     lazy var networkHandler: PGNetworkHandler = {
-        return PGNetworkHandler(baseURL: NSURL(string: "http://dev.classintouch.me"))
+        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.me"))
         }()
 
     // MARK: ViewController
@@ -36,12 +36,8 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        networkHandler.GET("classnearby.json", parameters: ["lon": 100, "lat": 100], to: self.context, mapping: PGNetworkMapping.classMapping, success: { (result: [AnyObject]!) -> Void in // Success block (async, will execute if the everything is correct)
-                print(result)
-            }, failure: { (error: NSError!) -> Void in // failure block (async, will execute if the request -> failed, JSON -> failed, or Core Data -> failed)
-                print(error)
-            }) { () -> Void in // finish block (async, will execute no matter the GET operation is succeed or not, always after success or failure block)
-                self.tableView.reloadData()
+        networkHandler.nearbyCourse(100, latitude: 100, context: context, success: nil, failure: nil) { () -> Void in
+            self.tableView.reloadData()
         }
     }
 
