@@ -15,6 +15,7 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
 
     @IBOutlet weak var tableView: UITableView!
 
+    let debuggingFB = true;
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         return delegate.managedObjectContext
@@ -26,13 +27,9 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
     }
     override func viewDidAppear(animated: Bool) {
-//        self.viewWillAppear(false)
-        if (FBSDKAccessToken.currentAccessToken() == nil)
+        if (FBSDKAccessToken.currentAccessToken() == nil || debuggingFB)
         {
-            // EntryViewController()
-            //self.performSegueWithIdentifier("Login", sender: self)
             let loginView = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as! UINavigationController
-            //loginView.viewWillAppear(true)
             self.tabBarController?.presentViewController(loginView, animated: true, completion:nil)
         }
         

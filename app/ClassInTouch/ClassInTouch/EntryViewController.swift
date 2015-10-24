@@ -11,6 +11,7 @@ import UIKit
 class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     
+    let debuggingFB = true;
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         return delegate.managedObjectContext
@@ -25,7 +26,7 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        if (FBSDKAccessToken.currentAccessToken() != nil)
+        if (FBSDKAccessToken.currentAccessToken() != nil && !debuggingFB)
         {
             self.dismissViewControllerAnimated(false, completion: nil)
         }

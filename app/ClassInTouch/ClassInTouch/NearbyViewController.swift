@@ -14,6 +14,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
 
     @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var button1: UIButton!
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         return delegate.managedObjectContext
@@ -32,13 +33,17 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
         }()
 
     // MARK: ViewController
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        // case of normal image
+        let image1 = UIImage(named: "LonelyCircle.pdf")!
+        self.button1.setImage(image1, forState: UIControlState.Normal)
 
         networkHandler.nearbyCourse(100, latitude: 100, context: context, success: nil, failure: nil) { () -> Void in
             self.tableView.reloadData()
         }
+    }
+    @IBAction func Pressed(sender: UIButton) {
     }
 
     // MARK: - UITableViewDataSource
