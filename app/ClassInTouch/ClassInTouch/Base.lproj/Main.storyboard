@@ -130,7 +130,7 @@
                     <connections>
                         <outlet property="tableView" destination="xfS-we-Wjh" id="BWY-0M-9HJ"/>
                         <segue destination="oY5-fh-apb" kind="show" identifier="ClassSegue" id="Odz-Cg-smm"/>
-                        <segue destination="RQk-gR-kxp" kind="presentation" identifier="Login" id="AaG-yw-jB2"/>
+                        <segue destination="k1K-UG-7Cn" kind="presentation" identifier="Login" id="AaG-yw-jB2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRt-8W-hKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -266,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0p-pc-2gq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4392" y="-1216"/>
+            <point key="canvasLocation" x="5204" y="-1216"/>
         </scene>
         <!--Question-->
         <scene sceneID="mfz-sF-AVI">
@@ -291,7 +291,7 @@
         <!--Login-->
         <scene sceneID="0Ob-Lg-0sj">
             <objects>
-                <viewController storyboardIdentifier="LoginView" title="Login" id="RQk-gR-kxp" customClass="EntryViewController" customModule="ClassInTouch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" title="Login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RQk-gR-kxp" customClass="EntryViewController" customModule="ClassInTouch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9iI-UX-gR4"/>
                         <viewControllerLayoutGuide type="bottom" id="WNn-jv-ZkK"/>
@@ -302,10 +302,11 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="0S9-G0-uL0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wOS-ct-WsA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2173" y="-1227"/>
+            <point key="canvasLocation" x="2985" y="-1227"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="w5s-tG-Ajn">
@@ -383,7 +384,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYg-JT-bbs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3580" y="-1216"/>
+            <point key="canvasLocation" x="4392" y="-1216"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8rk-eB-6XL">
@@ -403,6 +404,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gl-ng-tbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2829" y="163"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1KR-pU-Rml">
+            <objects>
+                <navigationController storyboardIdentifier="LoginViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k1K-UG-7Cn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hf2-oB-l11">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RQk-gR-kxp" kind="relationship" relationship="rootViewController" id="QXi-Rb-UQO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ame-WT-YyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2173" y="-1227"/>
         </scene>
     </scenes>
 </document>
