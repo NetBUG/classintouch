@@ -10,7 +10,7 @@ accuracy_geo = 0.05	# degrees, TODO make a normal geo distance!
 accuracy_time = 3600 # an hour in both directions
 
 """
-@api {get} /classnearby.json?lat=59.123321&lon=30.12223&token=sdfjsdfhjashgfk Get sentence from the game
+@api {get} /classnearby.json&lon=100&lat=100&class_name=phy Get class nearby
 @apiName Classes
 @apiGroup ClassInTouch
 @apiVersion 0.1.1
@@ -32,14 +32,14 @@ def class_nearby():
 	return json.dumps(out)
 
 """
-@api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
+@api {post} /joinclass.json&class_id=152 Join the class
 @apiName Classes
 @apiGroup ClassInTouch
 @apiVersion 0.1.1
 
-@apiParam {Integer} class_id Input the time of the user (probably not)
+@apiParam {Integer} class_id Input the class id of the user 
 
-@apiSuccess {String} class Outputs a list of classes that is around this location at this time.
+@apiSuccess {Boolean} Output if joining is successful
 
 """
 @blueprint.route('/joinclass.json')
@@ -48,7 +48,7 @@ def class_join():
 	pass
 
 """
-@api {get} /sent.json?lang=:lang&topic=:topic&level=:level&count=:count Get sentence from the game
+@api {get} /myclass.json&user_id=123 Get my classes
 @apiName Classes
 @apiGroup ClassInTouch
 @apiVersion 0.1.1
