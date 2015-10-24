@@ -20,4 +20,3 @@ extension NSManagedObjectContext {
         return try executeFetchRequest(NSFetchRequest(entityName: type))
     }
 }
-

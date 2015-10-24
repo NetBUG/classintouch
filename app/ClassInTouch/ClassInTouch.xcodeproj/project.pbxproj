@@ -31,6 +31,11 @@
 		D0B315111BDB530E00954116 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B315121BDB530E00954116 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B3150A1BDB530E00954116 /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B315141BDB625200954116 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B315131BDB625200954116 /* DataHandler.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B315251BDB71CD00954116 /* PGNetworkHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B315221BDB6EA800954116 /* PGNetworkHandler.m */; };
+		D0B315261BDB7C1100954116 /* PGNetworkMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B315181BDB6EA000954116 /* PGNetworkMapping.m */; };
+		D0B315271BDB7C2F00954116 /* NSManagedObjectContext+PGNetworkMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B315161BDB6EA000954116 /* NSManagedObjectContext+PGNetworkMapping.m */; };
+		D0B315281BDB7C2F00954116 /* NSObject+PGKeyValueCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B3151A1BDB6EA000954116 /* NSObject+PGKeyValueCoding.m */; };
+		D0B315291BDB7C2F00954116 /* NSObject+PGPropertyList.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B3151C1BDB6EA000954116 /* NSObject+PGPropertyList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +88,16 @@
 		D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D0B3150A1BDB530E00954116 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D0B315131BDB625200954116 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		D0B315151BDB6EA000954116 /* NSManagedObjectContext+PGNetworkMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+PGNetworkMapping.h"; sourceTree = "<group>"; };
+		D0B315161BDB6EA000954116 /* NSManagedObjectContext+PGNetworkMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+PGNetworkMapping.m"; sourceTree = "<group>"; };
+		D0B315171BDB6EA000954116 /* PGNetworkMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGNetworkMapping.h; sourceTree = "<group>"; };
+		D0B315181BDB6EA000954116 /* PGNetworkMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGNetworkMapping.m; sourceTree = "<group>"; };
+		D0B315191BDB6EA000954116 /* NSObject+PGKeyValueCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PGKeyValueCoding.h"; sourceTree = "<group>"; };
+		D0B3151A1BDB6EA000954116 /* NSObject+PGKeyValueCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PGKeyValueCoding.m"; sourceTree = "<group>"; };
+		D0B3151B1BDB6EA000954116 /* NSObject+PGPropertyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PGPropertyList.h"; sourceTree = "<group>"; };
+		D0B3151C1BDB6EA000954116 /* NSObject+PGPropertyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PGPropertyList.m"; sourceTree = "<group>"; };
+		D0B315211BDB6EA800954116 /* PGNetworkHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGNetworkHandler.h; sourceTree = "<group>"; };
+		D0B315221BDB6EA800954116 /* PGNetworkHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGNetworkHandler.m; sourceTree = "<group>"; };
 		D68DE368C625EC2313DAE976 /* libPods-ClassInTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ClassInTouch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -155,15 +170,10 @@
 			isa = PBXGroup;
 			children = (
 				D0B314AE1BDB2FD100954116 /* AppDelegate.swift */,
-				835FE0A11BDB438D00DBF099 /* Bridging-Header.h */,
-				D0B314B21BDB2FD100954116 /* Main.storyboard */,
-				D0B314B81BDB2FD100954116 /* Assets.xcassets */,
-				D0B314BA1BDB2FD100954116 /* LaunchScreen.storyboard */,
-				D0B314BD1BDB2FD100954116 /* Info.plist */,
-				D0B314B51BDB2FD100954116 /* ClassInTouch.xcdatamodeld */,
 				D0B314F01BDB523D00954116 /* ViewController */,
 				D0B314EF1BDB523800954116 /* UI */,
 				D0B314F11BDB524300954116 /* Data */,
+				D0B315241BDB6EAD00954116 /* NetworkHandler */,
 				D0B314F21BDB524600954116 /* Support */,
 			);
 			path = ClassInTouch;
@@ -190,6 +200,9 @@
 		D0B314EF1BDB523800954116 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D0B314B21BDB2FD100954116 /* Main.storyboard */,
+				D0B314B81BDB2FD100954116 /* Assets.xcassets */,
+				D0B314BA1BDB2FD100954116 /* LaunchScreen.storyboard */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -220,6 +233,7 @@
 				D0B315091BDB530E00954116 /* User+CoreDataProperties.swift */,
 				D0B3150A1BDB530E00954116 /* User.swift */,
 				D0B315131BDB625200954116 /* DataHandler.swift */,
+				D0B314B51BDB2FD100954116 /* ClassInTouch.xcdatamodeld */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -227,8 +241,27 @@
 		D0B314F21BDB524600954116 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				835FE0A11BDB438D00DBF099 /* Bridging-Header.h */,
+				D0B314BD1BDB2FD100954116 /* Info.plist */,
 			);
 			name = Support;
+			sourceTree = "<group>";
+		};
+		D0B315241BDB6EAD00954116 /* NetworkHandler */ = {
+			isa = PBXGroup;
+			children = (
+				D0B315211BDB6EA800954116 /* PGNetworkHandler.h */,
+				D0B315221BDB6EA800954116 /* PGNetworkHandler.m */,
+				D0B315151BDB6EA000954116 /* NSManagedObjectContext+PGNetworkMapping.h */,
+				D0B315161BDB6EA000954116 /* NSManagedObjectContext+PGNetworkMapping.m */,
+				D0B315171BDB6EA000954116 /* PGNetworkMapping.h */,
+				D0B315181BDB6EA000954116 /* PGNetworkMapping.m */,
+				D0B315191BDB6EA000954116 /* NSObject+PGKeyValueCoding.h */,
+				D0B3151A1BDB6EA000954116 /* NSObject+PGKeyValueCoding.m */,
+				D0B3151B1BDB6EA000954116 /* NSObject+PGPropertyList.h */,
+				D0B3151C1BDB6EA000954116 /* NSObject+PGPropertyList.m */,
+			);
+			name = NetworkHandler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,6 +445,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0B315271BDB7C2F00954116 /* NSManagedObjectContext+PGNetworkMapping.m in Sources */,
+				D0B315281BDB7C2F00954116 /* NSObject+PGKeyValueCoding.m in Sources */,
+				D0B315291BDB7C2F00954116 /* NSObject+PGPropertyList.m in Sources */,
+				D0B315261BDB7C1100954116 /* PGNetworkMapping.m in Sources */,
+				D0B315251BDB71CD00954116 /* PGNetworkHandler.m in Sources */,
 				D0B3150E1BDB530E00954116 /* Class.swift in Sources */,
 				D0B314B71BDB2FD100954116 /* ClassInTouch.xcdatamodeld in Sources */,
 				D0B314E61BDB44CC00954116 /* ClassViewController.swift in Sources */,

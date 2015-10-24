@@ -10,6 +10,10 @@
 #define BridgingHeader_h
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-
+#import "PGNetworkHandler.h"
+#import "NSManagedObjectContext+PGNetworkMapping.h"
+#import "PGNetworkMapping.h"
+#import "NSObject+PGKeyValueCoding.h"
+#import "NSObject+PGPropertyList.h"
 
 #endif /* BridgingHeader_h */
