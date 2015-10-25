@@ -9,11 +9,9 @@
 import UIKit
 
 class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
-
     // MARK: Properties
 
     @IBOutlet weak var loginButton: FBSDKLoginButton!
-
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         return delegate.managedObjectContext
@@ -42,6 +40,7 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
                     print("fetched user: \(result)")
                     if let username : NSString = result.valueForKey("name") as? NSString {
                         do {
+                            NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "UserID")
                             try self.context.save("User", with: ["name": username, "id": NSNumber(integer: 0)], mapping: PGNetworkMapping.userMapping)
                             try self.context.save()
                             self.dismissViewControllerAnimated(true, completion: nil)
@@ -57,6 +56,7 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         do {
             if let user = try context.object("User", identifier: 0, key: "id") as? User {
+                NSUserDefaults.standardUserDefaults().removeObjectForKey("UserID")
                 context.deleteObject(user)
             }
         } catch {

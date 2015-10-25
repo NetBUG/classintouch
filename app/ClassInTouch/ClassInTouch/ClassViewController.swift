@@ -33,10 +33,7 @@ class ClassViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let rows = registeredClass?.discussions?.count else {
-            return 0
-        }
-        return rows
+        return registeredClass?.discussions?.count ?? 0
     }
 
     // MARK: - UITableViewDelegate

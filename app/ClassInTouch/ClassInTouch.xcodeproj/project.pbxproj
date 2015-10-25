@@ -213,9 +213,9 @@
 				835FE0A81BDB659600DBF099 /* EntryViewController.swift */,
 				D0B314E31BDB3F8700954116 /* ClassListViewController.swift */,
 				D0B314E51BDB44CC00954116 /* ClassViewController.swift */,
+				D0B314ED1BDB450C00954116 /* QuestionViewController.swift */,
 				D0B314E91BDB44EE00954116 /* AskViewController.swift */,
 				D0B314EB1BDB44FC00954116 /* CreateViewController.swift */,
-				D0B314ED1BDB450C00954116 /* QuestionViewController.swift */,
 				D0B314E11BDB3F7C00954116 /* NearbyViewController.swift */,
 			);
 			name = ViewController;

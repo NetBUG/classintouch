@@ -10,6 +10,20 @@ import UIKit
 
 class AskViewController: UIViewController {
 
+    @IBOutlet weak var titleField: UITextField!
+    @IBOutlet weak var textField: UITextField!
+
+    var selectedClass: Class?
+
+    lazy var context: NSManagedObjectContext = {
+        let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        return delegate.managedObjectContext
+        }()
+
+    lazy var networkHandler: PGNetworkHandler = {
+        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.me"))
+        }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,7 +33,21 @@ class AskViewController: UIViewController {
     }
 
     @IBAction func askButtonTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        guard let classId = selectedClass?.id else {
+            return
+        }
+
+        self.view.userInteractionEnabled = false
+
+        let discussionTitle = titleField.text ?? "No Title"
+        let discussionContent = textField.text ?? "No Text"
+
+        networkHandler.createDiscussion(classId, title: discussionTitle, text: discussionContent, context: context, success: { (result) -> Void in
+            self.dismissViewControllerAnimated(true, completion: nil)
+            }, failure: nil) { () -> Void in
+                self.view.userInteractionEnabled = true
+        }
+
     }
 
 }
