@@ -22,7 +22,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
 
     lazy var classes: [Class] = {
         do {
-            return try self.context.objects("Class") as! [Class]
+            return try self.context.objects("User") as! [Class]
         } catch {
             return []
         }
@@ -39,6 +39,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
         let image1 = UIImage(named: "LonelyCircle.pdf")!
         self.button1.setImage(image1, forState: UIControlState.Normal)
 
+        // TODO: Use current lon & lat
         networkHandler.nearbyCourse(100, latitude: 100, context: context, success: nil, failure: nil) { () -> Void in
             self.tableView.reloadData()
         }

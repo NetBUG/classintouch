@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 extension NSManagedObjectContext {
-    func object(type: String, identifier: String, key: String) throws -> AnyObject? {
+    func object(type: String, identifier: AnyObject, key: String) throws -> AnyObject? {
         let request = NSFetchRequest(entityName: type)
         request.predicate = NSPredicate(format: "%K == %@", argumentArray: [key, identifier])
         return try executeFetchRequest(request).first
@@ -31,7 +31,16 @@ extension PGNetworkMapping {
 }
 
 extension PGNetworkHandler {
-    func nearbyCourse(longitude: Float, latitude: Float, context: NSManagedObjectContext, success: ((nearbyClasses: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+
+    func nearbyCourse(longitude: Float, latitude: Float, context: NSManagedObjectContext, success: ((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
         self.GET("classnearby.json", parameters: ["lon": longitude, "lat": latitude], to: context, mapping: PGNetworkMapping.classMapping, success: success, failure: failure, finish: finish)
+    }
+    
+    func createClass(longitude: Float, latitude: Float, name: String, context:NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+        self.GET("createclass.json", parameters: ["lon": longitude, "lat": latitude, "name": name], to: context, mapping: PGNetworkMapping.classMapping, success: success, failure: failure, finish: finish)
+    }
+    
+    func myClass(id: Int, context: NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+        self.GET("getmyclass.json", parameters: ["uid": id], to: context, mapping: PGNetworkMapping.classMapping, success: success, failure: failure, finish: finish)
     }
 }

@@ -15,36 +15,59 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
 
     @IBOutlet weak var tableView: UITableView!
 
-    let debuggingFB = true;
+    var selectedClass: Class?
+
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         return delegate.managedObjectContext
         }()
 
+    lazy var user: User? = {
+        do {
+            return try self.context.object("User", identifier: 0, key: "id") as? User
+        } catch {
+            return nil
+        }
+    }()
+
+    //lazy var currentClasses: [Class] = {
+//        do {
+//            return try self.context.objects("Class") as? [Class]
+//        } catch {
+//            return []
+//        }
+    //}()
+
     // MARK: ViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    override func viewDidAppear(animated: Bool) {
-        if (FBSDKAccessToken.currentAccessToken() == nil || debuggingFB)
-        {
-            let loginView = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as! UINavigationController
-            self.tabBarController?.presentViewController(loginView, animated: true, completion:nil)
+        if (user == nil) {
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+                self.performSegueWithIdentifier("LoginSegue", sender: self)
+            }
         }
-        
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let classViewController = segue.destinationViewController as? ClassViewController {
+            classViewController.registeredClass = selectedClass
+        }
     }
 
     // MARK: - UITableViewDataSource
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ClassListCell", forIndexPath: indexPath)
-        cell.textLabel?.text = "ECS 101"
+        //cell.textLabel?.text = currentClasses[indexPath.row].name
         return cell
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        //if var count = currentClasses?.count {
+        //    return count
+        //} else {
+            return 0
+        //}
     }
 
     // MARK: - UITableViewDelegate

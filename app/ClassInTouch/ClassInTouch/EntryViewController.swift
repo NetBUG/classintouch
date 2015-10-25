@@ -9,96 +9,58 @@
 import UIKit
 
 class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
-    
-    
-    let debuggingFB = true;
+    // MARK: Properties
+
+    @IBOutlet weak var loginButton: FBSDKLoginButton!
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         return delegate.managedObjectContext
         }()
     
     lazy var networkHandler: PGNetworkHandler = {
-        return PGNetworkHandler(baseURL: NSURL(string: "http://dev.classintouch.me"))
+        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.me"))
         }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        if (FBSDKAccessToken.currentAccessToken() != nil && !debuggingFB)
-        {
-            self.dismissViewControllerAnimated(false, completion: nil)
-        }
-        else
-        {
-            let loginView : FBSDKLoginButton = FBSDKLoginButton()
-            self.view.addSubview(loginView)
-            loginView.center = self.view.center
-            loginView.readPermissions = ["public_profile", "email"]
-            loginView.delegate = self
-        }
-        
+        loginButton.readPermissions = ["public_profile"]
+        loginButton.delegate = self
+        FBSDKProfile.enableUpdatesOnAccessTokenChange(true)
     }
-    
-    // Facebook Delegate Methods
+
+    // MARK: FBSDKLoginButtonDelegate
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        print("User Logged In")
-        
-        if ((error) != nil)
-        {
-            // Process error
-        }
-        else if result.isCancelled {
-            // Handle cancellations
-        }
-        else {
-            // If you ask for multiple permissions at once, you
-            // should check if specific permissions missing
-            if result.grantedPermissions.contains("email")
-            {
-                login()
-            }
+        if error == nil && !result.isCancelled {
+            let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+            graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                if error != nil {
+                    print("Error: \(error)")
+                } else {
+                    print("fetched user: \(result)")
+                    if let username : NSString = result.valueForKey("name") as? NSString {
+                        do {
+                            try self.context.save("User", with: ["name": username, "id": NSNumber(integer: 0)], mapping: PGNetworkMapping.userMapping)
+                            try self.context.save()
+                            self.dismissViewControllerAnimated(true, completion: nil)
+                        } catch {
+                            // TODO: Handle error in the future
+                        }
+                    }
+                }
+            })
         }
     }
-    
+
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        print("User Logged Out")
-    }
-    func login()
-    {
-        networkHandler.GET("register.json", parameters: ["access_token": FBSDKAccessToken.currentAccessToken()], to: self.context, mapping: PGNetworkMapping.userMapping, success: { (result: [AnyObject]!) -> Void in // Success block (async, will execute if the everything is correct)
-            self.printUserData()
-            self.dismissViewControllerAnimated(false, completion: nil)
-            
-            }, failure: { (error: NSError!) -> Void in // failure block (async, will execute if the request -> failed, JSON -> failed, or Core Data -> failed)
-                print(error)
-            }) { () -> Void in // finish block (async, will execute no matter the GET operation is succeed or not, always after success or failure block)
+        do {
+            if let user = try context.object("User", identifier: 0, key: "id") as? User {
+                context.deleteObject(user)
+            }
+        } catch {
+            // TODO: Handle error in the future
         }
     }
-    
-    func printUserData()
-    {
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
-        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-            
-            if ((error) != nil)
-            {
-                // Process error
-                print("Error: \(error)")
-            }
-            else
-            {
-                print("fetched user: \(result)")
-                let userName : NSString = result.valueForKey("name") as! NSString
-                print("User Name is: \(userName)")
-                let userEmail : NSString = result.valueForKey("email") as! NSString
-                print("User Email is: \(userEmail)")
-            }
-        })
-    }
- 
 
 }
 

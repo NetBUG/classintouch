@@ -10,7 +10,7 @@ from models import *
 blueprint = Blueprint('classes', __name__)
 
 accuracy_geo = 0.05	# degrees, TODO make a normal geo distance!
-accuracy_time = 3600 # an hour in both directions
+accuracy_time = 7200 # an hour in both directions
 
 def getTimeParams():
 	iTime = datetime.utcnow()
@@ -33,16 +33,17 @@ def getTimeParams():
 @blueprint.route('/classnearby.json')
 @cross_origin()
 def class_nearby():
-	iLat = float(request.args.get('lat'))
-	iLon = float(request.args.get('lon'))
+	iLat = float(request.args.get('lon'))
+	iLon = float(request.args.get('lat'))
+	print(str(iLat) + ", " + str(iLon))
  	dayTime, dayOfWeek = getTimeParams()
 	# Querying classes within range
-	cList = Classes.query.filter(Classes.lat > iLat - accuracy_geo, Classes.lat < iLat + accuracy_geo,\
+	cList = Classes.query.filter(Classes.lat >= iLat - accuracy_geo, Classes.lat <= iLat + accuracy_geo,\
 		Classes.lon > iLon - accuracy_geo, Classes.lon < iLon + accuracy_geo, \
 		Classes.time > dayTime - accuracy_time, Classes.time < dayTime + accuracy_time, Classes.day == dayOfWeek)
 	out = []
 	for chunk in cList:
-		out += {"name": chunk.name, "id": chunk.id, "uni": "", "dist": vincenty((chunk.lat, chunk.lon), (iLat, iLon)).miles}
+		out.append({"name": chunk.name, "id": chunk.id, "uni": "", "dist": vincenty((chunk.lat, chunk.lon), (iLat, iLon)).miles, "time": chunk.time, "day": chunk.day, "lat": chunk.lon, "lon": chunk.lat})
 	resp = make_response(json.dumps(out))
 	resp.mimetype="application/json"
  	return resp
@@ -55,7 +56,7 @@ def class_nearby():
 
 @apiParam {Integer} lon Location - longitude of the user
 @apiParam {Integer} lat Location - longitude of the user
-@apiParam {String} name Input the class id of the user 
+@apiParam {String} name New class name (e.g. Physics 101)
 
 @apiSuccess {String} JSON with class id and name
 
@@ -77,7 +78,7 @@ def class_create():
 	return resp
 
 """
-@api {post} /joinclass.json?class_id=152 Join the class
+@api {post} /joinclass.json?uid=1&class_id=1 Join the class
 @apiName Join Class
 @apiGroup Classes
 @apiVersion 0.1.1
@@ -92,8 +93,10 @@ def class_create():
 @cross_origin()
 def class_join():
 	user_id = request.args.get('uid')
-	classid = request.args.get('class')
-	gs = UserClasses(user_id=user_id, class_id=classid)
+	classid = request.args.get('class_id')
+	gs = UserClasses()
+	gs.user_id = user_id
+	gs.class_id = classid
 	db.session.add(gs)
 	db.session.commit()
 	resp = make_response(json.dumps({"status": True}))
@@ -101,7 +104,7 @@ def class_join():
 	return resp
 
 """
-@api {get} /myclass.json?user_id=123 Get my classes
+@api {get} /myclass.json?uid=123 Get my classes
 @apiName My Classes
 @apiGroup Classes
 @apiVersion 0.1.1
@@ -114,12 +117,20 @@ def class_join():
 @blueprint.route('/myclass.json')
 @cross_origin()
 def class_mine():
-	user_id = request.args.get('uid')
-	raw = UserClasses.query.filter_by(user_id=user_id)
-	synth = []
-	for cid in raw:
-		cls = Classes.query.filter_by(id=cid.class_id)
-		synth += {"id": cid.class_id, "name": cls.name}
-	resp = make_response(json.dumps(synth))
+	resp = make_response(json.dumps({"status": False, "message": "Parameters error!"}))
+	if True:#try:
+		user_id = int(request.args.get('uid'))
+		raw = UserClasses.query.filter_by(user_id=user_id)
+		if raw.count() < 1:
+			make_response(json.dumps({"status": False, "message": "Classes not found!"}))
+		synth = []
+		for cid in raw:
+			cls = Classes.query.filter_by(id=cid.class_id)
+			if cls.count() > 0:
+				print(cid.class_id)
+				synth.append({"id": cid.class_id, "name": cls[0].name})
+		resp = make_response(json.dumps(synth))
+	#except:
+	#	pass
 	resp.mimetype="application/json"
 	return resp
