@@ -33,6 +33,10 @@ extension PGNetworkMapping {
 
 extension PGNetworkHandler {
 
+    func facebookLogin(id: Int, token: String, context: NSManagedObjectContext, success: ((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+        self.GET("profile.json", parameters: ["uid": id, "token": token], success: success, failure: failure, finish: finish)
+    }
+
     func nearbyCourse(longitude: Float, latitude: Float, context: NSManagedObjectContext, success: ((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
         self.GET("classnearby.json", parameters: ["lon": longitude, "lat": latitude], success: success, failure: failure, finish: finish)
     }
