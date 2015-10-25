@@ -334,7 +334,7 @@
 				TargetAttributes = {
 					D0B314AA1BDB2FD100954116 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = YW3NX7Z2SN;
+						DevelopmentTeam = 4UY7T7255Z;
 					};
 					D0B314C11BDB2FD100954116 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -616,7 +616,7 @@
 				INFOPLIST_FILE = ClassInTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "($inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.classintouch.ClassInTouch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tintpoint.ClassInTouch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ClassInTouch/Bridging-Header.h";
@@ -633,7 +633,7 @@
 				INFOPLIST_FILE = ClassInTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "($inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.classintouch.ClassInTouch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tintpoint.ClassInTouch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ClassInTouch/Bridging-Header.h";
