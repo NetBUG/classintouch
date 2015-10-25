@@ -21,11 +21,12 @@ class CreateViewController: UIViewController {
         }()
 
     lazy var networkHandler: PGNetworkHandler = {
-        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.me"))
+        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.club"))
         }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.titleField.becomeFirstResponder()
     }
 
     @IBAction func cancelButtonTapped(sender: AnyObject) {

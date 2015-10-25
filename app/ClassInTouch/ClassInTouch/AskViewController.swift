@@ -21,11 +21,12 @@ class AskViewController: UIViewController {
         }()
 
     lazy var networkHandler: PGNetworkHandler = {
-        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.me"))
+        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.club"))
         }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.titleField.becomeFirstResponder()
     }
 
     @IBAction func cancelButtonTapped(sender: AnyObject) {
@@ -41,8 +42,9 @@ class AskViewController: UIViewController {
 
         let discussionTitle = titleField.text ?? "No Title"
         let discussionContent = textField.text ?? "No Text"
+        let userId = NSUserDefaults.standardUserDefaults().integerForKey("UserID")
 
-        networkHandler.createDiscussion(classId, title: discussionTitle, text: discussionContent, context: context, success: { (result) -> Void in
+        networkHandler.createDiscussion(userId, classId: classId, title: discussionTitle, text: discussionContent, context: context, success: { (result) -> Void in
             self.dismissViewControllerAnimated(true, completion: nil)
             }, failure: nil) { () -> Void in
                 self.view.userInteractionEnabled = true

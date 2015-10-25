@@ -18,7 +18,7 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
         }()
     
     lazy var networkHandler: PGNetworkHandler = {
-        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.me"))
+        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.club"))
         }()
 
     override func viewDidLoad() {
@@ -38,15 +38,19 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
                     print("Error: \(error)")
                 } else {
                     print("fetched user: \(result)")
-                    if let username : NSString = result.valueForKey("name") as? NSString {
+                    if let username: NSString = result.valueForKey("name") as? NSString {
                         do {
-                            NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "UserID")
-                            try self.context.save("User", with: ["name": username, "id": NSNumber(integer: 0)], mapping: PGNetworkMapping.userMapping)
+                            NSUserDefaults.standardUserDefaults().setInteger(1, forKey: "UserID")
+                            try self.context.save("User", with: ["name": username, "id": NSNumber(integer: 1)], mapping: PGNetworkMapping.userMapping)
                             try self.context.save()
                             self.dismissViewControllerAnimated(true, completion: nil)
                         } catch {
                             // TODO: Handle error in the future
                         }
+                    }
+
+                    if let facebookID: NSString = result.valueForKey("id") as? NSString {
+                        NSUserDefaults.standardUserDefaults().setObject(facebookID, forKey: "FacebookID")
                     }
                 }
             })
@@ -57,6 +61,7 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
         do {
             if let user = try context.object("User", identifier: 0, key: "id") as? User {
                 NSUserDefaults.standardUserDefaults().removeObjectForKey("UserID")
+                NSUserDefaults.standardUserDefaults().removeObjectForKey("FacebookID")
                 context.deleteObject(user)
             }
         } catch {

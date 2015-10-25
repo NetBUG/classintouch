@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import CoreData;
+import CoreData
+import SafariServices
 
 class ClassListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -19,7 +20,7 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
     var selectedClass: Class?
 
     lazy var networkHandler: PGNetworkHandler = {
-        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.me"))
+        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.club"))
         }()
 
     lazy var context: NSManagedObjectContext = {
@@ -27,35 +28,75 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
         return delegate.managedObjectContext
         }()
 
-    lazy var user: User? = {
-        do {
-            return try self.context.object("User", identifier: 0, key: "id") as? User
-        } catch {
-            return nil
-        }
-    }()
+    var user: User?
 
     // MARK: ViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        do {
+            let id = NSUserDefaults.standardUserDefaults().integerForKey("UserID")
+            self.user = try self.context.object("User", identifier: id, key: "id") as? User
+        } catch {
+            self.user = nil
+        }
+
         if (user == nil) {
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
                 self.performSegueWithIdentifier("LoginSegue", sender: self)
             }
         }
     }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        do {
+            let id = NSUserDefaults.standardUserDefaults().integerForKey("UserID")
+            self.user = try self.context.object("User", identifier: id, key: "id") as? User
+        } catch {
+            self.user = nil
+        }
+
+        self.networkHandler.myClass(user?.id?.integerValue ?? 0, context: context, success: { (result: [AnyObject]!) -> Void in
+            self.currentClasses = result as? [Class]
+            do {
+                try self.context.save()
+            } catch {
+                // TODO: Handler error in the future
+            }
+
+            }, failure: { (error: NSError!) -> Void in
+                print(error)
+            }) { () -> Void in
+                self.tableView.reloadData()
+        }
+    }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let classViewController = segue.destinationViewController as? ClassViewController {
             classViewController.registeredClass = selectedClass
+            classViewController.context = context
         }
+    }
+
+    @IBAction func profileButtonTapped(sender: AnyObject) {
+        guard let facebookID = NSUserDefaults.standardUserDefaults().stringForKey("FacebookID") else {
+            return
+        }
+        guard let URL = NSURL(string: "http://classintouch-profile.eu-gb.mybluemix.net/?id=\(facebookID)") else {
+            return
+        }
+        let profileViewController = SFSafariViewController(URL: URL)
+        self.presentViewController(profileViewController, animated: true, completion: nil)
     }
 
     // MARK: - UITableViewDataSource
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ClassListCell", forIndexPath: indexPath)
-        //cell.textLabel?.text = currentClasses[indexPath.row].name
+        cell.textLabel?.text = currentClasses?[indexPath.row].name
+        cell.textLabel?.font = UIFont (name: "HelveticaNeue-UltraLight", size: 30)
         return cell
     }
 
@@ -64,8 +105,13 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     // MARK: - UITableViewDelegate
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
+    }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedClass = currentClasses?[indexPath.row]
         self.performSegueWithIdentifier("ClassSegue", sender: self)
     }
 

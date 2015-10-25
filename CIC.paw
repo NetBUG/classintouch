@@ -1,0 +1,369 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE database SYSTEM "file:///System/Library/DTDs/CoreData.dtd">
+
+<database>
+    <databaseInfo>
+        <version>134481920</version>
+        <UUID>BA9489B4-6D7A-4DD2-980F-EA183D80211A</UUID>
+        <nextObjectID>130</nextObjectID>
+        <metadata>
+            <plist version="1.0">
+                <dict>
+                    <key>NSPersistenceFrameworkVersion</key>
+                    <integer>640</integer>
+                    <key>NSStoreModelVersionHashes</key>
+                    <dict>
+                        <key>LMCookieJar</key>
+                        <data>
+		Fttmf2L4PrGvKUF496+nqgVVGek45TjOe7sUMtjNg8I=
+		</data>
+                        <key>LMEnvironment</key>
+                        <data>
+		uzBoVFcO4YvR9/3ej4AJ1UOOsA/u5DKY2aemusoIseU=
+		</data>
+                        <key>LMEnvironmentDomain</key>
+                        <data>
+		yM1GPGHdquS8IWLtuczlNoqKhIhD9FW6IReSfFffJgs=
+		</data>
+                        <key>LMEnvironmentVariable</key>
+                        <data>
+		P8e0lYd5JZKRabS/eXVSOJ4oitilz67xtv+pLqW1Jqg=
+		</data>
+                        <key>LMEnvironmentVariableValue</key>
+                        <data>
+		my5hNPJ51oDCSa8EgdNxWAnRcDLcERUGjtuXnzhSxQ0=
+		</data>
+                        <key>LMKeyValue</key>
+                        <data>
+		bIXXbyYF2xAv2MXg8JTVFsslmMKuvsfnR86QdUcFkdM=
+		</data>
+                        <key>LMRequest</key>
+                        <data>
+		kYB6By9dZHqmH3YNw3h9tYPoxeG5ZWHPfhLXXp7OLFs=
+		</data>
+                        <key>LMRequestGroup</key>
+                        <data>
+		N3ml+gYVWc4m0LSGLnBDJ37p9isOc41y+TtaM0Eacrc=
+		</data>
+                        <key>LMRequestTreeItem</key>
+                        <data>
+		ak+hYb/lDeG55U0kgGvU5ej7HUltUj0RTrX5z/izNrs=
+		</data>
+                    </dict>
+                    <key>NSStoreModelVersionHashesVersion</key>
+                    <integer>3</integer>
+                    <key>NSStoreModelVersionIdentifiers</key>
+                    <array>
+                        <string>LMDocumentVersion3</string>
+                    </array>
+                </dict>
+            </plist>
+        </metadata>
+    </databaseInfo>
+    <object type="LMREQUEST" id="z102">
+        <attribute name="uuid" type="string">D7E86507-3526-423D-892E-63E8914BEAD9</attribute>
+        <attribute name="url" type="string">http://classintouch.club/createclass.json?lat=50.1\u2600lon=55.2\u2600name=Physics%20102</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">POST</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="order" type="int64">4</attribute>
+        <attribute name="name" type="string">Create Class</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z112"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z103">
+        <attribute name="uuid" type="string">ABFCC112-82E1-4AEA-8630-0A24619DFB08</attribute>
+        <attribute name="url" type="string">http://classintouch.me/register.json?access_token=%3DCAANgZAFscC9sBAKZBlCvyD6bWxJKEdpsJ0SGb2fx6zsGs4HLugOU1ZCxtZCWZA6LWZB2GPcgAYN0WtQoE40nJBOdCmk8CyV1J9oZBOo7B6CGvxtUYRRtDpjj5iy9UiSJZAGRKh83mRv1eq163KXb5a0a4NbM7ZA1TfaJvZAyPfau5eIDwHTCQ1Ykwx3N5I9hbZADMWpKhc1xmQxtrNReWPHm5ZBpfDmFfMTmlNYeEZC3s788nLKR8iIkumzU3</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">POST</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string">Facebook Login</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z104"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z104">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z103"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z105">
+        <attribute name="uuid" type="string">60F492D6-140D-4C2B-A0D6-4CF0C63F7B0D</attribute>
+        <attribute name="url" type="string">http://classintouch.club/getdiscussion.json?class_id=1</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">GET</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="order" type="int64">9</attribute>
+        <attribute name="name" type="string">Get discussion</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z108"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z106">
+        <attribute name="uuid" type="string">DEE447B3-6CDB-42B6-B12F-E68ED5C23538</attribute>
+        <attribute name="url" type="string">http://classintouch.club/getdiscussionpost.json?discussion_id=7</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">GET</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="order" type="int64">8</attribute>
+        <attribute name="name" type="string">Get list of post</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z116"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z107">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z126"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z108">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z105"></relationship>
+    </object>
+    <object type="LMENVIRONMENT" id="z109">
+        <attribute name="uuid" type="string">D07379F0-7A67-4C49-84D5-59BFD3A9EE69</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string">Default Environment</attribute>
+        <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z111"></relationship>
+        <relationship name="variablesvalues" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z123"></relationship>
+    </object>
+    <object type="LMENVIRONMENTDOMAIN" id="z111">
+        <attribute name="uuid" type="string">FE2A98F4-2257-4B16-A142-B4001164F5DF</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string">Default Domain</attribute>
+        <relationship name="environments" type="0/0" destination="LMENVIRONMENT" idrefs="z109"></relationship>
+        <relationship name="variables" type="0/0" destination="LMENVIRONMENTVARIABLE" idrefs="z114"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z112">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z102"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z113">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z121"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLE" id="z114">
+        <attribute name="uuid" type="string">C21D3889-1D1A-4AB9-862D-CB3331139495</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z111"></relationship>
+        <relationship name="values" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z123"></relationship>
+    </object>
+    <object type="LMCOOKIEJAR" id="z115">
+        <attribute name="uuid" type="string">FD3622BE-0820-4D7D-ADA4-D5D9F161F7FB</attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string">Default Jar</attribute>
+    </object>
+    <object type="LMKEYVALUE" id="z116">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z106"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z117">
+        <attribute name="uuid" type="string">7FC347EA-6F6E-4053-9E8F-FC788BE97463</attribute>
+        <attribute name="url" type="string">http://classintouch.club/likepost.json?uid=1\u2600post_id=121 </attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">POST</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="order" type="int64">10</attribute>
+        <attribute name="name" type="string">Like a post</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z127"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z119">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z120"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z120">
+        <attribute name="uuid" type="string">6C665FE1-9D8D-4F28-A2D9-A363182C75A5</attribute>
+        <attribute name="url" type="string">http://classintouch.club/posting.json?uid=1\u2600discussion_id=14\u2600title=question\u2600text=text</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">POST</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="order" type="int64">6</attribute>
+        <attribute name="name" type="string">Create post</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z119"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z121">
+        <attribute name="uuid" type="string">3EFD5592-9164-4B8D-A55A-3BF2B304B819</attribute>
+        <attribute name="url" type="string">http://classintouch.club/myclass.json?uid=1</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">GET</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="order" type="int64">2</attribute>
+        <attribute name="name" type="string">Get my class</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z113"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z122">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z128"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLEVALUE" id="z123">
+        <attribute name="value" type="string"></attribute>
+        <relationship name="environment" type="1/1" destination="LMENVIRONMENT" idrefs="z109"></relationship>
+        <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z114"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z124">
+        <attribute name="uuid" type="string">254ED24B-F20F-4D91-B528-AF25EDC37FF2</attribute>
+        <attribute name="url" type="string">http://classintouch.club/joinclass.json?uid=1\u2600class_id=15</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">POST</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="order" type="int64">3</attribute>
+        <attribute name="name" type="string">Join class</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z125"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z125">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z124"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z126">
+        <attribute name="uuid" type="string">D78D3133-A5CA-4689-BA2C-922ADBC0A0C3</attribute>
+        <attribute name="url" type="string">http://classintouch.me/classnearby.json?lat=50.1\u2600lon=55.2</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">GET</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="order" type="int64">5</attribute>
+        <attribute name="name" type="string">Class Nearby</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z107"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z127">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z117"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z128">
+        <attribute name="uuid" type="string">E11993D8-B446-42C6-B629-E118C4A23179</attribute>
+        <attribute name="url" type="string">http://classintouch.club/profile.json?token=XYZ\u2600user_id=152 </attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">GET</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string">My Profile</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z122"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z129">
+        <attribute name="uuid" type="string">9128D864-03CC-470E-820E-36CF37EA1509</attribute>
+        <attribute name="url" type="string">http://classintouch.club/posting.json?uid=1\u2600class_id=1\u2600title=question\u2600text=text</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">POST</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="order" type="int64">7</attribute>
+        <attribute name="name" type="string">Create discussion</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z130"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z130">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z129"></relationship>
+    </object>
+</database>

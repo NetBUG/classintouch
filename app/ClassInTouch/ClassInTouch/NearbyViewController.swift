@@ -7,17 +7,15 @@
 //
 
 import UIKit
+import CoreLocation
 
-class NearbyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class NearbyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
 
     // MARK: Properties
 
     @IBOutlet weak var navigationUI: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var buttonLabel: UILabel!
-    @IBOutlet weak var blueNeighborBig: UIImageView!
-
-    @IBOutlet weak var blueNeighborSmall: UIImageView!
     @IBOutlet weak var button1: UIButton!
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -25,67 +23,120 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
         }()
 
     lazy var networkHandler: PGNetworkHandler = {
-        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.me"))
+        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.club"))
         }()
 
-    var classes: [Class]?
+    var nearbyClasses: [AnyObject]?
+    var longitude: Float?
+    var latitude: Float?
 
     // MARK: ViewController
 
-    override func viewDidLoad() {
-        // Set up the button
-        super.viewDidLoad()
-        // case of normal image
-        let image1 = UIImage(named: "Circle")!
-        self.button1.setImage(image1, forState: UIControlState.Normal)
-            //Hide the bar's + button, and temporarily name
-            //self.navigationUI.rightBarButtonItem.
+    override func viewWillAppear(animated: Bool) {
+
+        let noLocation = longitude == nil || latitude == nil
+        self.tableView.hidden = noLocation
+        self.navigationItem.rightBarButtonItem?.enabled = !noLocation
+        self.buttonLabel.hidden = !noLocation
+        self.button1.hidden = !noLocation
+
+        refresh()
     }
 
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.networkHandler.nearbyCourse(50.1, latitude: 55.2, context: context, success: { (result: AnyObject!) -> Void in
-            self.classes = result as? [Class]
+    func refresh() {
+        guard let latitude = self.latitude else {
+            return
+        }
+
+        guard let longitude = self.longitude else {
+            return
+        }
+
+        self.networkHandler.nearbyCourse(longitude, latitude: latitude, context: context, success: { (result: AnyObject!) -> Void in
+            self.nearbyClasses = result as? [AnyObject]
             }, failure: { (error: NSError!) -> Void in
                 print(error)
             }) { () -> Void in
                 self.tableView.reloadData()
         }
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        self.blueNeighborBig.hidden=true
-        self.blueNeighborSmall.hidden=true
-        
-        self.buttonLabel.hidden = false
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let navigationController = segue.destinationViewController as? UINavigationController {
+            if let createViewController = navigationController.topViewController as? CreateViewController {
+                createViewController.longitude = longitude
+                createViewController.latitude = latitude
+            }
+        }
     }
-    
+
     @IBAction func Pressed(sender: UIButton) {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.blueNeighborBig.hidden=false
-        self.blueNeighborSmall.hidden=false
-        
-        self.buttonLabel.hidden = true
+#if (TARGET_OS_IPHONE)
+        if !CLLocationManager.locationServicesEnabled() {
+            return
+        }
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+#else
+        longitude = 0
+        latitude = 0
+
+        UIView.transitionWithView(self.view, duration: 0.2, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+            self.navigationItem.rightBarButtonItem?.enabled = true
+            self.tableView.hidden = false
+            self.buttonLabel.hidden = true
+            self.button1.hidden = true
+            self.refresh()
+            }, completion: nil)
+#endif
+    }
+
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last
+        if let coordinateLatitude = location?.coordinate.latitude {
+            latitude = Float(coordinateLatitude)
+        }
+
+        if let coordinateLongitude = location?.coordinate.longitude {
+            longitude = Float(coordinateLongitude)
+        }
+
+        UIView.transitionWithView(self.view, duration: 0.2, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+            self.navigationItem.rightBarButtonItem?.enabled = true
+            self.tableView.hidden = false
+            self.buttonLabel.hidden = true
+            self.button1.hidden = true
+            self.refresh()
+            }, completion: nil)
     }
 
     // MARK: - UITableViewDataSource
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("NearbyCell", forIndexPath: indexPath)
-        let cellClass = classes?[indexPath.row]
-        cell.textLabel?.text = cellClass?.name
+        let nearbyClass = nearbyClasses?[indexPath.row] as? [String: AnyObject]
+        cell.textLabel?.text = nearbyClass?["name"] as? String
+        cell.textLabel?.font = UIFont (name: "HelveticaNeue-UltraLight", size: 30)
         return cell
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return classes?.count ?? 0
+        return nearbyClasses?.count ?? 0
     }
 
     // MARK: - UITableViewDelegate
 
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
+    }
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        guard let classId = classes?[indexPath.row].id?.integerValue else {
+        guard let nearbyClass = nearbyClasses?[indexPath.row] as? [String: AnyObject] else {
+            return
+        }
+
+        guard let classId = nearbyClass["id"] as? NSNumber else {
             return
         }
 
