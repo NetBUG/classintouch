@@ -23,23 +23,48 @@ extension NSManagedObjectContext {
 
 extension PGNetworkMapping {
     static var classMapping: PGNetworkMapping {
-        return PGNetworkMapping(description:[["Class": "Class"], ["id": "id"]], mapping: ["name": "name", "lon": "longitude", "lat": "latitude"])
+        return PGNetworkMapping(description: [["Class": "Class"], ["id": "id"]], mapping: ["name": "name", "lon": "longitude", "lat": "latitude"])
     }
     static var userMapping: PGNetworkMapping {
         return PGNetworkMapping(description: [["User": "User"], ["id": "id"]], mapping: ["name": "name"])
     }
+   
 }
 
 extension PGNetworkHandler {
-    func nearbyCourse(longitude: Float, latitude: Float, context: NSManagedObjectContext, success: ((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
-        self.GET("classnearby.json", parameters: ["lon": longitude, "lat": latitude], to: context, mapping: PGNetworkMapping.classMapping, success: success, failure: failure, finish: finish)
+    func nearbyCourse(longitude: Float, latitude: Float, context: NSManagedObjectContext, success: ((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+        self.GET("classnearby.json", parameters: ["lon": longitude, "lat": latitude], success: success, failure: failure, finish: finish)
     }
     
-    func createClass(longitude: Float, latitude: Float, name: String, context:NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
-        self.GET("createclass.json", parameters: ["lon": longitude, "lat": latitude, "name": name], to: context, mapping: PGNetworkMapping.classMapping, success: success, failure: failure, finish: finish)
+    //POST, need to be fixed
+    func createClass(longitude: Float, latitude: Float, name: String, context:NSManagedObjectContext, success:((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+        self.POST("createclass.json", from: ["lon": longitude, "lat": latitude, "name": name], success: success, failure: failure, finish: finish)
     }
     
     func myClass(id: NSNumber,context:NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
         self.GET("getmyclass.json", parameters: ["uid": id], to: context, mapping: PGNetworkMapping.classMapping, success: success, failure: failure, finish: finish)
     }
+    
+    //Post, need to be fixed
+    func createDiscussion(classId: NSNumber, title: String, text: String, context:NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+        
+    }
+    
+    //Post, need to be fixed
+    func createPost(discussionId: NSNumber, title: String, text: String, context:NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+        
+    }
+    
+    func getDiscussion(classId: NSNumber, context:NSManagedObjectContext, success:((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+        self.GET("getdiscussion.json", parameters: ["class_id": classId], success: success, failure: failure, finish: finish)
+    }
+    
+    func getPost(classId: NSNumber, context:NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+    }
+    
+    //Post, need to be fixed
+    func likePost(postId: NSNumber, userId: NSNumber, context:NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+    }
+
+    
 }
