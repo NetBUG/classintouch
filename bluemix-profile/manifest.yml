@@ -1,0 +1,10 @@
+---
+applications:
+- name: classintouch-profile
+  command: node app.js
+  path: .
+  memory: 1G
+  services:
+  - classintouch-profile
+  env:
+    NODE_ENV: production
