@@ -86,7 +86,7 @@ def main():
     if not cookie:
         resp.set_cookie("token", generate_token())
     #resp.set_cookie("anonymous", str(get_user_state()))
-    resp.mimetype = 'application/json'
+    #resp.mimetype = 'application/json'
     return resp
 
 
