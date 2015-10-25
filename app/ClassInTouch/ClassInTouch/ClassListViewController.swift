@@ -85,7 +85,7 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
         guard let facebookID = NSUserDefaults.standardUserDefaults().stringForKey("FacebookID") else {
             return
         }
-        guard let URL = NSURL(string: "http://classintouch-profile.eu-gb.mybluemix.net/?id=\(facebookID)") else {
+        guard let URL = NSURL(string: "http://dev.classintouch.club/profile.htm#\(facebookID)") else {
             return
         }
         let profileViewController = SFSafariViewController(URL: URL)
