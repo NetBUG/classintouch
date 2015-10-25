@@ -74,7 +74,8 @@ $(document).ready(function() {
    */
   $('.analysis-btn').click(function(){
     $('#analtext').show();
-    $('#analtext').val("TEST");
+    var query = "TEST"; // Load via FB
+    $('#analtext').val(query);
     $('.analysis-btn').blur();
 
     // check if the captcha is active and the user complete it
@@ -109,9 +110,9 @@ $(document).ready(function() {
           showError(response.error);
         } else {
           $results.show();
-          showTraits(response);
+          //showTraits(response);
           showTextSummary(response);
-          showVizualization(response);
+          //showVizualization(response);
         }
 
       },

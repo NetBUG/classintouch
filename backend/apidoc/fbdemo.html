@@ -71,12 +71,19 @@
 
 			var accessToken = '';
 			var hash = window.location.hash.substring(1);
-			$("#fb-root").text("ID: "+hash);
+			//$("#fb-root").text("ID: "+hash);
 
 			login(function(loginResponse) {
 					accessToken = loginResponse.authResponse.accessToken || '';
 					getAlbums(function(albumResponse) {
 							var i, album, deferreds = {}, listOfDeferreds = [];
+							var point, text;
+
+							for (i = 0; i < albumResponse.data.length; i++) {
+								point = albumResponse.data[i];
+								console.log(point);
+							}
+							$("#fb-root").text("Story: "+text);
 
 							for (i = 0; i < albumResponse.data.length; i++) {
 								album = albumResponse.data[i];
