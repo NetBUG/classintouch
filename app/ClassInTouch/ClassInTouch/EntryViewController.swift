@@ -38,7 +38,7 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
                     print("Error: \(error)")
                 } else {
                     print("fetched user: \(result)")
-                    if let username : NSString = result.valueForKey("name") as? NSString {
+                    if let username: NSString = result.valueForKey("name") as? NSString {
                         do {
                             NSUserDefaults.standardUserDefaults().setInteger(1, forKey: "UserID")
                             try self.context.save("User", with: ["name": username, "id": NSNumber(integer: 1)], mapping: PGNetworkMapping.userMapping)
@@ -47,6 +47,10 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
                         } catch {
                             // TODO: Handle error in the future
                         }
+                    }
+
+                    if let facebookID: NSString = result.valueForKey("id") as? NSString {
+                        NSUserDefaults.standardUserDefaults().setObject(facebookID, forKey: "FacebookID")
                     }
                 }
             })
@@ -57,6 +61,7 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
         do {
             if let user = try context.object("User", identifier: 0, key: "id") as? User {
                 NSUserDefaults.standardUserDefaults().removeObjectForKey("UserID")
+                NSUserDefaults.standardUserDefaults().removeObjectForKey("FacebookID")
                 context.deleteObject(user)
             }
         } catch {

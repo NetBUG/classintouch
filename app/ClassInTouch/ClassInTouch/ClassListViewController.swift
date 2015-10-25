@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import CoreData;
+import CoreData
+import SafariServices
 
 class ClassListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -50,7 +51,6 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
         do {
             let id = NSUserDefaults.standardUserDefaults().integerForKey("UserID")
             self.user = try self.context.object("User", identifier: id, key: "id") as? User
@@ -78,6 +78,17 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
             classViewController.registeredClass = selectedClass
             classViewController.context = context
         }
+    }
+
+    @IBAction func profileButtonTapped(sender: AnyObject) {
+        guard let facebookID = NSUserDefaults.standardUserDefaults().stringForKey("FacebookID") else {
+            return
+        }
+        guard let URL = NSURL(string: "http://classintouch-profile.eu-gb.mybluemix.net/?id=\(facebookID)") else {
+            return
+        }
+        let profileViewController = SFSafariViewController(URL: URL)
+        self.presentViewController(profileViewController, animated: true, completion: nil)
     }
 
     // MARK: - UITableViewDataSource
