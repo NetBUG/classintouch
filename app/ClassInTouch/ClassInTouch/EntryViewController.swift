@@ -9,11 +9,9 @@
 import UIKit
 
 class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
-
     // MARK: Properties
 
     @IBOutlet weak var loginButton: FBSDKLoginButton!
-
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         return delegate.managedObjectContext

@@ -45,19 +45,6 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
             }
         }
     }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-
-        self.networkHandler.myClass(0, context: context, success: { (result: [AnyObject]!) -> Void in
-            self.currentClasses = result as? [Class]
-            }, failure: { (error: NSError!) -> Void in
-                print(error)
-            }) { () -> Void in
-                self.tableView.reloadData()
-        }
-    }
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let classViewController = segue.destinationViewController as? ClassViewController {
             classViewController.registeredClass = selectedClass
@@ -68,7 +55,7 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ClassListCell", forIndexPath: indexPath)
-        cell.textLabel?.text = currentClasses?[indexPath.row].name
+        //cell.textLabel?.text = currentClasses[indexPath.row].name
         return cell
     }
 

@@ -12,8 +12,13 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
 
     // MARK: Properties
 
+    @IBOutlet weak var navigationUI: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var buttonLabel: UILabel!
+    @IBOutlet weak var blueNeighborBig: UIImageView!
 
+    @IBOutlet weak var blueNeighborSmall: UIImageView!
+    @IBOutlet weak var button1: UIButton!
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         return delegate.managedObjectContext
@@ -27,9 +32,18 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
 
     // MARK: ViewController
 
+    override func viewDidLoad() {
+        // Set up the button
+        super.viewDidLoad()
+        // case of normal image
+        let image1 = UIImage(named: "Circle")!
+        self.button1.setImage(image1, forState: UIControlState.Normal)
+            //Hide the bar's + button, and temporarily name
+            //self.navigationUI.rightBarButtonItem.
+    }
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
         self.networkHandler.nearbyCourse(50.1, latitude: 55.2, context: context, success: { (result: AnyObject!) -> Void in
             self.classes = result as? [Class]
             }, failure: { (error: NSError!) -> Void in
@@ -37,6 +51,22 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
             }) { () -> Void in
                 self.tableView.reloadData()
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.blueNeighborBig.hidden=true
+        self.blueNeighborSmall.hidden=true
+        
+        self.buttonLabel.hidden = false
+    }
+    
+    @IBAction func Pressed(sender: UIButton) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.blueNeighborBig.hidden=false
+        self.blueNeighborSmall.hidden=false
+        
+        self.buttonLabel.hidden = true
     }
 
     // MARK: - UITableViewDataSource
