@@ -40,7 +40,11 @@ extension PGNetworkHandler {
     func nearbyCourse(longitude: Float, latitude: Float, context: NSManagedObjectContext, success: ((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
         self.GET("classnearby.json", parameters: ["lon": longitude, "lat": latitude], success: success, failure: failure, finish: finish)
     }
-    
+
+    func joinClass(classId: Int, userId: Int, context: NSManagedObjectContext, success: ((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+        self.GET("joinclass.json", parameters: ["class": classId, "uid": userId], success: success, failure: failure, finish: finish)
+    }
+
     //POST, need to be fixed
     func createClass(longitude: Float, latitude: Float, name: String, context:NSManagedObjectContext, success:((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
         self.POST("createclass.json", from: ["lon": longitude, "lat": latitude, "name": name], success: success, failure: failure, finish: finish)

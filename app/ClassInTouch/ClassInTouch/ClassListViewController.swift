@@ -73,11 +73,7 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = currentClasses?.count {
-            return count
-        } else {
-            return 0
-        }
+        return currentClasses?.count ?? 0
     }
 
     // MARK: - UITableViewDelegate

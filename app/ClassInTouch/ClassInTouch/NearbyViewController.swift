@@ -19,26 +19,23 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
         return delegate.managedObjectContext
         }()
 
-    lazy var classes: [Class] = {
-        do {
-            return try self.context.objects("User") as! [Class]
-        } catch {
-            return []
-        }
-        }()
-
     lazy var networkHandler: PGNetworkHandler = {
         return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.me"))
         }()
 
+    var classes: [Class]?
+
     // MARK: ViewController
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
 
-        // TODO: Use current lon & lat
-        networkHandler.nearbyCourse(100, latitude: 100, context: context, success: nil, failure: nil) { () -> Void in
-            self.tableView.reloadData()
+        self.networkHandler.nearbyCourse(50.1, latitude: 55.2, context: context, success: { (result: AnyObject!) -> Void in
+            self.classes = result as? [Class]
+            }, failure: { (error: NSError!) -> Void in
+                print(error)
+            }) { () -> Void in
+                self.tableView.reloadData()
         }
     }
 
@@ -46,22 +43,26 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("NearbyCell", forIndexPath: indexPath)
-        cell.textLabel?.text = classes[indexPath.row].name
+        let cellClass = classes?[indexPath.row]
+        cell.textLabel?.text = cellClass?.name
         return cell
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return classes.count
+        return classes?.count ?? 0
     }
 
     // MARK: - UITableViewDelegate
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (indexPath.section == 0) {
-            // TODO: Create class
-            self.tabBarController?.selectedIndex = 0
-        } else {
-            self.performSegueWithIdentifier("CreateSegue", sender: self)
+        guard let classId = classes?[indexPath.row].id?.integerValue else {
+            return
         }
+
+        let userId = NSUserDefaults.standardUserDefaults().integerForKey("UserID")
+        
+        networkHandler.joinClass(classId, userId: userId, context: context, success: { (result) -> Void in
+            self.tabBarController?.selectedIndex = 0
+            }, failure: nil, finish: nil)
     }
 }
