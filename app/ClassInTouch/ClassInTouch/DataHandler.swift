@@ -58,7 +58,7 @@ extension PGNetworkHandler {
         self.POST("createclass.json?\(parameters!)", from: ["lon": longitude, "lat": latitude, "name": name], success: success, failure: failure, finish: finish)
     }
     
-    func myClass(id: Int, context: NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+    func myClass(id: NSNumber, context: NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
         self.GET("myclass.json", parameters: ["uid": id], to: context, mapping: PGNetworkMapping.classMapping, success: success, failure: failure, finish: finish)
     }
 
