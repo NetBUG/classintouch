@@ -31,6 +31,9 @@ extension PGNetworkMapping {
     static var discussionMapping: PGNetworkMapping {
         return PGNetworkMapping(description: [["Discussion": "Discussion"], ["id": "id"]], mapping: ["text": "content", "title": "title", "likes": "likes"])
     }
+    static var postMapping: PGNetworkMapping {
+        return PGNetworkMapping(description: [["Post": "Post"], ["id": "id"]], mapping: ["text": "content", "title": "title", "likes": "likes"])
+    }
    
 }
 
@@ -61,15 +64,15 @@ extension PGNetworkHandler {
     }
     
     func createPost(userId: Int, discussionId: NSNumber, title: String, text: String, context:NSManagedObjectContext, success:((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
-        self.POST("posting.json", from: ["uid": userId, "discussion_id": discussionId, "title": title, "text": text], success: success, failure: failure, finish: finish);
+        self.POST("posting.json?uid=\(userId)&discussion_id=\(discussionId)&title=\(title)&text=\(text)", from: ["uid": userId, "discussion_id": discussionId, "title": title, "text": text], success: success, failure: failure, finish: finish);
     }
     
     func getDiscussion(classId: NSNumber, context:NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
         self.GET("getdiscussion.json", parameters: ["class_id": classId], to: context, mapping: PGNetworkMapping.discussionMapping, success: success, failure: failure, finish: finish)
     }
     
-    func getPost(classId: NSNumber, context:NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
-        self.GET("getdiscussionpost.json", parameters: ["class_id": classId], to: context, mapping: PGNetworkMapping.discussionMapping, success: success, failure: failure, finish: finish)
+    func getPost(discussionId: NSNumber, context:NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+        self.GET("getdiscussionpost.json", parameters: ["discussion_id": discussionId], to: context, mapping: PGNetworkMapping.postMapping, success: success, failure: failure, finish: finish)
     }
     
     func likePost(postId: NSNumber, userId: NSNumber, context:NSManagedObjectContext, success:((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {

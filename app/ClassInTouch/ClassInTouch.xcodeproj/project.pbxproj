@@ -17,6 +17,7 @@
 		8417CB1E1BDCA4800008FEF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8417CB161BDCA4800008FEF1 /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		8417CB1F1BDCA4800008FEF1 /* Discussion+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8417CB171BDCA4800008FEF1 /* Discussion+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		8417CB201BDCA4800008FEF1 /* Discussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8417CB181BDCA4800008FEF1 /* Discussion.swift */; settings = {ASSET_TAGS = (); }; };
+		8417CB221BDCD0B70008FEF1 /* LGSimpleChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8417CB211BDCD0B70008FEF1 /* LGSimpleChat.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B314AF1BDB2FD100954116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B314AE1BDB2FD100954116 /* AppDelegate.swift */; };
 		D0B314B41BDB2FD100954116 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0B314B21BDB2FD100954116 /* Main.storyboard */; };
 		D0B314B71BDB2FD100954116 /* ClassInTouch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0B314B51BDB2FD100954116 /* ClassInTouch.xcdatamodeld */; };
@@ -68,6 +69,7 @@
 		8417CB161BDCA4800008FEF1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8417CB171BDCA4800008FEF1 /* Discussion+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discussion+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8417CB181BDCA4800008FEF1 /* Discussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discussion.swift; sourceTree = "<group>"; };
+		8417CB211BDCD0B70008FEF1 /* LGSimpleChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGSimpleChat.swift; sourceTree = "<group>"; };
 		D0B314AB1BDB2FD100954116 /* ClassInTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassInTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B314AE1BDB2FD100954116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0B314B31BDB2FD100954116 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				D0B314E91BDB44EE00954116 /* AskViewController.swift */,
 				D0B314EB1BDB44FC00954116 /* CreateViewController.swift */,
 				D0B314E11BDB3F7C00954116 /* NearbyViewController.swift */,
+				8417CB211BDCD0B70008FEF1 /* LGSimpleChat.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				8417CB201BDCA4800008FEF1 /* Discussion.swift in Sources */,
 				D0B314B71BDB2FD100954116 /* ClassInTouch.xcdatamodeld in Sources */,
 				D0B314E61BDB44CC00954116 /* ClassViewController.swift in Sources */,
+				8417CB221BDCD0B70008FEF1 /* LGSimpleChat.swift in Sources */,
 				D0B314EC1BDB44FC00954116 /* CreateViewController.swift in Sources */,
 				D0B315141BDB625200954116 /* DataHandler.swift in Sources */,
 				8417CB1B1BDCA4800008FEF1 /* Class+CoreDataProperties.swift in Sources */,

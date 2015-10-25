@@ -20,6 +20,7 @@ class ClassViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     var context: NSManagedObjectContext?
     var registeredClass: Class?
+    var selectedDiscussion: Discussion?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,11 @@ class ClassViewController: UIViewController, UITableViewDataSource, UITableViewD
                     discussion.whichClass = self.registeredClass
                 }
             }
-            
+            do {
+                try self.context?.save()
+            } catch {
+                // TODO: Handle error in the future
+            }
             }, failure: { (error: NSError!) -> Void in
                     print(error)
             }) { () -> Void in
@@ -56,7 +61,10 @@ class ClassViewController: UIViewController, UITableViewDataSource, UITableViewD
             if let askViewController = navigationController.topViewController as? AskViewController {
                 askViewController.selectedClass = registeredClass
             }
-
+        }
+        
+        if let questionViewController = segue.destinationViewController as? QuestionViewController {
+            questionViewController.discussion = selectedDiscussion
         }
     }
 
@@ -77,6 +85,7 @@ class ClassViewController: UIViewController, UITableViewDataSource, UITableViewD
     // MARK: - UITableViewDelegate
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.selectedDiscussion = registeredClass?.discussions?[indexPath.row] as? Discussion
         self.performSegueWithIdentifier("QuestionSegue", sender: self)
     }
 
