@@ -15,14 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        
-//        UINavigationBar.appearanceWhenContainedInInstancesOfClasses([UIViewController.self]).backgroundColor = UIColor.blueColor()
-        
-    UITableViewCell.appearanceWhenContainedInInstancesOfClasses([UIViewController.self]).textLabel?.font = UIFont (name: "HelveticaNeue-UltraLight", size: 30)
-    
-        
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {        
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
