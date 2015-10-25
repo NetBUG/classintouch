@@ -71,6 +71,9 @@ class ClassViewController: UIViewController, UITableViewDataSource, UITableViewD
         let discussion: Discussion? = registeredClass?.discussions?[indexPath.row] as? Discussion
         cell.textLabel?.text = discussion?.title
         cell.detailTextLabel?.text = discussion?.content
+        cell.textLabel?.font = UIFont (name: "HelveticaNeue-UltraLight", size: 30)
+        cell.detailTextLabel?.font = UIFont (name: "HelveticaNeue-Light", size: 20)
+
         return cell
     }
 
@@ -79,6 +82,10 @@ class ClassViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     // MARK: - UITableViewDelegate
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 100
+    }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
