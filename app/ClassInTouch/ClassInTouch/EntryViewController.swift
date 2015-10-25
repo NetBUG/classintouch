@@ -38,19 +38,27 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
                     print("Error: \(error)")
                 } else {
                     print("fetched user: \(result)")
-                    if let username: NSString = result.valueForKey("name") as? NSString {
-                        do {
-                            NSUserDefaults.standardUserDefaults().setInteger(1, forKey: "UserID")
-                            try self.context.save("User", with: ["name": username, "id": NSNumber(integer: 1)], mapping: PGNetworkMapping.userMapping)
-                            try self.context.save()
-                            self.dismissViewControllerAnimated(true, completion: nil)
-                        } catch {
-                            // TODO: Handle error in the future
-                        }
+
+                    guard let facebookID = result.valueForKey("id") as? String else {
+                        return
                     }
 
-                    if let facebookID: NSString = result.valueForKey("id") as? NSString {
+                    guard let username = result.valueForKey("name") as? String else {
+                        return
+                    }
+
+                    guard let facebookIDInt = Int(facebookID) else {
+                        return
+                    }
+
+                    do {
+                        NSUserDefaults.standardUserDefaults().setInteger(facebookIDInt, forKey: "UserID")
                         NSUserDefaults.standardUserDefaults().setObject(facebookID, forKey: "FacebookID")
+                        try self.context.save("User", with: ["name": username, "id": NSNumber(integer: facebookIDInt)], mapping: PGNetworkMapping.userMapping)
+                        try self.context.save()
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    } catch {
+                        // TODO: Handle error in the future
                     }
                 }
             })
@@ -59,7 +67,8 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         do {
-            if let user = try context.object("User", identifier: 0, key: "id") as? User {
+            let id = NSUserDefaults.standardUserDefaults().integerForKey("UserID")
+            if let user = try context.object("User", identifier: id, key: "id") as? User {
                 NSUserDefaults.standardUserDefaults().removeObjectForKey("UserID")
                 NSUserDefaults.standardUserDefaults().removeObjectForKey("FacebookID")
                 context.deleteObject(user)
