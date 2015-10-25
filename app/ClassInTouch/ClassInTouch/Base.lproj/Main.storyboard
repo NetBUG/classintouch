@@ -452,7 +452,7 @@
         <scene sceneID="Y8Y-Iu-Ik0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="obI-mE-nwV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Classes" id="1Vo-lZ-nDl"/>
+                    <tabBarItem key="tabBarItem" title="Classes" image="Classes" id="1Vo-lZ-nDl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IaB-Ib-48v">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -472,7 +472,7 @@
         <scene sceneID="AmA-49-eS0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E7X-BB-WJD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Nearby" id="tVc-V8-WS7"/>
+                    <tabBarItem key="tabBarItem" title="Nearby" image="Nearby" id="tVc-V8-WS7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PCM-wC-XuX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -550,6 +550,8 @@
         <image name="BlueCircle1" width="598" height="598"/>
         <image name="BlueCircle2" width="1018" height="1018"/>
         <image name="Circle" width="1024" height="1024"/>
+        <image name="Classes" width="29" height="29"/>
+        <image name="Nearby" width="30" height="30"/>
     </resources>
     <color key="tintColor" red="1" green="0.56591735835881019" blue="0.13846937147530647" alpha="1" colorSpace="calibratedRGB"/>
 </document>

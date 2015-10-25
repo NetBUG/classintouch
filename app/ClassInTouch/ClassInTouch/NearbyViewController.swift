@@ -122,6 +122,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("NearbyCell", forIndexPath: indexPath)
         let nearbyClass = nearbyClasses?[indexPath.row] as? [String: AnyObject]
         cell.textLabel?.text = nearbyClass?["name"] as? String
+        cell.textLabel?.font = UIFont (name: "HelveticaNeue-UltraLight", size: 30)
         return cell
     }
 
