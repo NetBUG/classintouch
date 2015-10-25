@@ -15,7 +15,12 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
 
     @IBOutlet weak var tableView: UITableView!
 
+    var currentClasses: [Class]?
     var selectedClass: Class?
+
+    lazy var networkHandler: PGNetworkHandler = {
+        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.me"))
+        }()
 
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -30,14 +35,6 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }()
 
-    lazy var currentClasses: [Class] = {
-//        do {
-//            return try self.context.objects("Class") as? [Class]
-//        } catch {
-//            return []
-//        }
-    }()
-
     // MARK: ViewController
 
     override func viewDidLoad() {
@@ -46,6 +43,18 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
                 self.performSegueWithIdentifier("LoginSegue", sender: self)
             }
+        }
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.networkHandler.myClass(0, context: context, success: { (result: [AnyObject]!) -> Void in
+            self.currentClasses = result as? [Class]
+            }, failure: { (error: NSError!) -> Void in
+                print(error)
+            }) { () -> Void in
+                self.tableView.reloadData()
         }
     }
 
