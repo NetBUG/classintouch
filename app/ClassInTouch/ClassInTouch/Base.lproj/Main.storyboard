@@ -137,7 +137,7 @@
             </objects>
             <point key="canvasLocation" x="2149" y="127"/>
         </scene>
-        <!--Class in Touch-->
+        <!--My Classes-->
         <scene sceneID="GwH-lU-BS0">
             <objects>
                 <viewController storyboardIdentifier="LoggedInMainPage" id="X5e-iy-2se" customClass="ClassListViewController" customModule="ClassInTouch" customModuleProvider="target" sceneMemberID="viewController">
@@ -191,7 +191,13 @@
                             <constraint firstItem="fom-3S-mBf" firstAttribute="top" secondItem="xfS-we-Wjh" secondAttribute="bottom" id="w5D-58-LES"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Class in Touch" id="ClP-8V-dvN"/>
+                    <navigationItem key="navigationItem" title="My Classes" id="ClP-8V-dvN">
+                        <barButtonItem key="rightBarButtonItem" title="Me" id="uiM-DM-LNN">
+                            <connections>
+                                <action selector="profileButtonTapped:" destination="X5e-iy-2se" id="WmB-bz-L5a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="xfS-we-Wjh" id="BWY-0M-9HJ"/>
                         <segue destination="oY5-fh-apb" kind="show" identifier="ClassSegue" id="Odz-Cg-smm"/>
@@ -442,11 +448,11 @@
             </objects>
             <point key="canvasLocation" x="449" y="-167"/>
         </scene>
-        <!--Item 1-->
+        <!--Classes-->
         <scene sceneID="Y8Y-Iu-Ik0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="obI-mE-nwV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="1Vo-lZ-nDl"/>
+                    <tabBarItem key="tabBarItem" title="Classes" id="1Vo-lZ-nDl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IaB-Ib-48v">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -462,11 +468,11 @@
             </objects>
             <point key="canvasLocation" x="1269" y="-498"/>
         </scene>
-        <!--Item 2-->
+        <!--Nearby-->
         <scene sceneID="AmA-49-eS0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E7X-BB-WJD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="tVc-V8-WS7"/>
+                    <tabBarItem key="tabBarItem" title="Nearby" id="tVc-V8-WS7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PCM-wC-XuX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
