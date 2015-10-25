@@ -270,7 +270,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ZnS-7T-kvZ" id="zds-xS-Ukw"/>
-                        <segue destination="O0U-bO-Y7A" kind="show" identifier="QuestionSegue" id="IWy-cH-hc1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nkT-AL-vcG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -367,26 +366,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0p-pc-2gq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5204" y="-1216"/>
-        </scene>
-        <!--Question-->
-        <scene sceneID="mfz-sF-AVI">
-            <objects>
-                <viewController id="O0U-bO-Y7A" customClass="QuestionViewController" customModule="ClassInTouch" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="n1U-rg-54B"/>
-                        <viewControllerLayoutGuide type="bottom" id="iAp-d4-aqk"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5VK-Ke-Xrl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Question" id="jJW-lx-eq8"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sV6-Cd-X4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3580" y="-498"/>
         </scene>
         <!--Login-->
         <scene sceneID="0Ob-Lg-0sj">

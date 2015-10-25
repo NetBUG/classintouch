@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ClassViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ClassViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LGChatControllerDelegate {
 
     // MARK: Properties
 
@@ -62,10 +62,6 @@ class ClassViewController: UIViewController, UITableViewDataSource, UITableViewD
                 askViewController.selectedClass = registeredClass
             }
         }
-        
-        if let questionViewController = segue.destinationViewController as? QuestionViewController {
-            questionViewController.discussion = selectedDiscussion
-        }
     }
 
     // MARK: - UITableViewDataSource
@@ -85,8 +81,73 @@ class ClassViewController: UIViewController, UITableViewDataSource, UITableViewD
     // MARK: - UITableViewDelegate
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         self.selectedDiscussion = registeredClass?.discussions?[indexPath.row] as? Discussion
-        self.performSegueWithIdentifier("QuestionSegue", sender: self)
+
+        guard let discussionId = selectedDiscussion?.id else {
+            return
+        }
+        
+        guard let context = self.context else {
+            return
+        }
+        
+        networkHandler.getPost(discussionId, context: context, success: { (result: [AnyObject]!) -> Void in
+            if let posts = result as? [Post] {
+                for post: Post in posts {
+                    post.whichDiscussion = self.selectedDiscussion
+                }
+            }
+            do {
+                try self.context?.save()
+            } catch {
+                // TODO: Handle error in the future
+            }
+            }, failure: nil) { () -> Void in
+                self.launchChatController()
+        }
     }
 
+    // MARK: - Chat
+    
+    // MARK: Launch Chat Controller
+    
+    func launchChatController() {
+        let chatController = LGChatController()
+        chatController.title = selectedDiscussion?.title
+        
+        var messages: [LGChatMessage] = Array()
+        if let posts = selectedDiscussion?.posts?.array as? [Post] {
+            for post: Post in posts  {
+                if let content = post.content {
+                    messages.append(LGChatMessage(content: content, sentBy: .Opponent))
+                }
+            }
+        }
+        
+        chatController.messages = messages
+        chatController.delegate = self
+        self.navigationController?.pushViewController(chatController, animated: true)
+    }
+    
+    // MARK: LGChatControllerDelegate
+    
+    func chatController(chatController: LGChatController, didAddNewMessage message: LGChatMessage) {
+        let userID = NSUserDefaults.standardUserDefaults().integerForKey("UserID")
+        guard let discussionID = self.selectedDiscussion?.id else {
+            return
+        }
+        
+        guard let context = self.context else {
+            return
+        }
+        
+        self.networkHandler.createPost(userID, discussionId: discussionID, title: message.content, text: message.content, context: context, success: nil, failure: nil, finish: nil)
+        print("Did Add Message: \(message.content)")
+    }
+    
+    func shouldChatController(chatController: LGChatController, addMessage message: LGChatMessage) -> Bool {
+        return true
+    }
 }
