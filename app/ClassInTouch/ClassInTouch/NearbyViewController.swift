@@ -16,9 +16,6 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var navigationUI: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var buttonLabel: UILabel!
-    @IBOutlet weak var blueNeighborBig: UIImageView!
-
-    @IBOutlet weak var blueNeighborSmall: UIImageView!
     @IBOutlet weak var button1: UIButton!
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -38,8 +35,6 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewWillAppear(animated: Bool) {
 
         let noLocation = longitude == nil || latitude == nil
-        self.blueNeighborBig.hidden = true
-        self.blueNeighborSmall.hidden = true
         self.tableView.hidden = noLocation
         self.navigationItem.rightBarButtonItem?.enabled = !noLocation
         self.buttonLabel.hidden = !noLocation

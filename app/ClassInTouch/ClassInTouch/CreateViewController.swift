@@ -24,8 +24,9 @@ class CreateViewController: UIViewController {
         return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.club"))
         }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.titleField.becomeFirstResponder()
     }
 
     @IBAction func cancelButtonTapped(sender: AnyObject) {
