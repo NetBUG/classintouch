@@ -48,11 +48,14 @@ extension PGNetworkHandler {
     }
 
     func joinClass(classId: NSNumber, userId: Int, context: NSManagedObjectContext, success: ((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
-        self.POST("joinclass.json?uid=\(userId)&class_id=\(classId)", from: ["uid": userId, "class_id": classId], success: success, failure: failure, finish: finish)
+        let parameters = "uid=\(userId)&class_id=\(classId)".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+
+        self.POST("joinclass.json?\(parameters!)", from: ["uid": userId, "class_id": classId], success: success, failure: failure, finish: finish)
     }
 
     func createClass(longitude: Float, latitude: Float, name: String, context:NSManagedObjectContext, success:((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
-        self.POST("createclass.json?lat=\(latitude)&lon=\(latitude)&name=\(name)", from: ["lon": longitude, "lat": latitude, "name": name], success: success, failure: failure, finish: finish)
+        let parameters = "lat=\(latitude)&lon=\(latitude)&name=\(name)".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+        self.POST("createclass.json?\(parameters!)", from: ["lon": longitude, "lat": latitude, "name": name], success: success, failure: failure, finish: finish)
     }
     
     func myClass(id: Int, context: NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
@@ -60,11 +63,13 @@ extension PGNetworkHandler {
     }
 
     func createDiscussion(userId: Int, classId: NSNumber, title: String, text: String, context:NSManagedObjectContext, success:((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
-        self.POST("posting.json?uid=\(userId)&class_id=\(classId)&title=\(title)&text=\(text)", from: ["uid": userId, "class_id": classId, "title": title, "text": text], success: success, failure: failure, finish: finish);
+        let parameters = "uid=\(userId)&class_id=\(classId)&title=\(title)&text=\(text)".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+        self.POST("posting.json?\(parameters!)", from: ["uid": userId, "class_id": classId, "title": title, "text": text], success: success, failure: failure, finish: finish);
     }
     
     func createPost(userId: Int, discussionId: NSNumber, title: String, text: String, context:NSManagedObjectContext, success:((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
-        self.POST("posting.json?uid=\(userId)&discussion_id=\(discussionId)&title=\(title)&text=\(text)", from: ["uid": userId, "discussion_id": discussionId, "title": title, "text": text], success: success, failure: failure, finish: finish);
+        let parameters = "uid=\(userId)&discussion_id=\(discussionId)&title=\(title)&text=\(text)".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+        self.POST("posting.json?\(parameters!)", from: ["uid": userId, "discussion_id": discussionId, "title": title, "text": text], success: success, failure: failure, finish: finish);
     }
     
     func getDiscussion(classId: NSNumber, context:NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
