@@ -6,7 +6,7 @@
 import os.path, os
 import ujson as json
 
-from flask import Flask, make_response, url_for, redirect, render_template, request
+from flask import Flask, make_response, url_for, redirect, render_template, request, send_from_directory
 from flask_mail import Mail
 from flask_user import current_user, UserManager, SQLAlchemyAdapter
 import pytz
@@ -89,8 +89,16 @@ def main():
     #resp.mimetype = 'application/json'
     return resp
 
+@app.route('/favicon.ico')
+@app.route('/favicon.png')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/png')
+
+
 
 if __name__ == '__main__':
     # Create all database tables
     # print app.url_map  # some debug
     app.run(host='0.0.0.0', port=5100, debug=True)
+
