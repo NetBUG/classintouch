@@ -14,12 +14,41 @@ class ClassViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     @IBOutlet weak var tableView: UITableView!
 
+    lazy var networkHandler: PGNetworkHandler = {
+        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.club"))
+        }()
+
     var context: NSManagedObjectContext?
     var registeredClass: Class?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = registeredClass?.name
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let context = self.context else {
+            return
+        }
+        
+        guard let id = registeredClass?.id else {
+            return
+        }
+        
+        networkHandler.getDiscussion(id, context: context, success: { (result: [AnyObject]!) -> Void in
+            if let discussions = result as? [Discussion] {
+                for discussion: Discussion in discussions {
+                    discussion.whichClass = self.registeredClass
+                }
+            }
+            
+            }, failure: { (error: NSError!) -> Void in
+                    print(error)
+            }) { () -> Void in
+                self.tableView.reloadData()
+        }
     }
 
     // MARK: - UITableViewDataSource

@@ -62,6 +62,7 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let classViewController = segue.destinationViewController as? ClassViewController {
             classViewController.registeredClass = selectedClass
+            classViewController.context = context
         }
     }
 
@@ -80,6 +81,7 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
     // MARK: - UITableViewDelegate
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedClass = currentClasses?[indexPath.row]
         self.performSegueWithIdentifier("ClassSegue", sender: self)
     }
 

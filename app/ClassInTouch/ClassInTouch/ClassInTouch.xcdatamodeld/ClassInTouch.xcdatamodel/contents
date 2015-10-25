@@ -18,9 +18,9 @@
         <attribute name="id" attributeType="Integer 32" syncable="YES"/>
         <attribute name="likes" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
-        <relationship name="poster" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="posts" inverseEntity="User" syncable="YES"/>
+        <relationship name="poster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="posts" inverseEntity="User" syncable="YES"/>
         <relationship name="posts" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Post" inverseName="whichDiscussion" inverseEntity="Post" syncable="YES"/>
-        <relationship name="whichClass" maxCount="1" deletionRule="Nullify" destinationEntity="Class" inverseName="discussions" inverseEntity="Class" syncable="YES"/>
+        <relationship name="whichClass" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Class" inverseName="discussions" inverseEntity="Class" syncable="YES"/>
     </entity>
     <entity name="Post" representedClassName=".Post" syncable="YES">
         <attribute name="content" attributeType="String" syncable="YES"/>
@@ -28,8 +28,8 @@
         <attribute name="id" attributeType="Integer 32" syncable="YES"/>
         <attribute name="likes" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
-        <relationship name="poster" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="discussions" inverseEntity="User" syncable="YES"/>
-        <relationship name="whichDiscussion" maxCount="1" deletionRule="Nullify" destinationEntity="Discussion" inverseName="posts" inverseEntity="Discussion" syncable="YES"/>
+        <relationship name="poster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="discussions" inverseEntity="User" syncable="YES"/>
+        <relationship name="whichDiscussion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Discussion" inverseName="posts" inverseEntity="Discussion" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="id" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
