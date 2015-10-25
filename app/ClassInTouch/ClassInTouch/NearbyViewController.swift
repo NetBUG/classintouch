@@ -12,8 +12,12 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
 
     // MARK: Properties
 
+    @IBOutlet weak var navigationUI: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var buttonLabel: UILabel!
+    @IBOutlet weak var blueNeighborBig: UIImageView!
 
+    @IBOutlet weak var blueNeighborSmall: UIImageView!
     @IBOutlet weak var button1: UIButton!
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -34,17 +38,37 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
 
     // MARK: ViewController
     override func viewDidLoad() {
+        // Set up the button
         super.viewDidLoad()
         // case of normal image
-        let image1 = UIImage(named: "LonelyCircle.pdf")!
+        let image1 = UIImage(named: "Circle")!
         self.button1.setImage(image1, forState: UIControlState.Normal)
+        //Hide the bar's + button, and temporarily name
+        //self.navigationUI.rightBarButtonItem.
+        
+        
+        
 
         // TODO: Use current lon & lat
         networkHandler.nearbyCourse(100, latitude: 100, context: context, success: nil, failure: nil) { () -> Void in
             self.tableView.reloadData()
         }
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.blueNeighborBig.hidden=true
+        self.blueNeighborSmall.hidden=true
+        
+        self.buttonLabel.hidden = false
+    }
+    
     @IBAction func Pressed(sender: UIButton) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.blueNeighborBig.hidden=false
+        self.blueNeighborSmall.hidden=false
+        
+        self.buttonLabel.hidden = true
     }
 
     // MARK: - UITableViewDataSource
