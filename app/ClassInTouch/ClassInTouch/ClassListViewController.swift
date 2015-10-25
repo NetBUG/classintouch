@@ -27,14 +27,7 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
         return delegate.managedObjectContext
         }()
 
-    lazy var user: User? = {
-        do {
-            let id = NSUserDefaults.standardUserDefaults().integerForKey("UserID")
-            return try self.context.object("User", identifier: id, key: "id") as? User
-        } catch {
-            return nil
-        }
-    }()
+    var user: User?
 
     // MARK: ViewController
 
@@ -50,8 +43,21 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
+        do {
+            let id = NSUserDefaults.standardUserDefaults().integerForKey("UserID")
+            self.user = try self.context.object("User", identifier: id, key: "id") as? User
+        } catch {
+            self.user = nil
+        }
+
         self.networkHandler.myClass(user?.id?.integerValue ?? 0, context: context, success: { (result: [AnyObject]!) -> Void in
             self.currentClasses = result as? [Class]
+            do {
+                try self.context.save()
+            } catch {
+                // TODO: Handler error in the future
+            }
+
             }, failure: { (error: NSError!) -> Void in
                 print(error)
             }) { () -> Void in
