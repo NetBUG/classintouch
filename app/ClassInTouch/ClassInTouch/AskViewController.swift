@@ -41,8 +41,9 @@ class AskViewController: UIViewController {
 
         let discussionTitle = titleField.text ?? "No Title"
         let discussionContent = textField.text ?? "No Text"
+        let userId = NSUserDefaults.standardUserDefaults().integerForKey("UserID")
 
-        networkHandler.createDiscussion(classId, title: discussionTitle, text: discussionContent, context: context, success: { (result) -> Void in
+        networkHandler.createDiscussion(userId, classId: classId, title: discussionTitle, text: discussionContent, context: context, success: { (result) -> Void in
             self.dismissViewControllerAnimated(true, completion: nil)
             }, failure: nil) { () -> Void in
                 self.view.userInteractionEnabled = true

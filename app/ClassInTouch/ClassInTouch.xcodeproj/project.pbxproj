@@ -87,7 +87,7 @@
 		D0B314E91BDB44EE00954116 /* AskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskViewController.swift; sourceTree = "<group>"; };
 		D0B314EB1BDB44FC00954116 /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		D0B314ED1BDB450C00954116 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
-		D0B315131BDB625200954116 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		D0B315131BDB625200954116 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataHandler.swift; path = /Users/EthanWang/Documents/Github/classintouch/app/ClassInTouch/ClassInTouch/DataHandler.swift; sourceTree = "<absolute>"; };
 		D0B315151BDB6EA000954116 /* NSManagedObjectContext+PGNetworkMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+PGNetworkMapping.h"; sourceTree = "<group>"; };
 		D0B315161BDB6EA000954116 /* NSManagedObjectContext+PGNetworkMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+PGNetworkMapping.m"; sourceTree = "<group>"; };
 		D0B315171BDB6EA000954116 /* PGNetworkMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGNetworkMapping.h; sourceTree = "<group>"; };

@@ -50,6 +50,15 @@ class ClassViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.tableView.reloadData()
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let navigationController = segue.destinationViewController as? UINavigationController {
+            if let askViewController = navigationController.topViewController as? AskViewController {
+                askViewController.selectedClass = registeredClass
+            }
+
+        }
+    }
 
     // MARK: - UITableViewDataSource
 

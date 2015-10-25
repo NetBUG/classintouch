@@ -56,12 +56,12 @@ extension PGNetworkHandler {
         self.GET("myclass.json", parameters: ["uid": id], to: context, mapping: PGNetworkMapping.classMapping, success: success, failure: failure, finish: finish)
     }
 
-    func createDiscussion(classId: NSNumber, title: String, text: String, context:NSManagedObjectContext, success:((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
-        self.POST("posting.json", from: ["class_id": classId, "title": title, "text": text], success: success, failure: failure, finish: finish);
+    func createDiscussion(userId: Int, classId: NSNumber, title: String, text: String, context:NSManagedObjectContext, success:((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+        self.POST("posting.json?uid=\(userId)&class_id=\(classId)&title=\(title)&text=\(text)", from: ["uid": userId, "class_id": classId, "title": title, "text": text], success: success, failure: failure, finish: finish);
     }
     
-    func createPost(discussionId: NSNumber, title: String, text: String, context:NSManagedObjectContext, success:((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
-        self.POST("posting.json", from: ["discussion_id": discussionId, "title": title, "text": text], success: success, failure: failure, finish: finish);
+    func createPost(userId: Int, discussionId: NSNumber, title: String, text: String, context:NSManagedObjectContext, success:((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+        self.POST("posting.json", from: ["uid": userId, "discussion_id": discussionId, "title": title, "text": text], success: success, failure: failure, finish: finish);
     }
     
     func getDiscussion(classId: NSNumber, context:NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
