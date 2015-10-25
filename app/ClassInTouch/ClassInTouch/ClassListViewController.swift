@@ -71,6 +71,7 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ClassListCell", forIndexPath: indexPath)
         cell.textLabel?.text = currentClasses?[indexPath.row].name
+        cell.textLabel?.font = UIFont (name: "HelveticaNeue-UltraLight", size: 30)
         return cell
     }
 
@@ -79,6 +80,10 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     // MARK: - UITableViewDelegate
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
+    }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedClass = currentClasses?[indexPath.row]
