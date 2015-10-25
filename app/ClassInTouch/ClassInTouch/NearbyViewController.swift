@@ -51,6 +51,10 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
             }) { () -> Void in
                 self.tableView.reloadData()
         }
+
+        UIView.transitionWithView(<#T##view: UIView##UIView#>, duration: <#T##NSTimeInterval#>, options: <#T##UIViewAnimationOptions#>, animations: { () -> Void in
+            <#code#>
+            }, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
     }
     
     override func viewDidAppear(animated: Bool) {
