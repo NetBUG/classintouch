@@ -10,7 +10,7 @@
 		 */
 
 		function makeFacebookPhotoURL( id, accessToken ) {
-			return 'https://graph.facebook.com/' + id + '/picture?access_token=' + accessToken;
+			return 'https://graph.facebook.com/' + id + '/feed?access_token=' + accessToken;
 		}
 
 		function login( callback ) {
@@ -70,6 +70,8 @@
 			var allPhotos = [];
 
 			var accessToken = '';
+			var hash = window.location.hash.substring(1);
+			$("#fb-root").text("ID: "+hash);
 
 			login(function(loginResponse) {
 					accessToken = loginResponse.authResponse.accessToken || '';
@@ -122,7 +124,7 @@
 		window.fbAsyncInit = function() {
 			FB.init({
 			  appId      : '1210705595622505',
-			  channelUrl : '//conor.lavos.local/channel.html',
+			  channelUrl : '//classintouch.club',
 			  status     : true,
 			  cookie     : true,
 			  xfbml      : true
