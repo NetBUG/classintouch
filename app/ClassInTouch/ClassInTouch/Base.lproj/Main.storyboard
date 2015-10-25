@@ -50,7 +50,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOC-mi-sMs">
-                                <rect key="frame" x="100" y="100" width="400" height="400"/>
+                                <rect key="frame" x="100" y="60" width="400" height="400"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aOC-mi-sMs" secondAttribute="height" multiplier="1:1" id="jau-k7-Fep"/>
@@ -62,13 +62,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm in class" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djh-Z7-Nb7">
-                                <rect key="frame" x="241" y="424" width="119" height="35"/>
+                                <rect key="frame" x="241.5" y="424.5" width="118.5" height="34.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="BlueCircle2" translatesAutoresizingMaskIntoConstraints="NO" id="xQq-Rz-50u">
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="BlueCircle2" translatesAutoresizingMaskIntoConstraints="NO" id="xQq-Rz-50u">
                                 <rect key="frame" x="-10" y="311" width="224" height="224"/>
                                 <animations/>
                                 <constraints>
@@ -76,7 +76,7 @@
                                     <constraint firstAttribute="width" constant="224" id="xXb-l7-1SE"/>
                                 </constraints>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="BlueCircle1" translatesAutoresizingMaskIntoConstraints="NO" id="1Jt-RQ-hlo">
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="BlueCircle1" translatesAutoresizingMaskIntoConstraints="NO" id="1Jt-RQ-hlo">
                                 <rect key="frame" x="440" y="121" width="140" height="140"/>
                                 <animations/>
                                 <constraints>
@@ -104,7 +104,7 @@
                             <constraint firstItem="aOC-mi-sMs" firstAttribute="centerX" secondItem="2ZX-xZ-3M8" secondAttribute="centerX" id="hZg-TZ-7D0"/>
                             <constraint firstAttribute="trailing" secondItem="d51-eG-ywC" secondAttribute="trailing" id="jfa-j6-2ea"/>
                             <constraint firstItem="d51-eG-ywC" firstAttribute="top" secondItem="akx-7L-jcj" secondAttribute="bottom" id="jjX-oP-3d7"/>
-                            <constraint firstItem="aOC-mi-sMs" firstAttribute="centerY" secondItem="2ZX-xZ-3M8" secondAttribute="centerY" id="k9c-Vo-wfI"/>
+                            <constraint firstItem="aOC-mi-sMs" firstAttribute="centerY" secondItem="2ZX-xZ-3M8" secondAttribute="centerY" constant="-40" id="k9c-Vo-wfI"/>
                             <constraint firstItem="1Jt-RQ-hlo" firstAttribute="trailing" secondItem="2ZX-xZ-3M8" secondAttribute="trailingMargin" id="z6c-tI-NNh"/>
                         </constraints>
                         <variation key="default">
@@ -289,8 +289,21 @@
                     <view key="view" contentMode="scaleToFill" id="w6J-x9-UhF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8tO-gM-M6T">
+                                <rect key="frame" x="20" y="96" width="560" height="17"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8tO-gM-M6T" firstAttribute="leading" secondItem="w6J-x9-UhF" secondAttribute="leading" constant="20" id="GIw-Rw-OLD"/>
+                            <constraint firstItem="8tO-gM-M6T" firstAttribute="top" secondItem="hWE-S1-8z2" secondAttribute="bottom" constant="32" id="kPr-0c-lHf"/>
+                            <constraint firstAttribute="trailing" secondItem="8tO-gM-M6T" secondAttribute="trailing" constant="20" id="rld-U1-1ss"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create Class" id="9eO-6K-V3U">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="DZ3-jO-MbQ">
@@ -304,6 +317,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="titleField" destination="8tO-gM-M6T" id="r1k-tQ-0mY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2Y-dZ-cdh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

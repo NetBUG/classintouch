@@ -47,12 +47,12 @@ extension PGNetworkHandler {
         self.GET("classnearby.json", parameters: ["lon": longitude, "lat": latitude], success: success, failure: failure, finish: finish)
     }
 
-    func joinClass(classId: Int, userId: Int, context: NSManagedObjectContext, success: ((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
-        self.GET("joinclass.json", parameters: ["class": classId, "uid": userId], success: success, failure: failure, finish: finish)
+    func joinClass(classId: NSNumber, userId: Int, context: NSManagedObjectContext, success: ((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
+        self.POST("joinclass.json?uid=\(userId)&class_id=\(classId)", from: ["uid": userId, "class_id": classId], success: success, failure: failure, finish: finish)
     }
 
     func createClass(longitude: Float, latitude: Float, name: String, context:NSManagedObjectContext, success:((result: AnyObject!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
-        self.POST("createclass.json", from: ["lon": longitude, "lat": latitude, "name": name], success: success, failure: failure, finish: finish)
+        self.POST("createclass.json?lat=\(latitude)&lon=\(latitude)&name=\(name)", from: ["lon": longitude, "lat": latitude, "name": name], success: success, failure: failure, finish: finish)
     }
     
     func myClass(id: Int, context: NSManagedObjectContext, success:((result: [AnyObject]!) -> Void)?, failure: ((error: NSError!) -> Void)?, finish: (() -> Void)?) {
