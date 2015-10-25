@@ -58,7 +58,8 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
             self.user = nil
         }
 
-        self.networkHandler.myClass(user?.id?.integerValue ?? 0, context: context, success: { (result: [AnyObject]!) -> Void in
+        let userId = self.user?.id ?? NSNumber(integer: 0)
+        self.networkHandler.myClass(userId, context: context, success: { (result: [AnyObject]!) -> Void in
             self.currentClasses = result as? [Class]
             do {
                 try self.context.save()

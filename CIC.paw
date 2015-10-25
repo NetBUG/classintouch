@@ -248,7 +248,7 @@
     </object>
     <object type="LMREQUEST" id="z121">
         <attribute name="uuid" type="string">3EFD5592-9164-4B8D-A55A-3BF2B304B819</attribute>
-        <attribute name="url" type="string">http://classintouch.club/myclass.json?uid=1</attribute>
+        <attribute name="url" type="string">http://classintouch.club/myclass.json?uid=829181543861348</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
