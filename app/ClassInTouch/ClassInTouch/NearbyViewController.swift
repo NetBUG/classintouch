@@ -25,7 +25,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
         }()
 
     lazy var networkHandler: PGNetworkHandler = {
-        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.me"))
+        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.club"))
         }()
 
     var classes: [Class]?

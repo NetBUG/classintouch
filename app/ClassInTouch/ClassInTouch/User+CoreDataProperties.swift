@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  ClassInTouch
 //
-//  Created by Justin Jia on 10/24/15.
+//  Created by Ethan Wang on 10/25/15.
 //  Copyright © 2015 ClassInTouch. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -18,4 +18,6 @@ extension User {
     @NSManaged var name: String?
     @NSManaged var classes: NSOrderedSet?
     @NSManaged var posts: NSOrderedSet?
+    @NSManaged var discussions: NSOrderedSet?
+
 }

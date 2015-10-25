@@ -1,41 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15A284" minimumToolsVersion="Automatic">
     <entity name="Class" representedClassName=".Class" syncable="YES">
-        <attribute name="date" attributeType="Date" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="day" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="distance" optional="YES" attributeType="Float" syncable="YES"/>
         <attribute name="id" attributeType="Integer 32" syncable="YES"/>
-        <attribute name="latitude" attributeType="Float" syncable="YES"/>
-        <attribute name="longitude" attributeType="Float" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Post" inverseName="whichClass" inverseEntity="Post" syncable="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="discussions" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Discussion" inverseName="whichClass" inverseEntity="Discussion" syncable="YES"/>
         <relationship name="whichUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="classes" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="Post" representedClassName=".Question" syncable="YES">
+    <entity name="Discussion" representedClassName=".Discussion" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="date" attributeType="Date" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="id" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="likes" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="poster" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="posts" inverseEntity="User" syncable="YES"/>
-        <relationship name="replies" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Reply" inverseName="whichQuestion" inverseEntity="Reply" syncable="YES"/>
-        <relationship name="whichClass" maxCount="1" deletionRule="Nullify" destinationEntity="Class" inverseName="questions" inverseEntity="Class" syncable="YES"/>
+        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Post" inverseName="whichDiscussion" inverseEntity="Post" syncable="YES"/>
+        <relationship name="whichClass" maxCount="1" deletionRule="Nullify" destinationEntity="Class" inverseName="discussions" inverseEntity="Class" syncable="YES"/>
     </entity>
-    <entity name="Reply" representedClassName=".Reply" syncable="YES">
+    <entity name="Post" representedClassName=".Post" syncable="YES">
         <attribute name="content" attributeType="String" syncable="YES"/>
-        <attribute name="date" attributeType="Date" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="id" attributeType="Integer 32" syncable="YES"/>
-        <relationship name="poster" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="replies" inverseEntity="User" syncable="YES"/>
-        <relationship name="whichQuestion" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="replies" inverseEntity="Post" syncable="YES"/>
+        <attribute name="likes" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+        <relationship name="poster" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="discussions" inverseEntity="User" syncable="YES"/>
+        <relationship name="whichDiscussion" maxCount="1" deletionRule="Nullify" destinationEntity="Discussion" inverseName="posts" inverseEntity="Discussion" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="id" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="classes" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Class" inverseName="whichUser" inverseEntity="Class" syncable="YES"/>
-        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Post" inverseName="poster" inverseEntity="Post" syncable="YES"/>
-        <relationship name="replies" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Reply" inverseName="poster" inverseEntity="Reply" syncable="YES"/>
+        <relationship name="discussions" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Post" inverseName="poster" inverseEntity="Post" syncable="YES"/>
+        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Discussion" inverseName="poster" inverseEntity="Discussion" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Class" positionX="288" positionY="-117" width="128" height="150"/>
-        <element name="Post" positionX="486" positionY="-115" width="128" height="150"/>
-        <element name="Reply" positionX="693" positionY="-148" width="128" height="120"/>
-        <element name="User" positionX="826" positionY="432" width="128" height="120"/>
+        <element name="Class" positionX="288" positionY="-117" width="128" height="193"/>
+        <element name="Discussion" positionX="486" positionY="-115" width="128" height="163"/>
+        <element name="Post" positionX="693" positionY="-148" width="128" height="148"/>
+        <element name="User" positionX="826" positionY="432" width="128" height="118"/>
     </elements>
 </model>

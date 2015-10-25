@@ -2,7 +2,7 @@
 //  User.swift
 //  ClassInTouch
 //
-//  Created by Justin Jia on 10/24/15.
+//  Created by Ethan Wang on 10/25/15.
 //  Copyright © 2015 ClassInTouch. All rights reserved.
 //
 

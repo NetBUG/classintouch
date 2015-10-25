@@ -22,7 +22,7 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>classintouch.me</key>
+			<key>classintouch.club</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
