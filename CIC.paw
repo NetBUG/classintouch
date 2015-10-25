@@ -5,7 +5,7 @@
     <databaseInfo>
         <version>134481920</version>
         <UUID>BA9489B4-6D7A-4DD2-980F-EA183D80211A</UUID>
-        <nextObjectID>128</nextObjectID>
+        <nextObjectID>130</nextObjectID>
         <metadata>
             <plist version="1.0">
                 <dict>
@@ -102,14 +102,14 @@
     </object>
     <object type="LMREQUEST" id="z105">
         <attribute name="uuid" type="string">60F492D6-140D-4C2B-A0D6-4CF0C63F7B0D</attribute>
-        <attribute name="url" type="string">http://classintouch.club/getdiscussion.json?class_id=152 </attribute>
+        <attribute name="url" type="string">http://classintouch.club/getdiscussion.json?class_id=1</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">GET</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="order" type="int64">8</attribute>
+        <attribute name="order" type="int64">9</attribute>
         <attribute name="name" type="string">Get discussion</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
@@ -117,14 +117,14 @@
     </object>
     <object type="LMREQUEST" id="z106">
         <attribute name="uuid" type="string">DEE447B3-6CDB-42B6-B12F-E68ED5C23538</attribute>
-        <attribute name="url" type="string">http://classintouch.club/getdiscussionpost.json?discussion_id=151 </attribute>
+        <attribute name="url" type="string">http://classintouch.club/getdiscussionpost.json?discussion_id=7</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">GET</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="order" type="int64">7</attribute>
+        <attribute name="order" type="int64">8</attribute>
         <attribute name="name" type="string">Get list of post</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
@@ -215,7 +215,7 @@
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="order" type="int64">9</attribute>
+        <attribute name="order" type="int64">10</attribute>
         <attribute name="name" type="string">Like a post</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
@@ -233,12 +233,12 @@
     </object>
     <object type="LMREQUEST" id="z120">
         <attribute name="uuid" type="string">6C665FE1-9D8D-4F28-A2D9-A363182C75A5</attribute>
-        <attribute name="url" type="string">http://classintouch.club/classnearby.json?lon=50.1\u2600lat=55.2\u2600post_id=13\u2600title=question\u2600text=text%20</attribute>
+        <attribute name="url" type="string">http://classintouch.club/posting.json?uid=1\u2600discussion_id=14\u2600title=question\u2600text=text</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
         <attribute name="redirectauthorization" type="bool">0</attribute>
-        <attribute name="method" type="string">GET</attribute>
+        <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
         <attribute name="order" type="int64">6</attribute>
         <attribute name="name" type="string">Create post</attribute>
@@ -248,7 +248,7 @@
     </object>
     <object type="LMREQUEST" id="z121">
         <attribute name="uuid" type="string">3EFD5592-9164-4B8D-A55A-3BF2B304B819</attribute>
-        <attribute name="url" type="string">http://classintouch.club/myclass.json?uid=123 </attribute>
+        <attribute name="url" type="string">http://classintouch.club/myclass.json?uid=1</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -328,7 +328,7 @@
     </object>
     <object type="LMREQUEST" id="z128">
         <attribute name="uuid" type="string">E11993D8-B446-42C6-B629-E118C4A23179</attribute>
-        <attribute name="url" type="string">http://classintouch.club/profile.json\u2600token=XYZ\u2600user_id=152 </attribute>
+        <attribute name="url" type="string">http://classintouch.club/profile.json?token=XYZ\u2600user_id=152 </attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -340,5 +340,30 @@
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z122"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z129">
+        <attribute name="uuid" type="string">9128D864-03CC-470E-820E-36CF37EA1509</attribute>
+        <attribute name="url" type="string">http://classintouch.club/posting.json?uid=1\u2600class_id=1\u2600title=question\u2600text=text</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">POST</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="order" type="int64">7</attribute>
+        <attribute name="name" type="string">Create discussion</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z130"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z130">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z129"></relationship>
     </object>
 </database>
