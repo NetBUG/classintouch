@@ -33,6 +33,14 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        do {
+            let id = NSUserDefaults.standardUserDefaults().integerForKey("UserID")
+            self.user = try self.context.object("User", identifier: id, key: "id") as? User
+        } catch {
+            self.user = nil
+        }
+
         if (user == nil) {
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
                 self.performSegueWithIdentifier("LoginSegue", sender: self)
