@@ -1,0 +1,22 @@
+{
+    "appKeys": {
+        "message": 1,
+        "status": 0
+    },
+    "capabilities": [
+        ""
+    ],
+    "companyName": "darikcr@gmail.com",
+    "longName": "ClassInTouch",
+    "projectType": "native",
+    "resources": {
+        "media": []
+    },
+    "sdkVersion": "3",
+    "shortName": "ClassInTouch",
+    "uuid": "2e74ed11-571e-4735-984b-0845a256cad1",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}

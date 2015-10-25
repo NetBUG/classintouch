@@ -146,6 +146,23 @@ def user_register():
 	pass
 
 """
+@api {post} /info.json&fb_id=XYZ Register into the game
+@apiName Profile
+@apiGroup Bluemix
+@apiVersion 0.1.1
+
+@apiParam {Integer} fb_id Facebook ID of the user
+
+@apiSuccess {String} interests List of user features (key-value)
+@apiSuccess {String} fb_name Outputs user name for this user on facebook
+
+"""
+@blueprint.route('/info.json')
+@cross_origin()
+def user_get_info_bluemix():
+	pass
+
+"""
 @api {get} /profile.json&token=XYZ&user_id=152 Get my profile
 @apiName Get Profile
 @apiGroup UserAPI

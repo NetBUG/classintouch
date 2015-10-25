@@ -30,6 +30,8 @@ $(document).ready(function() {
 
   var MIN_WORDS = 100;
 
+  var token = 'CAACEdEose0cBAPS7jQPRaZBQZA2NfGDyuI2behIZCpQKZBlRaqcE3UX7XjBqP7UEB6UvavzfhOpkb1gH47hGlxnpxMkF07L74JfsuPZAJ1BsRap4xS3rVWlnil3v0VrZBhbzG1v6OJJzhjjEVBYEvZAgtIqwNptDZAfj4mmOvB7IHs7XziFeZAhiCAZC4tc6LJvbjvw5sSiQMFsdafIfEOVTWy';
+
   var widgetId = 'vizcontainer', // Must match the ID in index.jade
     widgetWidth = 700, widgetHeight = 700, // Default width and height
     personImageUrl = 'images/app.png', // Can be blank
@@ -71,6 +73,9 @@ $(document).ready(function() {
    * 3. Call the methods to display the results
    */
   $('.analysis-btn').click(function(){
+    $('#analtext').show();
+    var query = "TEST"; // Load via FB
+    $('#analtext').val(query);
     $('.analysis-btn').blur();
 
     // check if the captcha is active and the user complete it
@@ -105,9 +110,9 @@ $(document).ready(function() {
           showError(response.error);
         } else {
           $results.show();
-          showTraits(response);
+          //showTraits(response);
           showTextSummary(response);
-          showVizualization(response);
+          //showVizualization(response);
         }
 
       },

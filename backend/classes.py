@@ -43,7 +43,7 @@ def class_nearby():
 		Classes.time > dayTime - accuracy_time, Classes.time < dayTime + accuracy_time, Classes.day == dayOfWeek)
 	out = []
 	for chunk in cList:
-		out.append({"name": chunk.name, "id": chunk.id, "uni": "", "dist": vincenty((chunk.lat, chunk.lon), (iLat, iLon)).miles, "time": chunk.time, "day": chunk.day, "lat": chunk.lon, "lon": chunk.lat})
+		out.append({"name": chunk.name, "id": chunk.id, "uni": "", "dist": vincenty((chunk.lat, chunk.lon), (iLat, iLon)).miles, "time": chunk.time, "day": chunk.day, "lat": chunk.lat, "lon": chunk.lon})
 	resp = make_response(json.dumps(out))
 	resp.mimetype="application/json"
  	return resp
