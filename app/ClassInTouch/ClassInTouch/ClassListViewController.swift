@@ -15,7 +15,12 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
 
     @IBOutlet weak var tableView: UITableView!
 
+    var currentClasses: [Class]?
     var selectedClass: Class?
+
+    lazy var networkHandler: PGNetworkHandler = {
+        return PGNetworkHandler(baseURL: NSURL(string: "http://classintouch.me"))
+        }()
 
     lazy var context: NSManagedObjectContext = {
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -29,14 +34,6 @@ class ClassListViewController: UIViewController, UITableViewDataSource, UITableV
             return nil
         }
     }()
-
-    //lazy var currentClasses: [Class] = {
-//        do {
-//            return try self.context.objects("Class") as? [Class]
-//        } catch {
-//            return []
-//        }
-    //}()
 
     // MARK: ViewController
 
